@@ -5,9 +5,9 @@ using UnityEngine;
 public class landerMotion : MonoBehaviour
 {
 
-    public playerControl controller;
     public landerProperties landerProps;
     public GameManager gameManager;
+    public playerPhysics physics;
 
    
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
@@ -47,28 +47,29 @@ public class landerMotion : MonoBehaviour
         //reset final force to the initial force of gravity
         finalForce.Set(0, 0, 0);
 
-        finalForce += controller.thrust;
+        finalForce += physics.thrust;
         //add more forces here
 
-        controller.acceleration = finalForce / landerProps.mass;
+        physics.acceleration = finalForce / landerProps.mass;
 
-        controller.velocity += controller.acceleration * Time.deltaTime;
+        physics.velocity += physics.acceleration * Time.deltaTime;
 
         //move the player
-        transform.position += controller.velocity * Time.deltaTime;
+        transform.position += physics.velocity * Time.deltaTime;
 
         //decay velocity if not on the ground due to friction
-        if (transform.position.y < landerProps.surface.landingHeight)
-            controller.velocity *= landerProps.surface.surfaceFriction;
+        physics.velocity *= landerProps.surface.surfaceFriction;
 
-        //reset thrust
-        controller.thrust.Set(0, 0, 0);
-
-        Vector3 dir = controller.velocity;
+        Vector3 dir = physics.velocity;
         dir.Normalize();
+        if(physics.isInReverse && Mathf.Acos( Vector3.Dot( dir, transform.forward) ) > Mathf.PI/2 )
+        {
+
+            dir *= -1;
+        }    
+        
         transform.LookAt(transform.position + dir); 
-
-
+        
 
     }
 
@@ -77,7 +78,7 @@ public class landerMotion : MonoBehaviour
 
         if (transform.position.y < landerProps.surface.landingHeight)
         {
-            if (controller.velocity.magnitude > landerProps.structuralIntegrity * landerProps.integrityVelocity)
+            if (physics.velocity.magnitude > landerProps.structuralIntegrity * landerProps.integrityVelocity)
             {
                 Debug.Log("CRASH!!!!!");
                 gameManager.gameOver = true;
@@ -93,8 +94,8 @@ public class landerMotion : MonoBehaviour
                     Debug.Log("YOU MADE IT!!!");
                     landerProps.onSurface = true;
                     landerProps.energy = 200;
-                    controller.acceleration *= 0;
-                    controller.velocity *= 0;
+                    physics.acceleration *= 0;
+                    physics.velocity *= 0;
                 }
                 else
                 {
@@ -111,18 +112,18 @@ public class landerMotion : MonoBehaviour
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, landerProps.surface.GRAVITY_CONSTANT * landerProps.mass, 0);
-        finalForce += controller.thrust;
+        finalForce += physics.thrust;
 
 
-        controller.acceleration = finalForce / landerProps.mass;
+        physics.acceleration = finalForce / landerProps.mass;
 
-        controller.velocity += controller.acceleration * Time.deltaTime;
+        physics.velocity += physics.acceleration * Time.deltaTime;
 
         //move the player
-        transform.position += controller.velocity * Time.deltaTime;
+        transform.position += physics.velocity * Time.deltaTime;
 
         //reset thrust
-        controller.thrust.Set(0, 0, 0);
+        physics.thrust.Set(0, 0, 0);
 
 
 

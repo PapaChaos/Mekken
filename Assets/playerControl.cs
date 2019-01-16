@@ -5,55 +5,50 @@ using UnityEngine;
 public class playerControl : MonoBehaviour
 {
 
+    //made this a totally dumb script, just posting the direction the player
+    //wants to move based on input device, thus de-coupling device from actual movement
 
-    landerProperties landerProps;
-
-
-    public Vector3 velocity = new Vector3(0, 0, 0);             //current direction and speed of movement
-    public Vector3 acceleration = new Vector3(0, 0, 0);         //movement controlled by player movement force and gravity
-    public Vector3 thrust = new Vector3(0, 0, 0);               //player applied thrust vector
-    
+    public bool forward = false;
+    public bool backward = false;
+    public bool left = false;
+    public bool right = false;
+    public bool jump = false;
+    public bool fire = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        landerProps = transform.GetComponent<landerProperties>();
-
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && landerProps.energy > 0.0f && !landerProps.onSurface)
-        {
-            thrust.y = landerProps.thrustForce;
-            landerProps.energy -= landerProps.consumption * Time.deltaTime;
 
+        //clear them all
+        forward = false;
+        backward = false;
+        left = false;
+        right = false;
+        jump = false;
+        fire = false;
+        
+        if (Input.GetKey(KeyCode.W) )
+        {
+            forward = true;
         }
-        if (Input.GetKey(KeyCode.A) && landerProps.energy > 0.0f)
+        if (Input.GetKey(KeyCode.A) )
         {
-            thrust.x = -landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.25f * Time.deltaTime;
-
+            left = true;
         }
-        if (Input.GetKey(KeyCode.D) && landerProps.energy > 0.0f)
+        if (Input.GetKey(KeyCode.D) )
         {
-            thrust.x = landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.25f * Time.deltaTime;
-
+            right = true;
         }
-        if (Input.GetKey(KeyCode.W) && landerProps.energy > 0.0f && landerProps.onSurface)
+        if (Input.GetKey(KeyCode.S) )
         {
-            thrust.z = landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.5f * Time.deltaTime;
-
-        }
-        if (Input.GetKey(KeyCode.S) && landerProps.energy > 0.0f && landerProps.onSurface)
-        {
-            thrust.z = -landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.5f * Time.deltaTime;
-
+            backward = true;
         }
     }
 }
