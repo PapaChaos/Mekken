@@ -46,13 +46,13 @@ public class playerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && landerProps.energy > 0.0f && landerProps.onSurface)
         {
             thrust.z = landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.25f * Time.deltaTime;
+            landerProps.energy -= landerProps.consumption * 0.5f * Time.deltaTime;
 
         }
         if (Input.GetKey(KeyCode.S) && landerProps.energy > 0.0f && landerProps.onSurface)
         {
             thrust.z = -landerProps.lateralThrustForce;
-            landerProps.energy -= landerProps.consumption * 0.25f * Time.deltaTime;
+            landerProps.energy -= landerProps.consumption * 0.5f * Time.deltaTime;
 
         }
     }

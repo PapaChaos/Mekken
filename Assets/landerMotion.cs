@@ -64,6 +64,11 @@ public class landerMotion : MonoBehaviour
         //reset thrust
         controller.thrust.Set(0, 0, 0);
 
+        Vector3 dir = controller.velocity;
+        dir.Normalize();
+        transform.LookAt(transform.position + dir); 
+
+
 
     }
 
