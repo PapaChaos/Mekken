@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class landerProperties : MonoBehaviour
+public class playerProperties : MonoBehaviour
 {
 
 
     //gameplay parameters
     public float mass = 1.0f;
-    public float energy = 1.0f;
+    public float energy = 100.0f;
     public float consumption = 0.25f;
     public float structuralIntegrity = 1.0f;
     public float thrustForce = 5.0f;

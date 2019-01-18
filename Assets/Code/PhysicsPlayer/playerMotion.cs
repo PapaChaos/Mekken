@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class landerMotion : MonoBehaviour
+public class playerMotion : MonoBehaviour
 {
 
-    public landerProperties landerProps;
+    public playerProperties playerProps;
     public GameManager gameManager;
     public playerPhysics physics;
 
+    //representation of the player, de-coupled from the empty doing the movement
+    public Transform playerGeometry;
+    public Vector3 facingVector =  new Vector3(0, 180, 0);
    
-    public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
 
+    public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +29,14 @@ public class landerMotion : MonoBehaviour
         if (!gameManager.gameOver)
         {
             
-            if (!landerProps.onSurface)
+            if (!playerProps.onSurface)
             {
                 handleMovementLanding();
-                handleLanding();
-
-                Debug.Log("in the air");
+                handleLanding();                
             }
             else
             {
-                handleMovementSurface();
-                Debug.Log("on the surface");
+                handleMovementSurface();                
             }
         }
 
@@ -50,35 +51,47 @@ public class landerMotion : MonoBehaviour
         finalForce += physics.thrust;
         //add more forces here
 
-        physics.acceleration = finalForce / landerProps.mass;
+        physics.acceleration = finalForce / playerProps.mass;
 
         physics.velocity += physics.acceleration * Time.deltaTime;
 
         //move the player
         transform.position += physics.velocity * Time.deltaTime;
 
+
         //decay velocity if not on the ground due to friction
-        physics.velocity *= landerProps.surface.surfaceFriction;
+        physics.velocity *= playerProps.surface.surfaceFriction;
 
         Vector3 dir = physics.velocity;
         dir.Normalize();
-        if(physics.isInReverse && Mathf.Acos( Vector3.Dot( dir, transform.forward) ) > Mathf.PI/2 )
-        {
 
-            dir *= -1;
-        }    
+        //look at the direction I am going
+        transform.LookAt(transform.position + dir);
+
+        //handle the facing of the geometry representing the player
+        handleAvatarFacing();
+       
         
-        transform.LookAt(transform.position + dir); 
-        
+    }
+
+    void handleAvatarFacing()
+    {
+
+        //flip it when needed
+        playerGeometry.localRotation = Quaternion.identity;
+        if (physics.isInReverse)
+        {
+            playerGeometry.Rotate(facingVector);
+        }
 
     }
 
     void handleLanding()
     {
 
-        if (transform.position.y < landerProps.surface.landingHeight)
+        if (transform.position.y < playerProps.surface.landingHeight)
         {
-            if (physics.velocity.magnitude > landerProps.structuralIntegrity * landerProps.integrityVelocity)
+            if (physics.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
                 Debug.Log("CRASH!!!!!");
                 gameManager.gameOver = true;
@@ -87,13 +100,13 @@ public class landerMotion : MonoBehaviour
             {
 
                 //distance from landing pad for a good landing
-                float padsize = landerProps.surface.landingPad.localScale.x - 1.0f;
+                float padsize = playerProps.surface.landingPad.localScale.x - 1.0f;
 
-                if (Vector3.Magnitude(transform.position - landerProps.surface.landingPad.position) < padsize)
+                if (Vector3.Magnitude(transform.position - playerProps.surface.landingPad.position) < padsize)
                 {
                     Debug.Log("YOU MADE IT!!!");
-                    landerProps.onSurface = true;
-                    landerProps.energy = 200;
+                    playerProps.onSurface = true;
+                    playerProps.energy = 200;
                     physics.acceleration *= 0;
                     physics.velocity *= 0;
                 }
@@ -111,11 +124,11 @@ public class landerMotion : MonoBehaviour
     void handleMovementLanding()
     {
         //reset final force to the initial force of gravity
-        finalForce.Set(0, landerProps.surface.GRAVITY_CONSTANT * landerProps.mass, 0);
+        finalForce.Set(0, playerProps.surface.GRAVITY_CONSTANT * playerProps.mass, 0);
         finalForce += physics.thrust;
 
 
-        physics.acceleration = finalForce / landerProps.mass;
+        physics.acceleration = finalForce / playerProps.mass;
 
         physics.velocity += physics.acceleration * Time.deltaTime;
 
