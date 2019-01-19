@@ -15,6 +15,9 @@ public class playerMotion : MonoBehaviour
    
 
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
+
+
+   
     
     // Start is called before the first frame update
     void Start()
@@ -55,20 +58,30 @@ public class playerMotion : MonoBehaviour
 
         physics.velocity += physics.acceleration * Time.deltaTime;
 
+
+        //GENERAL RULE OF VELOCITY : don't let them go too fast!!!        
+        float maxSpeedSquared = playerProps.maxSpeed * playerProps.maxSpeed;
+        float velMagSquared = physics.velocity.magnitude * physics.velocity.magnitude;
+        if (velMagSquared > maxSpeedSquared)
+        {
+            physics.velocity *= (playerProps.maxSpeed / physics.velocity.magnitude);
+        }
+
         //move the player
         transform.position += physics.velocity * Time.deltaTime;
-
-
+        
         //decay velocity if not on the ground due to friction
-        physics.velocity *= playerProps.surface.surfaceFriction;
+        physics.velocity *= playerProps.surface.surfaceFriction * playerProps.surfaceTraction;
 
         Vector3 dir = physics.velocity;
         dir.Normalize();
 
-        //look at the direction I am going
-        transform.LookAt(transform.position + dir);
-
+        //look at the direction I am going (if not strafeing)
+        if(!physics.isStrafeing && !physics.wasStrafeing && physics.velocity.magnitude > 0)
+            transform.LookAt(transform.position + dir);
+        
         //handle the facing of the geometry representing the player
+        //this will depend on movement type and context
         handleAvatarFacing();
        
         
@@ -79,11 +92,11 @@ public class playerMotion : MonoBehaviour
 
         //flip it when needed
         playerGeometry.localRotation = Quaternion.identity;
-        if (physics.isInReverse)
+        if (physics.engagedReverse)
         {
-            playerGeometry.Rotate(facingVector);
+            playerGeometry.Rotate(facingVector);  //180 degrees on the Y
         }
-
+        
     }
 
     void handleLanding()

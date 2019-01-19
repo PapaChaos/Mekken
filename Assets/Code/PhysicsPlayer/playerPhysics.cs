@@ -20,6 +20,11 @@ public class playerPhysics : MonoBehaviour
     public bool isInReverse = false;     // velocity determines our forward facing, when in reverse 
     public bool engagedReverse = false;  // we need to inform movement to maintain the opposite facing
 
+    public bool isStrafeing = false;
+    public bool wasStrafeing = false; //we need to know if we were strafeing, to turn our forward vector back
+                                      //to velocity vector when we cross close to zero.
+
+    public float velocityThreshold = 0.5f; //at what speed are we essentially not moving
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +60,13 @@ public class playerPhysics : MonoBehaviour
             }
             if (controller.left && playerProps.energy > 0.0f)
             {
-                thrust += transform.right * -playerProps.lateralThrustForce;
+                thrust += transform.right * -playerProps.thrustForce * playerProps.lateralFactor;
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
             }
             if (controller.right && playerProps.energy > 0.0f)
             {
-                thrust += transform.right * playerProps.lateralThrustForce;
+                thrust += transform.right * playerProps.thrustForce * playerProps.lateralFactor;
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
             }
         }
@@ -71,32 +76,52 @@ public class playerPhysics : MonoBehaviour
 
     void handleOnSurface()
     {
-        //reset reverse when we cross close to zero velocity
-        //this is assuming no keys are pressed or we are out of gas
-        if (isInReverse && velocity.magnitude < 0.01f)
+        //do we have any gas in the tank?
+        if (playerProps.energy > 0.0f )
         {
-            isInReverse = false;
-            engagedReverse = false;
-
-        }
-
-        if (playerProps.energy > 0.0f && playerProps.onSurface)
-        {
-            if (controller.forward)
+            //check if we are reaching zero velocity, and no keys pressed
+            if (!controller.controlerOn)
             {
-                //if we were in reverse, approach the forward threshold by applying a negative forward force
-                if (isInReverse && velocity.magnitude >= 0.2f && engagedReverse)
+                //check reverse engaged and no input
+                if (engagedReverse && velocity.magnitude < velocityThreshold * 0.5f)
                 {
-                    thrust -= transform.forward * playerProps.lateralThrustForce;
-
-                }
-                else if (engagedReverse)
-                {
-                    //give it a push in opposite direction
-                    velocity *= -10;
+                    //give it a little anti-forward push to correct facing
+                    velocity = -transform.forward * velocityThreshold;
                     engagedReverse = false;
                     isInReverse = false;
+                }
 
+
+                //check wasStrafeing and no input
+                if (wasStrafeing && velocity.magnitude < velocityThreshold * 0.5f)
+                {
+                    isStrafeing = false;
+                    wasStrafeing = false;
+                    //give it a little forward push to correct facing
+                    velocity = transform.forward * velocityThreshold;
+
+                }
+            }
+
+
+
+
+            if (controller.forward)
+            {
+
+                //if we are in reverse but swithc to forward, approach the forward threshold
+                //by applying a negative forward force
+                if (engagedReverse && velocity.magnitude >= velocityThreshold )
+                {
+                    thrust -= transform.forward * playerProps.thrustForce ;
+
+                }
+                else if (engagedReverse && velocity.magnitude < velocityThreshold)
+                {
+                    //give it a push in opposite direction
+                    velocity = -1 * transform.forward * velocityThreshold;
+                    engagedReverse = false;
+                    
                 }
                 else
                 {
@@ -106,29 +131,28 @@ public class playerPhysics : MonoBehaviour
 
                 }
             }
+
             if (controller.backward)
             {
 
                 isInReverse = true;
 
-                //approach the reverse threshold by applying a negative forward force
-                if (isInReverse && velocity.magnitude >= 0.2f && !engagedReverse)
+                //approach the reverse threshold by applying a negative forward force                
+                if (!engagedReverse && velocity.magnitude >= velocityThreshold  )
                 {
-                    isInReverse = false;
-                    thrust -= transform.forward * playerProps.lateralThrustForce;
-
+                   thrust -= transform.forward * playerProps.thrustForce ;
                 }
-                else if (isInReverse && velocity.magnitude < 0.2f && !engagedReverse)
+                else if (!engagedReverse && velocity.magnitude < velocityThreshold  )
                 {
-                    //flip forward facing and give it a push
-                    velocity *= -10;
+                    //give it a push in the opposite direction
+                    velocity = -1 * transform.forward * velocityThreshold;
                     engagedReverse = true;
                 }
                 else if (engagedReverse)
                 {
                     //once over the threshhold, apply a forward force, but we tell the
                     //geometry to flip it's facing so it appears to be moving in reverse
-                    thrust += transform.forward * playerProps.lateralThrustForce;
+                    thrust += transform.forward * playerProps.thrustForce;
 
                 }
                 else
@@ -139,20 +163,62 @@ public class playerPhysics : MonoBehaviour
 
 
             }
+
+            
+
+            //left and right turning is a function of current velocity, thrustForce, lateralFactor, and if strafeing, that too
+            float turnForce = playerProps.thrustForce * playerProps.lateralFactor * (velocity.magnitude + 1);
+                        
+            //check if strafe. if so, reset thrust. we still have momentum in our velocity
+            if (controller.strafe)
+            {
+                thrust.Set(0, 0, 0);
+                turnForce *= playerProps.strafeFactor; //mod by strafe factor (reductive)
+                isStrafeing = true;                
+            }
+
             if (controller.left)
             {
-                thrust -= transform.right * playerProps.lateralThrustForce * (velocity.magnitude + 1);
+            
+                thrust -= transform.right * turnForce;
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
-
+                if (isStrafeing && !wasStrafeing)
+                {
+                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
+                    wasStrafeing = true;
+                }
             }
             if (controller.right)
             {
-                thrust += transform.right * playerProps.lateralThrustForce * (velocity.magnitude + 1);
+                thrust += transform.right * turnForce;
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
+
+                if (isStrafeing && !wasStrafeing)
+                {
+                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
+                    wasStrafeing = true;
+                }
+
             }
 
         }
+
+        //if no key is pressed, add extra stopping force by diminishing velocity
+        if (!controller.controlerOn)
+            velocity *= playerProps.stoppingForce;
+
+        //finally, if we are at a fraction of velocity threshold, we might as well stop
+        if (velocity.magnitude < velocityThreshold * 0.25f && !controller.controlerOn)
+        {
+            velocity *= 0;
+            //clear all movement flags to be sure
+            isStrafeing = false;
+            isInReverse = false;
+            wasStrafeing = false;
+            engagedReverse = false;
+        }
+        
     }
 
 }

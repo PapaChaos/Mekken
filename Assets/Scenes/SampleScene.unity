@@ -418,7 +418,6 @@ MonoBehaviour:
   physics: {fileID: 319879255}
   playerGeometry: {fileID: 1894603860}
   facingVector: {x: 0, y: 180, z: 0}
-  flipped: 0
   finalForce: {x: 0, y: 0, z: 0}
 --- !u!114 &319879255
 MonoBehaviour:
@@ -438,6 +437,10 @@ MonoBehaviour:
   playerProps: {fileID: 319879257}
   playerGeometry: {fileID: 1894603860}
   isInReverse: 0
+  engagedReverse: 0
+  isStrafeing: 0
+  wasStrafeing: 0
+  velocityThreshold: 0.2
 --- !u!114 &319879256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +457,10 @@ MonoBehaviour:
   left: 0
   right: 0
   jump: 0
-  fire: 0
+  strafe: 0
+  firePrimary: 0
+  fireSecondary: 0
+  controlerOn: 0
 --- !u!114 &319879257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,12 +475,16 @@ MonoBehaviour:
   mass: 1
   energy: 100
   consumption: 0.25
+  maxSpeed: 5
   structuralIntegrity: 1
-  thrustForce: 5
-  lateralThrustForce: 5
-  onSurface: 0
   integrityVelocity: 3
+  thrustForce: 10
+  stoppingForce: 0.8
+  lateralFactor: 0.5
+  strafeFactor: 0.25
   surface: {fileID: 511502196}
+  onSurface: 0
+  surfaceTraction: 1
 --- !u!4 &319879258
 Transform:
   m_ObjectHideFlags: 0
@@ -868,7 +878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 0}
-  speed: 0.1
+  speed: 0
 --- !u!114 &511502196
 MonoBehaviour:
   m_ObjectHideFlags: 0
