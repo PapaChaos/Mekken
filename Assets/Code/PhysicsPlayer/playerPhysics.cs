@@ -24,6 +24,10 @@ public class playerPhysics : MonoBehaviour
     public bool wasStrafeing = false; //we need to know if we were strafeing, to turn our forward vector back
                                       //to velocity vector when we cross close to zero.
 
+    private bool wasStrafeRight = false; // to tighten control, if we switch strafe directions, we need 
+    private bool wasStrafeLeft = false;  // a bit of extra force to overcome momentum
+
+
     public float velocityThreshold = 0.5f; //at what speed are we essentially not moving
 
     // Start is called before the first frame update
@@ -164,10 +168,11 @@ public class playerPhysics : MonoBehaviour
 
             }
 
-            
+
 
             //left and right turning is a function of current velocity, thrustForce, lateralFactor, and if strafeing, that too
-            float turnForce = playerProps.thrustForce * playerProps.lateralFactor * (velocity.magnitude + 1);
+            float turnForce = playerProps.thrustForce * playerProps.lateralFactor;
+
                         
             //check if strafe. if so, reset thrust. we still have momentum in our velocity
             if (controller.strafe)
@@ -176,28 +181,67 @@ public class playerPhysics : MonoBehaviour
                 turnForce *= playerProps.strafeFactor; //mod by strafe factor (reductive)
                 isStrafeing = true;                
             }
+          
+            turnForce *= velocity.magnitude;
 
             if (controller.left)
             {
-            
-                thrust -= transform.right * turnForce;
+                //handle stationary turn/targeting
+                if(!controller.forward && !controller.backward && !isStrafeing && !wasStrafeing)
+                {
+                    //sit and spin (better to handle inside player motion, easier to handle right here)
+                    thrust *= 0;
+                    playerGeometry.parent.Rotate(0, -Time.deltaTime * playerProps.rotateTurretFactor, 0);
+                }
+                else
+                    thrust -= transform.right * turnForce;
+
+
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
+                
 
                 if (isStrafeing && !wasStrafeing)
                 {
                     thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
+
+                    if (wasStrafeRight)
+                    {
+                        thrust *= 2; //and more of a push if we are changing directions
+                        wasStrafeRight = false;
+                    }
+
                     wasStrafeing = true;
+                    wasStrafeLeft = true;
                 }
+
             }
             if (controller.right)
             {
-                thrust += transform.right * turnForce;
+                //handle stationary turn/targeting
+                if (!controller.forward && !controller.backward && !isStrafeing && !wasStrafeing)
+                {
+                    //sit and spin (better to handle inside player motion, easier to handle right here)
+                    thrust *= 0;
+                    playerGeometry.parent.Rotate(0, Time.deltaTime * playerProps.rotateTurretFactor, 0);
+
+                }
+                else
+                    thrust += transform.right * turnForce;
+
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
                 if (isStrafeing && !wasStrafeing)
                 {
                     thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
+
+                    if (wasStrafeLeft)
+                    {
+                        thrust *= 2; //and more of a push if we are changing directions
+                        wasStrafeLeft = false;
+                    }
+
                     wasStrafeing = true;
+                    wasStrafeRight = true;
                 }
 
             }
@@ -217,6 +261,8 @@ public class playerPhysics : MonoBehaviour
             isInReverse = false;
             wasStrafeing = false;
             engagedReverse = false;
+            wasStrafeLeft = false;
+            wasStrafeRight = false;
         }
         
     }
