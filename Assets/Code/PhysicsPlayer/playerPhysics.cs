@@ -24,9 +24,10 @@ public class playerPhysics : MonoBehaviour
     public bool wasStrafeing = false; //we need to know if we were strafeing, to turn our forward vector back
                                       //to velocity vector when we cross close to zero.
 
-    private bool wasStrafeRight = false; // to tighten control, if we switch strafe directions, we need 
-    private bool wasStrafeLeft = false;  // a bit of extra force to overcome momentum
+    public bool wasStrafeRight = false; // to tighten control, if we switch strafe directions, we need 
+    public bool wasStrafeLeft = false;  // a bit of extra force to overcome momentum
 
+    public bool isRotatingTurret = false;
 
     public float velocityThreshold = 0.5f; //at what speed are we essentially not moving
 
@@ -112,6 +113,8 @@ public class playerPhysics : MonoBehaviour
 
             if (controller.forward)
             {
+                isRotatingTurret = false;
+
 
                 //if we are in reverse but swithc to forward, approach the forward threshold
                 //by applying a negative forward force
@@ -138,6 +141,7 @@ public class playerPhysics : MonoBehaviour
 
             if (controller.backward)
             {
+                isRotatingTurret = false;
 
                 isInReverse = true;
 
@@ -178,11 +182,13 @@ public class playerPhysics : MonoBehaviour
             if (controller.strafe)
             {
                 thrust.Set(0, 0, 0);
-                turnForce *= playerProps.strafeFactor; //mod by strafe factor (reductive)
+                turnForce *= playerProps.strafeFactor; //mod by strafe factor
                 isStrafeing = true;                
             }
           
-            turnForce *= velocity.magnitude;
+            turnForce *= (velocity.magnitude + 1);
+
+           
 
             if (controller.left)
             {
@@ -192,29 +198,34 @@ public class playerPhysics : MonoBehaviour
                     //sit and spin (better to handle inside player motion, easier to handle right here)
                     thrust *= 0;
                     playerGeometry.parent.Rotate(0, -Time.deltaTime * playerProps.rotateTurretFactor, 0);
+                    isRotatingTurret = true;
+
                 }
                 else
                     thrust -= transform.right * turnForce;
 
 
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
-                
+
+
+                if (wasStrafeRight)
+                {
+                    thrust *= playerProps.thrustForce * 100;       //and more of a push if we are changing directions
+                    wasStrafeRight = false;
+                   
+                }
 
                 if (isStrafeing && !wasStrafeing)
                 {
                     thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
-
-                    if (wasStrafeRight)
-                    {
-                        thrust *= 2; //and more of a push if we are changing directions
-                        wasStrafeRight = false;
-                    }
-
-                    wasStrafeing = true;
-                    wasStrafeLeft = true;
+                    wasStrafeing = true;                    
                 }
+                if (isStrafeing)
+                    wasStrafeLeft = true;
+
 
             }
+
             if (controller.right)
             {
                 //handle stationary turn/targeting
@@ -223,6 +234,8 @@ public class playerPhysics : MonoBehaviour
                     //sit and spin (better to handle inside player motion, easier to handle right here)
                     thrust *= 0;
                     playerGeometry.parent.Rotate(0, Time.deltaTime * playerProps.rotateTurretFactor, 0);
+                    isRotatingTurret = true;
+
 
                 }
                 else
@@ -230,19 +243,20 @@ public class playerPhysics : MonoBehaviour
 
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
+                if (wasStrafeLeft)
+                {
+                    thrust *= playerProps.thrustForce * 100;       //and more of a push if we are changing directions
+                    wasStrafeLeft = false;
+                   
+                }
+
                 if (isStrafeing && !wasStrafeing)
                 {
-                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
-
-                    if (wasStrafeLeft)
-                    {
-                        thrust *= 2; //and more of a push if we are changing directions
-                        wasStrafeLeft = false;
-                    }
-
-                    wasStrafeing = true;
-                    wasStrafeRight = true;
+                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia                    
+                    wasStrafeing = true;                    
                 }
+                if (isStrafeing)
+                    wasStrafeRight = true;
 
             }
 
@@ -263,8 +277,10 @@ public class playerPhysics : MonoBehaviour
             engagedReverse = false;
             wasStrafeLeft = false;
             wasStrafeRight = false;
+            isRotatingTurret = false;
+
         }
-        
+
     }
 
 }

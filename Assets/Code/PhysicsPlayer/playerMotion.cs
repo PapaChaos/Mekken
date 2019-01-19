@@ -77,9 +77,14 @@ public class playerMotion : MonoBehaviour
         dir.Normalize();
 
         //look at the direction I am going (if not strafeing)
-        if(!physics.isStrafeing && !physics.wasStrafeing && physics.velocity.magnitude > 0)
+        if(!physics.isStrafeing && 
+           !physics.wasStrafeing && 
+           !physics.isRotatingTurret && 
+           physics.velocity.magnitude > 0)
+        {
             transform.LookAt(transform.position + dir);
-        
+        }
+
         //handle the facing of the geometry representing the player
         //this will depend on movement type and context
         handleAvatarFacing();

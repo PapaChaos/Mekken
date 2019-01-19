@@ -21,8 +21,8 @@ public class playerProperties : MonoBehaviour
 
     //movement modifiers to force
     public float lateralFactor = 1.0f;  //turn factor is our turning "traction" value
-    public float strafeFactor = 0.25f;  //we strafe much slower 
-    public float rotateTurretFactor = 100.0f; //TODO: decide if aiming is independent of driving driving direction
+    public float strafeFactor = 2.0f;   //how fast we move in strafe
+    public float rotateTurretFactor = 200.0f; //TODO: decide if aiming is independent of driving driving direction
     
     //surface i am on
     public surfaceProperties surface;

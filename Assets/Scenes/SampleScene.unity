@@ -479,9 +479,10 @@ MonoBehaviour:
   structuralIntegrity: 1
   integrityVelocity: 3
   thrustForce: 10
-  stoppingForce: 0.8
+  stoppingForce: 0.9
   lateralFactor: 0.5
-  strafeFactor: 0.25
+  strafeFactor: 2
+  rotateTurretFactor: 100
   surface: {fileID: 511502196}
   onSurface: 0
   surfaceTraction: 1

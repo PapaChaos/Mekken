@@ -68,7 +68,7 @@ public class playerControl : MonoBehaviour
             controlerOn = true;
         }
         if (Input.GetKey(KeyCode.LeftShift))  //combo key
-        {
+        {            
             strafe = true;           
         }
     }
