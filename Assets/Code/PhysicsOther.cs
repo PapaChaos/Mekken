@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Physics : MonoBehaviour {
+public class PhysicsOther : MonoBehaviour {
 
 	public float Mass; //kg
 	public Vector3 Force, Acceleration, Velocity;

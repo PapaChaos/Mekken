@@ -7,7 +7,7 @@ public class playerMotion : MonoBehaviour
 
     public playerProperties playerProps;
     public GameManager gameManager;
-    public playerPhysics physics;
+    public playerPhysics physicsController;
 
     //representation of the player, de-coupled from the empty doing the movement
     public Transform playerGeometry;
@@ -34,13 +34,16 @@ public class playerMotion : MonoBehaviour
             
             if (!playerProps.onSurface)
             {
-                handleMovementLanding();
+                handleMovementAir();
                 handleLanding();                
             }
             else
             {
                 handleMovementSurface();                
             }
+
+
+
         }
 
 
@@ -48,39 +51,38 @@ public class playerMotion : MonoBehaviour
 
     void handleMovementSurface()
     {
+
+        //TODO: modify physics to handle ice,mud, etc.. as a function of surface properties (friction is all we have ATM)
+        //      need to modify controllability, acceleration, and forward facing based on additional properties, OR simply
+        //      tag the surface as "Ice" for example, and throw in some controller messyness.
+
         //reset final force to the initial force of gravity
         finalForce.Set(0, 0, 0);
 
-        finalForce += physics.thrust;
+        finalForce += physicsController.thrust;
         //add more forces here
 
-        physics.acceleration = finalForce / playerProps.mass;
+        physicsController.acceleration = finalForce / playerProps.mass;
 
-        physics.velocity += physics.acceleration * Time.deltaTime;
+        physicsController.velocity += physicsController.acceleration * Time.deltaTime;
 
-
-        //GENERAL RULE OF VELOCITY : don't let them go too fast!!!        
-        float maxSpeedSquared = playerProps.maxSpeed * playerProps.maxSpeed;
-        float velMagSquared = physics.velocity.magnitude * physics.velocity.magnitude;
-        if (velMagSquared > maxSpeedSquared)
-        {
-            physics.velocity *= (playerProps.maxSpeed / physics.velocity.magnitude);
-        }
+        //not faster than max speed as a function of surface friction        
+        clampVelocity( playerProps.maxSpeed * playerProps.surface.surfaceFriction );
 
         //move the player
-        transform.position += physics.velocity * Time.deltaTime;
+        transform.position += physicsController.velocity * Time.deltaTime;
         
         //decay velocity if not on the ground due to friction
-        physics.velocity *= playerProps.surface.surfaceFriction * playerProps.surfaceTraction;
+        physicsController.velocity *= playerProps.surface.surfaceFriction * playerProps.surfaceTraction;
 
-        Vector3 dir = physics.velocity;
+        Vector3 dir = physicsController.velocity;
         dir.Normalize();
 
         //look at the direction I am going (if not strafeing)
-        if(!physics.isStrafeing && 
-           !physics.wasStrafeing && 
-           !physics.isRotatingTurret && 
-           physics.velocity.magnitude > 0)
+        if(!physicsController.isStrafeing && 
+           !physicsController.wasStrafeing && 
+           !physicsController.isRotatingTurret && 
+           physicsController.velocity.magnitude > 0)
         {
             transform.LookAt(transform.position + dir);
         }
@@ -97,7 +99,7 @@ public class playerMotion : MonoBehaviour
 
         //flip it when needed
         playerGeometry.localRotation = Quaternion.identity;
-        if (physics.engagedReverse)
+        if (physicsController.engagedReverse)
         {
             playerGeometry.Rotate(facingVector);  //180 degrees on the Y
         }
@@ -109,58 +111,52 @@ public class playerMotion : MonoBehaviour
 
         if (transform.position.y < playerProps.surface.landingHeight)
         {
-            if (physics.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
+            if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
                 Debug.Log("CRASH!!!!!");
                 gameManager.gameOver = true;
             }
             else
             {
-
-                //distance from landing pad for a good landing
-                float padsize = playerProps.surface.landingPad.localScale.x - 1.0f;
-
-                if (Vector3.Magnitude(transform.position - playerProps.surface.landingPad.position) < padsize)
-                {
-                    Debug.Log("YOU MADE IT!!!");
-                    playerProps.onSurface = true;
-                    playerProps.energy = 200;
-                    physics.acceleration *= 0;
-                    physics.velocity *= 0;
-                }
-                else
-                {
-                    Debug.Log("MISSED THE PAD");
-                    gameManager.gameOver = true;
-                }
+                playerProps.onSurface = true;
+                physicsController.acceleration *= 0;
+                physicsController.velocity *= 0;                
             }
 
         }
 
     }
 
-    void handleMovementLanding()
+    void handleMovementAir()
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, playerProps.surface.GRAVITY_CONSTANT * playerProps.mass, 0);
-        finalForce += physics.thrust;
+        finalForce += physicsController.thrust;
 
 
-        physics.acceleration = finalForce / playerProps.mass;
+        physicsController.acceleration = finalForce / playerProps.mass;
 
-        physics.velocity += physics.acceleration * Time.deltaTime;
+        physicsController.velocity += physicsController.acceleration * Time.deltaTime;
+
+        clampVelocity(200); //just a guess at what terminal velocity might be
 
         //move the player
-        transform.position += physics.velocity * Time.deltaTime;
+        transform.position += physicsController.velocity * Time.deltaTime;
 
-        //reset thrust
-        physics.thrust.Set(0, 0, 0);
-
-
-
+        
     }
 
+    void clampVelocity(float max)
+    {
+        //GENERAL RULE OF VELOCITY : don't let them go too fast!!!        
+        float maxSpeedSquared = max * max;
+        float velMagSquared = physicsController.velocity.magnitude * physicsController.velocity.magnitude;
+        if (velMagSquared > maxSpeedSquared)
+        {
+            physicsController.velocity *= (max / physicsController.velocity.magnitude);
+        }
 
+    }
 
 
 }

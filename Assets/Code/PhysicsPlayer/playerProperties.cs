@@ -23,9 +23,11 @@ public class playerProperties : MonoBehaviour
     public float lateralFactor = 1.0f;  //turn factor is our turning "traction" value
     public float strafeFactor = 2.0f;   //how fast we move in strafe
     public float rotateTurretFactor = 200.0f; //TODO: decide if aiming is independent of driving driving direction
-    
+
     //surface i am on
+    public Transform surfaceTransform;
     public surfaceProperties surface;
+
     public bool onSurface = false;
     public float surfaceTraction = 1.0f;  //factor affecting friction based on locomotion type
 
@@ -38,7 +40,32 @@ public class playerProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+        // Bit shift the index of the layer (9) to get a bit mask on surfaces
+        int layerMask = 1 << 9;
+
+        // This would cast rays only against colliders in layer 9.
+
+        // But mayabe instead we want to collide against everything except layer 9. 
+        // The ~ operator does this, it inverts a bitmask.
+        //layerMask = ~layerMask;
+
+        //find out what surface I am on and swap it's surface properties into my component
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask))
+        {
+            //change our surface properties if the surface changes
+            if (hit.transform != surfaceTransform)
+            {
+                //GetComponent is an expensive call, so we only want to get it when it changes
+                surfaceTransform = hit.transform;
+                surface = surfaceTransform.GetComponent<surfaceProperties>();
+            }
+        }
+        else
+        {
+            //TODO: handle this!!
+            Debug.Log("FELL OFF THE SURFACE!!!");
+        }
+    }
 }
