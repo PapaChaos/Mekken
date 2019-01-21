@@ -79,7 +79,7 @@ public class playerPhysics : MonoBehaviour
 
     }
 
-    void handleOnSurface()
+    public virtual void handleOnSurface()
     {
         //do we have any gas in the tank?
         if (playerProps.energy > 0.0f )

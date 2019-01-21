@@ -49,7 +49,7 @@ public class playerMotion : MonoBehaviour
 
     }
 
-    void handleMovementSurface()
+    public virtual void handleMovementSurface()
     {
 
         //TODO: modify physics to handle ice,mud, etc.. as a function of surface properties (friction is all we have ATM)
@@ -94,7 +94,7 @@ public class playerMotion : MonoBehaviour
         
     }
 
-    void handleAvatarFacing()
+    public void handleAvatarFacing()
     {
 
         //flip it when needed
@@ -146,7 +146,7 @@ public class playerMotion : MonoBehaviour
         
     }
 
-    void clampVelocity(float max)
+    public void clampVelocity(float max)
     {
         //GENERAL RULE OF VELOCITY : don't let them go too fast!!!        
         float maxSpeedSquared = max * max;

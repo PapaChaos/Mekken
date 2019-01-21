@@ -384,9 +384,10 @@ GameObject:
   - component: {fileID: 319879256}
   - component: {fileID: 319879255}
   - component: {fileID: 319879254}
+  - component: {fileID: 319879259}
   m_Layer: 0
   m_Name: PhysicsPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,25 +401,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 319879253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86251ebb2c834d945a5737eb59c792eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerProps: {fileID: 319879257}
-  gameManager: {fileID: 838747722}
-  physicsController: {fileID: 319879255}
-  playerGeometry: {fileID: 1820492800}
-  facingVector: {x: 0, y: 180, z: 0}
-  finalForce: {x: 0, y: 0, z: 0}
---- !u!114 &319879255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319879253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7c0148a12ecbb429226db88061904b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f2729eed07227b46ac644a4c6e14601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
@@ -434,7 +417,25 @@ MonoBehaviour:
   wasStrafeRight: 0
   wasStrafeLeft: 0
   isRotatingTurret: 0
-  velocityThreshold: 0.2
+  velocityThreshold: 0.5
+--- !u!114 &319879255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319879253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57f3a24a130aca408f92d17969709f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProps: {fileID: 319879257}
+  gameManager: {fileID: 838747722}
+  physicsController: {fileID: 319879254}
+  playerGeometry: {fileID: 1820492800}
+  facingVector: {x: 0, y: 180, z: 0}
+  finalForce: {x: 0, y: 0, z: 0}
 --- !u!114 &319879256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,13 +492,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319879253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -20.5}
+  m_LocalPosition: {x: 0, y: 0.62, z: -20.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1820492800}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319879259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319879253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
+  cooldown: -1
+  timeout: 1
+  controller: {fileID: 319879256}
+  playerGeom: {fileID: 1820492800}
+  missile: {fileID: 989154238}
+  angle: {x: 0, y: 1, z: 0}
 --- !u!1 &342778303
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +624,7 @@ GameObject:
   - component: {fileID: 450129280}
   m_Layer: 9
   m_Name: SurfacePad
-  m_TagString: Untagged
+  m_TagString: PadSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de76127d8f6152f49bb61bc5d0d1d14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_CONSTANT: -1.6
+  GRAVITY_CONSTANT: -9.8
   landingHeight: 0.55
   surfaceFriction: 0.99
 --- !u!1 &468651700
@@ -834,7 +854,7 @@ GameObject:
   - component: {fileID: 511502196}
   m_Layer: 9
   m_Name: SurfaceDefault
-  m_TagString: Untagged
+  m_TagString: NormalSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -937,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de76127d8f6152f49bb61bc5d0d1d14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_CONSTANT: -1.6
+  GRAVITY_CONSTANT: -9.8
   landingHeight: 0.55
   surfaceFriction: 0.99
 --- !u!1 &534669902
@@ -1570,7 +1590,7 @@ GameObject:
   - component: {fileID: 917998245}
   m_Layer: 9
   m_Name: SurfaceIce
-  m_TagString: Untagged
+  m_TagString: IceSurface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1601,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de76127d8f6152f49bb61bc5d0d1d14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GRAVITY_CONSTANT: -1.6
+  GRAVITY_CONSTANT: -9.8
   landingHeight: 0.55
   surfaceFriction: 2
 --- !u!23 &917998246
@@ -1694,6 +1714,114 @@ Transform:
   m_Father: {fileID: 182829889}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &989154233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989154237}
+  - component: {fileID: 989154236}
+  - component: {fileID: 989154235}
+  - component: {fileID: 989154234}
+  - component: {fileID: 989154238}
+  m_Layer: 0
+  m_Name: missile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &989154234
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &989154235
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4fac1803406891c46a736720356e08e4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &989154236
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &989154237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 19.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989154238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed1fab3e91c2564aa5c5316507e25d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inAir: 0
+  velocity: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  finalForce: {x: 0, y: 0, z: 0}
 --- !u!1 &1019382213
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,6 +52,7 @@ public class playerProperties : MonoBehaviour
 
         //find out what surface I am on and swap it's surface properties into my component
         RaycastHit hit;
+
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask))
         {
             //change our surface properties if the surface changes
@@ -60,6 +61,9 @@ public class playerProperties : MonoBehaviour
                 //GetComponent is an expensive call, so we only want to get it when it changes
                 surfaceTransform = hit.transform;
                 surface = surfaceTransform.GetComponent<surfaceProperties>();
+
+                Debug.Log(surfaceTransform.tag);
+
             }
         }
         else

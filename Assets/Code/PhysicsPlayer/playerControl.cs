@@ -71,5 +71,11 @@ public class playerControl : MonoBehaviour
         {            
             strafe = true;           
         }
+
+        //TODO: rapid fire or single shot
+        if (Input.GetKey(KeyCode.Space))
+        {
+            firePrimary = true;
+        }
     }
 }
