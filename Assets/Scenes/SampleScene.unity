@@ -406,7 +406,7 @@ MonoBehaviour:
   playerProps: {fileID: 319879257}
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 319879255}
-  playerGeometry: {fileID: 0}
+  playerGeometry: {fileID: 1820492800}
   facingVector: {x: 0, y: 180, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
 --- !u!114 &319879255
