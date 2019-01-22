@@ -517,7 +517,6 @@ MonoBehaviour:
   controller: {fileID: 319879256}
   playerGeom: {fileID: 1820492800}
   missile: {fileID: 989154238}
-  angle: {x: 0, y: 1, z: 0}
 --- !u!1 &342778303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1fab3e91c2564aa5c5316507e25d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: {x: 0, y: 1, z: 0}
+  powerFactor: 20
   inAir: 0
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}

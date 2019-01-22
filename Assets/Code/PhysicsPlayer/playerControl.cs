@@ -72,10 +72,13 @@ public class playerControl : MonoBehaviour
             strafe = true;           
         }
 
-        //TODO: rapid fire or single shot
+        //TODO: rapid fire or single shot?
         if (Input.GetKey(KeyCode.Space))
         {
             firePrimary = true;
         }
+
+        //TODO: control for power on missle launch
+
     }
 }

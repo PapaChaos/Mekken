@@ -6,7 +6,7 @@ public class FireProjectile : MonoBehaviour
 {
 
 
-    public float power = 0.0f;
+    public float power = 1.0f;
     public float cooldown = -1.0f;
     public float timeout = 1.0f;  
 
@@ -14,7 +14,7 @@ public class FireProjectile : MonoBehaviour
     public Transform playerGeom;
     public Missile missile;
 
-    public Vector3 angle = new Vector3(0, 0.5f, 0);
+    
     
     // Start is called before the first frame update
     void Start()
@@ -45,9 +45,12 @@ public class FireProjectile : MonoBehaviour
 
     void fire()
     {
+        //move the missle into initial position
         missile.transform.position = playerGeom.position + playerGeom.forward + Vector3.up;
-        missile.velocity = (playerGeom.forward + angle) * power * 20.0f;
-        missile.inAir = true;
+
+        //tell the missle to fire
+        missile.fireMissile(playerGeom.forward, power);
+
     }
     
 
