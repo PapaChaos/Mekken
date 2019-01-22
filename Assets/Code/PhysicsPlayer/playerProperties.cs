@@ -42,7 +42,7 @@ public class playerProperties : MonoBehaviour
     {
 
         // Bit shift the index of the layer (9) to get a bit mask on surfaces
-        int layerMask = 1 << 9;
+       // int layerMask = 1 << 9;
 
         // This would cast rays only against colliders in layer 9.
 
@@ -53,14 +53,20 @@ public class playerProperties : MonoBehaviour
         //find out what surface I am on and swap it's surface properties into my component
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f /*, layerMask*/))
         {
             //change our surface properties if the surface changes
             if (hit.transform != surfaceTransform)
             {
                 //GetComponent is an expensive call, so we only want to get it when it changes
                 surfaceTransform = hit.transform;
+
+                //check if this object in the level surface group has it's own surface properties
                 surface = surfaceTransform.GetComponent<surfaceProperties>();
+
+                //parent should have one. TODO: make an upward recursive search until we find a surface property component
+                if (surface == null)
+                    surface = surfaceTransform.GetComponentInParent<surfaceProperties>();
 
                 Debug.Log(surfaceTransform.tag);
 

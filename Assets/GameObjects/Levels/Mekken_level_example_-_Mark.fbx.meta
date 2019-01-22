@@ -1,7 +1,9 @@
 fileFormatVersion: 2
 guid: c35eb6cb90a537e44b251533903db9d1
+timeCreated: 1548188233
+licenseType: Free
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: pCube1
@@ -146,6 +148,35 @@ ModelImporter:
     4300050: pCube21
     4300052: pCube22
     4300054: pCube23
+    6400000: pCube1
+    6400002: pCube10
+    6400004: pCube11
+    6400006: pCube12
+    6400008: pCube13
+    6400010: pCube14
+    6400012: pCube15
+    6400014: pCube16
+    6400016: pCube17
+    6400018: pCube18
+    6400020: pCube19
+    6400022: pCube2
+    6400024: pCube20
+    6400026: pCube21
+    6400028: pCube22
+    6400030: pCube23
+    6400032: pCube3
+    6400034: pCube4
+    6400036: pCube5
+    6400038: pCube6
+    6400040: pCube7
+    6400042: pCube8
+    6400044: pCube9
+    6400046: pCylinder1
+    6400048: pCylinder2
+    6400050: pCylinder3
+    6400052: pCylinder4
+    6400054: pTorus1
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -165,7 +196,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -179,8 +209,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
-    useSRGBMaterialColor: 1
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -197,17 +226,12 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -222,11 +246,12 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 4ffb935fccfd1384291b59708760c14b
+timeCreated: 1548184230
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: arena
+    100002: arena001
+    100004: arena002
+    100006: //RootNode
+    100008: Box001
+    100010: Box002
+    100012: Box003
+    100014: Box004
+    100016: Box005
+    100018: Box006
+    100020: Box007
+    100022: Box008
+    100024: Box009
+    100026: Box010
+    100028: c
+    100030: c.Target
+    100032: Cylinder001
+    100034: Cylinder002
+    100036: Cylinder003
+    100038: killzone
+    100040: PhotometricLight001
+    100042: PhotometricLight002
+    100044: PhotometricLight003
+    100046: PhotometricLight004
+    100048: PhotometricLight005
+    100050: PhotometricLight006
+    100052: PhotometricLight007
+    100054: PhotometricLight008
+    100056: PhotometricLight009
+    100058: PhotometricLight010
+    100060: PhotometricLight011
+    100062: PhotometricLight012
+    100064: ramp005
+    100066: ramp006
+    100068: ramp007
+    100070: ramp008
+    100072: Sphere001
+    100074: Torus001
+    100076: tribune
+    100078: tribune003
+    100080: tribune004
+    100082: tribune005
+    100084: tribune006
+    100086: tribune2
+    100088: wall
+    400000: arena
+    400002: arena001
+    400004: arena002
+    400006: //RootNode
+    400008: Box001
+    400010: Box002
+    400012: Box003
+    400014: Box004
+    400016: Box005
+    400018: Box006
+    400020: Box007
+    400022: Box008
+    400024: Box009
+    400026: Box010
+    400028: c
+    400030: c.Target
+    400032: Cylinder001
+    400034: Cylinder002
+    400036: Cylinder003
+    400038: killzone
+    400040: PhotometricLight001
+    400042: PhotometricLight002
+    400044: PhotometricLight003
+    400046: PhotometricLight004
+    400048: PhotometricLight005
+    400050: PhotometricLight006
+    400052: PhotometricLight007
+    400054: PhotometricLight008
+    400056: PhotometricLight009
+    400058: PhotometricLight010
+    400060: PhotometricLight011
+    400062: PhotometricLight012
+    400064: ramp005
+    400066: ramp006
+    400068: ramp007
+    400070: ramp008
+    400072: Sphere001
+    400074: Torus001
+    400076: tribune
+    400078: tribune003
+    400080: tribune004
+    400082: tribune005
+    400084: tribune006
+    400086: tribune2
+    400088: wall
+    2100000: 'Material #40'
+    2100002: 'Material #2'
+    2100004: 'Material #39'
+    2100006: 'Material #15'
+    2100008: 'Material #16'
+    2300000: arena
+    2300002: arena001
+    2300004: arena002
+    2300006: Box001
+    2300008: Box002
+    2300010: Box003
+    2300012: Box004
+    2300014: Box005
+    2300016: Box006
+    2300018: Box007
+    2300020: Box008
+    2300022: Box009
+    2300024: Box010
+    2300026: Cylinder001
+    2300028: Cylinder002
+    2300030: Cylinder003
+    2300032: killzone
+    2300034: ramp005
+    2300036: ramp006
+    2300038: ramp007
+    2300040: ramp008
+    2300042: Sphere001
+    2300044: Torus001
+    2300046: tribune
+    2300048: tribune003
+    2300050: tribune004
+    2300052: tribune005
+    2300054: tribune006
+    2300056: tribune2
+    2300058: wall
+    3300000: arena
+    3300002: arena001
+    3300004: arena002
+    3300006: Box001
+    3300008: Box002
+    3300010: Box003
+    3300012: Box004
+    3300014: Box005
+    3300016: Box006
+    3300018: Box007
+    3300020: Box008
+    3300022: Box009
+    3300024: Box010
+    3300026: Cylinder001
+    3300028: Cylinder002
+    3300030: Cylinder003
+    3300032: killzone
+    3300034: ramp005
+    3300036: ramp006
+    3300038: ramp007
+    3300040: ramp008
+    3300042: Sphere001
+    3300044: Torus001
+    3300046: tribune
+    3300048: tribune003
+    3300050: tribune004
+    3300052: tribune005
+    3300054: tribune006
+    3300056: tribune2
+    3300058: wall
+    4300000: wall
+    4300002: arena
+    4300004: tribune
+    4300006: tribune2
+    4300008: killzone
+    4300010: Sphere001
+    4300012: Box001
+    4300014: Box002
+    4300016: Box003
+    4300018: Box004
+    4300020: arena001
+    4300022: arena002
+    4300024: Cylinder001
+    4300026: Torus001
+    4300028: tribune003
+    4300030: tribune004
+    4300032: tribune005
+    4300034: tribune006
+    4300036: Box005
+    4300038: Box006
+    4300040: Cylinder002
+    4300042: Box007
+    4300044: Box008
+    4300046: Cylinder003
+    4300048: Box009
+    4300050: Box010
+    4300052: ramp005
+    4300054: ramp006
+    4300056: ramp007
+    4300058: ramp008
+    7400000: Take 001
+    9500000: //RootNode
+    10800000: PhotometricLight001
+    10800002: PhotometricLight002
+    10800004: PhotometricLight003
+    10800006: PhotometricLight004
+    10800008: PhotometricLight005
+    10800010: PhotometricLight006
+    10800012: PhotometricLight007
+    10800014: PhotometricLight008
+    10800016: PhotometricLight009
+    10800018: PhotometricLight010
+    10800020: PhotometricLight011
+    10800022: PhotometricLight012
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
