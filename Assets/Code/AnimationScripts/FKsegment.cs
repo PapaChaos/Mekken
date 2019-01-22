@@ -22,15 +22,14 @@ public class FKsegment : MonoBehaviour
     public Vector3 Apos = Vector3.zero;
     public Vector3 Bpos = Vector3.zero;
 
-    public FKSystem fkSystem = null;
+    public FKSystem fkSystem;
 
 
     // Use this for initialization
     void Awake ()
     {
 
-        fkSystem = GetComponentInParent<FKSystem>();
-
+        
         accumRotation = transform.rotation;
 
         if (parent)
