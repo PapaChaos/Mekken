@@ -6,11 +6,15 @@ public class FKsegment : MonoBehaviour
 {
 
     public float length = 2;
-    public float rate = 10;
-    public int direction = 1;
 
-    public Vector3 constrainRotation = new Vector3(45, 45, 45);
-    public Vector3 accumRotation = Vector3.zero;
+    public float amplitude = 1.0f;
+    public float frequency = 1.0f;
+    public float phase = 1.0f;
+
+
+    public bool jointEnabled = false;
+
+    public Quaternion accumRotation = Quaternion.identity;
 
     public FKsegment parent = null;
     public FKsegment child = null;
@@ -18,37 +22,55 @@ public class FKsegment : MonoBehaviour
     public Vector3 Apos = Vector3.zero;
     public Vector3 Bpos = Vector3.zero;
 
+    public FKSystem fkSystem = null;
+
+
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
 
+        fkSystem = GetComponentInParent<FKSystem>();
 
+        accumRotation = transform.rotation;
+
+        if (parent)
+        {
+
+            transform.rotation *= Quaternion.Inverse(parent.transform.rotation);
+            accumRotation = transform.rotation;
+
+
+        }
+            
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
 
-        Vector3 angles = Vector3.zero;
+        float xRot = 0;
 
-        angles.y = rate * Time.deltaTime * direction;
-
-        accumRotation += angles;
         
-        if (Mathf.Abs ( accumRotation.y ) > constrainRotation.y)
-            direction *= -1;
+        if (jointEnabled)
+        {
+            xRot = Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
+        }
 
-        Quaternion quat = new Quaternion();
-        quat.eulerAngles = accumRotation;
+        accumRotation *= Quaternion.EulerRotation(xRot * Mathf.Deg2Rad, 0,0);
+
+        //Quaternion quat = new Quaternion();
+        //quat.eulerAngles = accumRotation;
 
         if (parent)
         {
-            transform.rotation = quat * parent.transform.rotation;
+            transform.rotation = accumRotation * parent.transform.rotation;
         }
         else
         {
-            transform.rotation = quat;
+            transform.rotation = accumRotation;
         }
+
+        
 
         updateSegmentAndChildren();
     }

@@ -9,9 +9,6 @@ public class playerMotionTreads : playerMotion
     public override void handleMovementSurface()
     {
 
-        Debug.Log("inherited method");
-
-
         //TODO: modify physics to handle ice,mud, etc.. as a function of surface properties (friction is all we have ATM)
         //      need to modify controllability, acceleration, and forward facing based on additional properties, OR simply
         //      tag the surface as "Ice" for example, and throw in some controller messyness.
