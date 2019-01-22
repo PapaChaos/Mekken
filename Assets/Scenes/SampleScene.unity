@@ -1727,7 +1727,7 @@ GameObject:
   - component: {fileID: 989154234}
   - component: {fileID: 989154238}
   m_Layer: 0
-  m_Name: missile
+  m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
