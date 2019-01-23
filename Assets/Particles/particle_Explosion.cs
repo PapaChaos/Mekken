@@ -10,8 +10,14 @@ using UnityEngine;
 public class particle_Explosion : MonoBehaviour
 {
 	public ParticleSystem ps_Explosion;				//Reference the Explosion Particle System
-	public ParticleSystemRenderer psr_Explosion;	//Reference the Explosion Particle System Renderer
+	public ParticleSystemRenderer psr_Explosion;    //Reference the Explosion Particle System Renderer
+
+	public ParticleSystemRenderer psr_Sparks;
+
+	public float blackbodyMaxValue = 5000;			//the starting value.
+	public float blackbodyMinValue = 500;			//the end value.
 	public float blackbodyValue = 5000;             //Blackbody color temperature. More info: http://www.giangrandi.ch/optics/blackbody/blackbody.shtml
+
 	public Gradient grad = new Gradient();			//Albedo Color over time Gradient.
 
 	public float EmissiveStrength = 5;				//The strength of the Emissive Texture.
@@ -22,8 +28,8 @@ public class particle_Explosion : MonoBehaviour
 
 	void Start()
 	{
-		//Albedo color might not really be important as the emissive might 
-
+		//Albedo color might not really be important or even visible as the emissive most likely absorbs the albedo color. But, in case we want to remove the emissive texture I added this in.
+		//Maybe have a null or false check on emissive to see if this should be set?
 		var main = ps_Explosion.main;
 		var colorLifeTime = ps_Explosion.colorOverLifetime;
 
@@ -31,23 +37,28 @@ public class particle_Explosion : MonoBehaviour
 		colorLifeTime.enabled = true;
 
 		//This is to set the albedo color over lifetime. Should start at a bright white then turn quickly yellow and end with a dark red. Todo?? make the different temperature values variables?
-		grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(5000), 0.0f), new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(2500), 0.5f), new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(500), 1f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) });
+		grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(blackbodyMaxValue), 0.0f), new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(blackbodyMaxValue/2), 0.5f), new GradientColorKey(Mathf.CorrelatedColorTemperatureToRGB(blackbodyMinValue), 1f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) });
 		colorLifeTime.color = grad;
 	}
 	private void Update()
 	{
-		if (TimeMax != 0f)	//just checks if the TimeMax is set.
+		//Checks if the TimeMax is set.
+		if (TimeMax != 0f)	
 		{
 			TimePassed += Time.deltaTime;
 
-			if ((1 - (TimePassed / TimeMax)) > 0f)              //make sure that the TimeLeftRatio doesn't drop under 0.
+			//make sure that the TimeLeftRatio doesn't drop under 0. Because we don't divide by zero.
+			if ((1 - (TimePassed / TimeMax)) > 0f)              
 				TimeLeftRatio = 1 - (TimePassed / TimeMax);
-			else
-				TimeLeftRatio = 0f;                             //make sure that the TimeLeftRatio ends at 0.
 
-			blackbodyValue = (4500 * TimeLeftRatio) + 500f;     //this shouldn't go under 500.
+			//make sure that the TimeLeftRatio ends at 0.
+			else
+				TimeLeftRatio = 0f;                             
+
+			blackbodyValue = ((blackbodyMaxValue - blackbodyMinValue) * TimeLeftRatio) + blackbodyMinValue;     //this shouldn't go under 500.
 
 			psr_Explosion.material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature of the explosion.
+			psr_Sparks.material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength);
 		}
 		else
 			print("You need to set the Time Max variable in "+ gameObject.transform.name); //just easy debug if someone messes up.
