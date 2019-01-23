@@ -4801,8 +4801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce4307942e746f478afd250b6fcc78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 1281287260455554083}
-  psr: {fileID: 1281287260455554082}
+  ps_Explosion: {fileID: 1281287260455554083}
+  psr_Explosion: {fileID: 1281287260455554082}
   blackbodyValue: 5000
   grad:
     serializedVersion: 2
@@ -4834,8 +4834,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   EmissiveStrength: 5
-  TimePassed: 0
-  TimeLeft: 0
+  TimeLeftRatio: 0
   TimeMax: 2
 --- !u!1 &1281287262281515448
 GameObject:
@@ -4849,7 +4848,7 @@ GameObject:
   - component: {fileID: 1281287262281515589}
   - component: {fileID: 1281287262281515590}
   m_Layer: 0
-  m_Name: P_BurstExplosion (1)
+  m_Name: P_BurstSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
