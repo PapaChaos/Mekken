@@ -7,21 +7,26 @@ ModelImporter:
     100002: //RootNode
     100004: TankTreadsLeftA
     100006: TAnkTreadsRightA
+    100008: TankTreadsFrameA
     400000: Box012
     400002: //RootNode
     400004: TankTreadsLeftA
     400006: TAnkTreadsRightA
+    400008: TankTreadsFrameA
     2100000: 'Material #6'
     2100002: 'Material #8'
     2300000: Box012
     2300002: TankTreadsLeftA
     2300004: TAnkTreadsRightA
+    2300006: TankTreadsFrameA
     3300000: Box012
     3300002: TankTreadsLeftA
     3300004: TAnkTreadsRightA
+    3300006: TankTreadsFrameA
     4300000: Box012
     4300002: TankTreadsLeftA
     4300004: TAnkTreadsRightA
+    4300006: TankTreadsFrameA
   externalObjects: {}
   materials:
     importMaterials: 1

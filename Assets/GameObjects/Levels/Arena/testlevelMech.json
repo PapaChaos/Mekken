@@ -1,0 +1,57 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                }
+            },
+            "shader": "pbr-metal-rough-with-alpha-blending",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "Bridges": {
+            "shader": "Main shader"
+        },
+        "CenterSpotLigts": {
+            "shader": "Main shader"
+        },
+        "Generators": {
+            "shader": "Main shader"
+        },
+        "Lava": {
+            "shader": "Main shader"
+        },
+        "MainFloor": {
+            "shader": "Main shader"
+        },
+        "Material _28": {
+            "shader": "Main shader"
+        },
+        "MetalRing": {
+            "shader": "Main shader"
+        },
+        "Overpass": {
+            "shader": "Main shader"
+        },
+        "PitRamp": {
+            "shader": "Main shader"
+        },
+        "SpawnRoof": {
+            "shader": "Main shader"
+        }
+    }
+}

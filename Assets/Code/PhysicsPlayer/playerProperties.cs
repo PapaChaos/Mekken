@@ -30,6 +30,7 @@ public class playerProperties : MonoBehaviour
 
     public bool onSurface = false;
     public float surfaceTraction = 1.0f;  //factor affecting friction based on locomotion type
+    public float distanceOffGround = 1000.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,13 @@ public class playerProperties : MonoBehaviour
 
         //find out what surface I am on and swap it's surface properties into my component
         RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f , layerMask ))
+        bool didHit = false;
+        didHit = Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask);
+        if (didHit)
         {
+            //get current distance off ground
+            distanceOffGround = hit.distance;
+
             //change our surface properties if the surface changes
             if (hit.transform != surfaceTransform)
             {

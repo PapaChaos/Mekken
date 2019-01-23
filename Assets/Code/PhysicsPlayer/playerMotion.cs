@@ -109,7 +109,7 @@ public class playerMotion : MonoBehaviour
     void handleLanding()
     {
 
-        if (transform.position.y < playerProps.surface.landingHeight)
+        if (playerProps.distanceOffGround < 1.0)
         {
             if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
@@ -118,6 +118,7 @@ public class playerMotion : MonoBehaviour
             }
             else
             {
+                Debug.Log("LANDED SAFELY");
                 playerProps.onSurface = true;
                 physicsController.acceleration *= 0;
                 physicsController.velocity *= 0;                
