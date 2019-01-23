@@ -32,6 +32,8 @@ public class playerProperties : MonoBehaviour
     public float surfaceTraction = 1.0f;  //factor affecting friction based on locomotion type
     public float distanceOffGround = 1000.0f;
 
+    public float terrainYPoint = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,16 +57,23 @@ public class playerProperties : MonoBehaviour
         RaycastHit hit;
         bool didHit = false;
         didHit = Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask);
+
+        //clear on surface
+        onSurface = false;
+
         if (didHit)
         {
             //get current distance off ground
             distanceOffGround = hit.distance;
+            terrainYPoint = hit.point.y;
 
             //change our surface properties if the surface changes
             if (hit.transform != surfaceTransform)
             {
                 //GetComponent is an expensive call, so we only want to get it when it changes
                 surfaceTransform = hit.transform;
+
+
 
                 //check if this object in the level surface group has it's own surface properties
                 surface = surfaceTransform.GetComponent<surfaceProperties>();
@@ -81,6 +90,8 @@ public class playerProperties : MonoBehaviour
         {
             //TODO: handle this!!
             Debug.Log("FELL OFF THE SURFACE!!!");
+            
+
         }
     }
 }
