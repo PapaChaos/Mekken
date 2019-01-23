@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: MechHead03
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head03
+    second: {fileID: 2100000, guid: 1d532077b21a1f14284c8f9e4bbf9970, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

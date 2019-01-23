@@ -27,7 +27,17 @@ ModelImporter:
     4300002: TankTreadsLeftA
     4300004: TAnkTreadsRightA
     4300006: TankTreadsFrameA
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #6'
+    second: {fileID: 2100000, guid: d6438ef7a603ad54ab2da106729411c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #8'
+    second: {fileID: 2100000, guid: 202d01a7aa8c8724cb458aac62f319b4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
