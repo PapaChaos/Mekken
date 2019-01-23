@@ -15,8 +15,10 @@ public class playerMotion : MonoBehaviour
    
 
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
+    public float yPosGround = 0;
 
 
+    public Vector3 finalPosition = new Vector3(0, 0, 0);
    
     
     // Start is called before the first frame update
@@ -31,18 +33,14 @@ public class playerMotion : MonoBehaviour
 
         if (!gameManager.gameOver)
         {
-            
-            if (!playerProps.onSurface)
+            if (playerProps.onSurface == false)
             {
-                handleMovementAir();
-                handleLanding();                
-            }
-            else
-            {
-                handleMovementSurface();                
+                handleGravity();
+                handleLanding();
             }
 
-
+            if (playerProps.onSurface)
+                handleMovementSurface();
 
         }
 
@@ -51,6 +49,8 @@ public class playerMotion : MonoBehaviour
 
     public virtual void handleMovementSurface()
     {
+
+
 
         //TODO: modify physics to handle ice,mud, etc.. as a function of surface properties (friction is all we have ATM)
         //      need to modify controllability, acceleration, and forward facing based on additional properties, OR simply
@@ -118,17 +118,23 @@ public class playerMotion : MonoBehaviour
             }
             else
             {
-                Debug.Log("LANDED SAFELY");
-                playerProps.onSurface = true;
-                physicsController.acceleration *= 0;
-                physicsController.velocity *= 0;                
+                //Debug.Log("LANDED SAFELY");
+                if (playerProps.onSurface == false)
+                {
+                    playerProps.onSurface = true;
+                    physicsController.acceleration *= 0;
+                    physicsController.velocity *= 0;
+                }
             }
 
         }
+        else
+            playerProps.onSurface = false;
+
 
     }
 
-    void handleMovementAir()
+    void handleGravity()
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, playerProps.surface.GRAVITY_CONSTANT * playerProps.mass, 0);
@@ -143,6 +149,17 @@ public class playerMotion : MonoBehaviour
 
         //move the player
         transform.position += physicsController.velocity * Time.deltaTime;
+
+
+        if (playerProps.distanceOffGround < 1.0f)
+        {
+            
+            yPosGround = playerProps.terrainYPoint + 1.0f; 
+            
+            finalPosition.Set(transform.position.x, yPosGround, transform.position.z);
+
+            transform.position = finalPosition;
+        }
 
         
     }
