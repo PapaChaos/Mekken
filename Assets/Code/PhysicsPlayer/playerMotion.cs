@@ -17,6 +17,7 @@ public class playerMotion : MonoBehaviour
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
     public float yPosGround = 0;
 
+    public float velocityThreshold = 0.5f;
 
     public Vector3 finalPosition = new Vector3(0, 0, 0);
    
@@ -33,15 +34,32 @@ public class playerMotion : MonoBehaviour
 
         if (!gameManager.gameOver)
         {
+            
+            handleGravity();
+            
             if (playerProps.onSurface == false)
-            {
-                handleGravity();
                 handleLanding();
-            }
+
 
             if (playerProps.onSurface)
+            {
+                physicsController.velocity.y = 0;
+
+                if (playerProps.isOnDeathTrap)
+                {
+                    Debug.Log("DEAD!!!");
+                    gameManager.gameOver = true;
+                    physicsController.velocity *= 0;
+                    physicsController.acceleration *= 0;
+                    //TODO: Do something dammit!
+                }
+                
                 handleMovementSurface();
 
+                //handle slopes
+                handleTerrainSlope();
+
+            }
         }
 
 
@@ -82,7 +100,7 @@ public class playerMotion : MonoBehaviour
         if(!physicsController.isStrafeing && 
            !physicsController.wasStrafeing && 
            !physicsController.isRotatingTurret && 
-           physicsController.velocity.magnitude > 0)
+           physicsController.velocity.magnitude > velocityThreshold)
         {
             transform.LookAt(transform.position + dir);
         }
@@ -106,10 +124,22 @@ public class playerMotion : MonoBehaviour
         
     }
 
+    public void handleTerrainSlope()
+    {
+        Vector3 surfNorm = playerProps.surfaceNormal;
+
+        //get forward of geometry
+        Vector3 fwd = playerGeometry.forward;
+
+        playerGeometry.LookAt(playerGeometry.position + fwd, surfNorm);
+
+
+    }
+
     void handleLanding()
     {
 
-        if (playerProps.distanceOffGround < 1.0)
+        if (playerProps.distanceOffGround < playerProps.surfaceOffset + 0.1f)
         {
             if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
@@ -122,8 +152,8 @@ public class playerMotion : MonoBehaviour
                 if (playerProps.onSurface == false)
                 {
                     playerProps.onSurface = true;
-                    physicsController.acceleration *= 0;
-                    physicsController.velocity *= 0;
+                    //physicsController.acceleration *= 0;
+                    //physicsController.velocity *= 0;
                 }
             }
 
@@ -151,10 +181,10 @@ public class playerMotion : MonoBehaviour
         transform.position += physicsController.velocity * Time.deltaTime;
 
 
-        if (playerProps.distanceOffGround < 1.0f)
+        if (playerProps.distanceOffGround < playerProps.surfaceOffset * 2)
         {
             
-            yPosGround = playerProps.terrainYPoint + 1.0f; 
+            yPosGround = playerProps.terrainYPoint + playerProps.surfaceOffset; 
             
             finalPosition.Set(transform.position.x, yPosGround, transform.position.z);
 

@@ -31,8 +31,12 @@ public class playerProperties : MonoBehaviour
     public bool onSurface = false;
     public float surfaceTraction = 1.0f;  //factor affecting friction based on locomotion type
     public float distanceOffGround = 1000.0f;
+    public float surfaceOffset = 1.0f;
 
     public float terrainYPoint = 0;
+
+    public bool isOnDeathTrap = false;
+    public Vector3 surfaceNormal = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -58,22 +62,25 @@ public class playerProperties : MonoBehaviour
         bool didHit = false;
         didHit = Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask);
 
-        //clear on surface
-        onSurface = false;
-
         if (didHit)
         {
+
+           
             //get current distance off ground
             distanceOffGround = hit.distance;
             terrainYPoint = hit.point.y;
+            surfaceNormal = hit.normal;
 
+            if (distanceOffGround > surfaceOffset * 2.0f)
+            {
+                onSurface = false;
+                Debug.Log("NOT ON SURFACE");
+            }
             //change our surface properties if the surface changes
             if (hit.transform != surfaceTransform)
             {
                 //GetComponent is an expensive call, so we only want to get it when it changes
                 surfaceTransform = hit.transform;
-
-
 
                 //check if this object in the level surface group has it's own surface properties
                 surface = surfaceTransform.GetComponent<surfaceProperties>();
@@ -82,6 +89,7 @@ public class playerProperties : MonoBehaviour
                 if (surface == null)
                     surface = surfaceTransform.GetComponentInParent<surfaceProperties>();
 
+                isOnDeathTrap = surface.deathTrap;
                 Debug.Log(surfaceTransform.tag);
 
             }
@@ -90,7 +98,8 @@ public class playerProperties : MonoBehaviour
         {
             //TODO: handle this!!
             Debug.Log("FELL OFF THE SURFACE!!!");
-            
+            //clear on surface
+            onSurface = false;
 
         }
     }

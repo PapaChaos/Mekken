@@ -31,6 +31,8 @@ public class playerPhysics : MonoBehaviour
 
     public float velocityThreshold = 0.5f; //at what speed are we essentially not moving
 
+
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +46,13 @@ public class playerPhysics : MonoBehaviour
         //reset thrust each frame
         thrust.Set(0, 0, 0);
 
-        if (playerProps.onSurface)
-            handleOnSurface();
-        else
-            handleInAir();
+        if (!gameManager.gameOver)
+        {
+            if (playerProps.onSurface)
+                handleOnSurface();
+            else
+                handleInAir();
+        }
 
     }
 

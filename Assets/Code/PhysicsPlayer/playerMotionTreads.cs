@@ -37,7 +37,7 @@ public class playerMotionTreads : playerMotion
 
         //look at the direction I am going (if not strafeing)
         if ( !physicsController.isRotatingTurret &&
-             physicsController.velocity.magnitude > 0)
+             physicsController.velocity.magnitude > velocityThreshold)
         {
             transform.LookAt(transform.position + dir);
         }

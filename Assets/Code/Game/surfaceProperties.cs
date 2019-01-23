@@ -8,6 +8,8 @@ public class surfaceProperties : MonoBehaviour
     public float GRAVITY_CONSTANT = -9.8f;   // -1.6 for moon
     public float surfaceFriction = 0.99f;
 
+    public bool deathTrap = false;
+
     // Start is called before the first frame update
     void Start()
     {
