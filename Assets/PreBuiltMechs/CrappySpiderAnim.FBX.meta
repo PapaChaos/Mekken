@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: ce64b73f4541f654290f349260d817ae
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: leg1
+    100004: leg2
+    100006: leg3
+    100008: leg4
+    100010: leg5
+    100012: leg6
+    100014: leg7
+    100016: leg8
+    100018: OmegaWeapon
+    100020: OptimusPrime
+    100022: potatohead
+    100024: GrenadeLauncherA
+    100026: MechHead01
+    100028: MortarLauncherA
+    100030: SpiderLegLeftBackA
+    100032: SpiderLegLeftBackB
+    100034: SpiderLegLeftFrontA
+    100036: SpiderLegLeftFrontB
+    100038: SpiderLegRightBackA
+    100040: SpiderLegRightBackB
+    100042: SpiderLegRightFrontA
+    100044: SpiderLegRightFrontB
+    400000: //RootNode
+    400002: leg1
+    400004: leg2
+    400006: leg3
+    400008: leg4
+    400010: leg5
+    400012: leg6
+    400014: leg7
+    400016: leg8
+    400018: OmegaWeapon
+    400020: OptimusPrime
+    400022: potatohead
+    400024: GrenadeLauncherA
+    400026: MechHead01
+    400028: MortarLauncherA
+    400030: SpiderLegLeftBackA
+    400032: SpiderLegLeftBackB
+    400034: SpiderLegLeftFrontA
+    400036: SpiderLegLeftFrontB
+    400038: SpiderLegRightBackA
+    400040: SpiderLegRightBackB
+    400042: SpiderLegRightFrontA
+    400044: SpiderLegRightFrontB
+    2100000: 'Material #2'
+    2100002: 'Material #4'
+    2100004: 'Material #5'
+    2100006: 'Material #7'
+    2300000: //RootNode
+    2300002: leg1
+    2300004: leg2
+    2300006: leg3
+    2300008: leg4
+    2300010: leg5
+    2300012: leg6
+    2300014: leg7
+    2300016: leg8
+    2300018: OmegaWeapon
+    2300020: OptimusPrime
+    2300022: potatohead
+    2300024: GrenadeLauncherA
+    2300026: MechHead01
+    2300028: MortarLauncherA
+    2300030: SpiderLegLeftBackA
+    2300032: SpiderLegLeftBackB
+    2300034: SpiderLegLeftFrontA
+    2300036: SpiderLegLeftFrontB
+    2300038: SpiderLegRightBackA
+    2300040: SpiderLegRightBackB
+    2300042: SpiderLegRightFrontA
+    2300044: SpiderLegRightFrontB
+    3300000: //RootNode
+    3300002: leg1
+    3300004: leg2
+    3300006: leg3
+    3300008: leg4
+    3300010: leg5
+    3300012: leg6
+    3300014: leg7
+    3300016: leg8
+    3300018: OmegaWeapon
+    3300020: OptimusPrime
+    3300022: potatohead
+    3300024: GrenadeLauncherA
+    3300026: MechHead01
+    3300028: MortarLauncherA
+    3300030: SpiderLegLeftBackA
+    3300032: SpiderLegLeftBackB
+    3300034: SpiderLegLeftFrontA
+    3300036: SpiderLegLeftFrontB
+    3300038: SpiderLegRightBackA
+    3300040: SpiderLegRightBackB
+    3300042: SpiderLegRightFrontA
+    3300044: SpiderLegRightFrontB
+    4300000: boooty
+    4300002: potatohead
+    4300004: OmegaWeapon
+    4300006: OptimusPrime
+    4300008: leg5
+    4300010: leg6
+    4300012: leg8
+    4300014: leg7
+    4300016: leg3
+    4300018: leg4
+    4300020: leg1
+    4300022: leg2
+    4300024: MechMainBodyA
+    4300026: MechHead01
+    4300028: GrenadeLauncherA
+    4300030: MortarLauncherA
+    4300032: SpiderLegRightFrontA
+    4300034: SpiderLegRightFrontB
+    4300036: SpiderLegRightBackA
+    4300038: SpiderLegRightBackB
+    4300040: SpiderLegLeftFrontA
+    4300042: SpiderLegLeftFrontB
+    4300044: SpiderLegLeftBackA
+    4300046: SpiderLegLeftBackB
+    7400000: Take 001
+    7400002: Take 001 //// boooty
+    9500000: //RootNode
+    11100000: //RootNode
+    11100002: leg1
+    11100004: leg2
+    11100006: leg3
+    11100008: leg4
+    11100010: leg5
+    11100012: leg6
+    11100014: leg7
+    11100016: leg8
+    11100018: OmegaWeapon
+    11100020: OptimusPrime
+    11100022: potatohead
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #2'
+    second: {fileID: 2100000, guid: abc8e4fbde406634599ff65d942a2287, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #4'
+    second: {fileID: 2100000, guid: 96dd2f36bab4f3740ae0ac56141808ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #5'
+    second: {fileID: 2100000, guid: 6c26239756a60314c8c4d4ba535c6c79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #7'
+    second: {fileID: 2100000, guid: f47ab2007c0b44e4daa3121490cec6f6, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
