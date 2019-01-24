@@ -451,11 +451,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319879258}
+  - component: {fileID: 319879254}
   - component: {fileID: 319879257}
   - component: {fileID: 319879256}
   - component: {fileID: 319879259}
   - component: {fileID: 319879255}
-  - component: {fileID: 319879254}
   m_Layer: 0
   m_Name: PhysicsPlayer
   m_TagString: Player
@@ -479,7 +479,6 @@ MonoBehaviour:
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 319879255}
   playerGeometry: {fileID: 1832200090}
-  facingVector: {x: 0, y: 180, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
   yPosGround: 0
   velocityThreshold: 0.5
@@ -503,7 +502,10 @@ MonoBehaviour:
   playerProps: {fileID: 319879257}
   playerGeometry: {fileID: 1832200090}
   isInReverse: 0
-  engagedReverse: 0
+  wasInReverse: 0
+  isInForward: 0
+  wasInForward: 0
+  updateFacing: 0
   isStrafeing: 0
   wasStrafeing: 0
   wasStrafeRight: 0

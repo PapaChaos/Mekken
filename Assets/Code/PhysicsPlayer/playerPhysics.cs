@@ -18,7 +18,12 @@ public class playerPhysics : MonoBehaviour
 
 
     public bool isInReverse = false;     // velocity determines our forward facing, when in reverse 
-    public bool engagedReverse = false;  // we need to inform movement to maintain the opposite facing
+    public bool wasInReverse = false;  // we need to inform movement to maintain the opposite facing
+
+    public bool isInForward = false;     // velocity determines our forward facing, when in reverse 
+    public bool wasInForward = false;  // we need to inform movement to maintain the opposite facing
+
+    public bool updateFacing = false;
 
     public bool isStrafeing = false;
     public bool wasStrafeing = false; //we need to know if we were strafeing, to turn our forward vector back
@@ -44,7 +49,10 @@ public class playerPhysics : MonoBehaviour
     {
 
         //reset thrust each frame
-        thrust.Set(0, 0, 0);
+        thrust *= 0;
+        //assume we will update facing by velocity
+        updateFacing = true;
+
 
         if (!gameManager.gameOver)
         {
@@ -89,87 +97,97 @@ public class playerPhysics : MonoBehaviour
         //do we have any gas in the tank?
         if (playerProps.energy > 0.0f )
         {
-            //check if we are reaching zero velocity, and no keys pressed
-            if (!controller.controlerOn)
-            {
-                //check reverse engaged and no input
-                if (engagedReverse && velocity.magnitude < velocityThreshold * 0.5f)
-                {
-                    //give it a little anti-forward push to correct facing
-                    velocity = -transform.forward * velocityThreshold;
-                    engagedReverse = false;
-                    isInReverse = false;
-                }
-
-
-                //check wasStrafeing and no input
-                if (wasStrafeing && velocity.magnitude < velocityThreshold * 0.5f)
-                {
-                    isStrafeing = false;
-                    wasStrafeing = false;
-                    //give it a little forward push to correct facing
-                    velocity = transform.forward * velocityThreshold;
-
-                }
-            }
-
-
-
 
             if (controller.forward)
             {
                 isRotatingTurret = false;
+                isInForward = true;
+                isInReverse = false;
 
-
-                //if we are in reverse but swithc to forward, approach the forward threshold
-                //by applying a negative forward force
-                if (engagedReverse && velocity.magnitude >= velocityThreshold )
+                if (wasInReverse && velocity.magnitude >= velocityThreshold)
                 {
-                    thrust -= transform.forward * playerProps.thrustForce ;
-
+                    //apply a brakeing force until we cross the zero threshold
+                    thrust -= transform.forward * playerProps.thrustForce;
+                    updateFacing = false;
                 }
-                else if (engagedReverse && velocity.magnitude < velocityThreshold)
+                else if (wasInReverse && velocity.magnitude < velocityThreshold)
                 {
-                    //give it a push in opposite direction
-                    velocity = -1 * transform.forward * velocityThreshold;
-                    engagedReverse = false;
-                    
+                    velocity *= 0;                    
+
+                    //reset out facing
+                    transform.Rotate(0, 180, 0);
+
+                    updateFacing = true;
+                    wasInReverse = false;                    
+                    wasInForward = true;
+
+                    //forward on the ground means thrust on the forward vector
+                    thrust += transform.forward * playerProps.thrustForce;
+
+                    //give it a nudge
+                    velocity = transform.forward * 0.51f;
+
                 }
                 else
                 {
                     //forward on the ground means thrust on the forward vector
                     thrust += transform.forward * playerProps.thrustForce;
-                    playerProps.energy -= playerProps.consumption * Time.deltaTime;
-
+                    updateFacing = true;
                 }
+
+                playerProps.energy -= playerProps.consumption * Time.deltaTime;
+
+                
             }
-
-            if (controller.backward)
+            else if (controller.backward)
             {
-                isRotatingTurret = false;
 
+                isRotatingTurret = false;
+                isInForward = false;
                 isInReverse = true;
 
-                //approach the reverse threshold by applying a negative forward force                
-                if (!engagedReverse && velocity.magnitude >= velocityThreshold  )
+                if (wasInForward && velocity.magnitude >= velocityThreshold)
                 {
-                   thrust -= transform.forward * playerProps.thrustForce ;
+                    //apply a brakeing force until we cross the zero threshold
+                    updateFacing = false;
+                    thrust -= transform.forward * playerProps.thrustForce;
                 }
-                else if (!engagedReverse && velocity.magnitude < velocityThreshold  )
+                else if (wasInForward && velocity.magnitude < velocityThreshold)
                 {
-                    //give it a push in the opposite direction
-                    velocity = -1 * transform.forward * velocityThreshold;
-                    engagedReverse = true;
-                }
-                else if (engagedReverse)
-                {
-                    //once over the threshhold, apply a forward force, but we tell the
-                    //geometry to flip it's facing so it appears to be moving in reverse
+                    velocity *= 0;
+
+                    //set our facing to inverse
+                    transform.Rotate(0, 180, 0);
+
+                    updateFacing = false;
+                    wasInReverse = true;
+                    wasInForward = false;
+
+                    //forward on the ground means thrust on the forward vector
                     thrust += transform.forward * playerProps.thrustForce;
+                    //give it a nudge
+                    velocity = transform.forward * 0.51f;
+
+                }
+                else if (!wasInReverse)
+                {
+                    //set our facing to inverse
+                    transform.Rotate(0, 180, 0);
+                    //give it a nudge
+                    velocity = transform.forward * 0.51f;
+
+                    updateFacing = false;
+                    wasInReverse = true;
 
                 }
                 else
-                    Debug.Log("HUH??");
+                {
+                    //forward on the ground means thrust on the forward vector
+                    thrust += transform.forward * playerProps.thrustForce;
+                    updateFacing = true;
+
+
+                }
 
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
@@ -193,12 +211,12 @@ public class playerPhysics : MonoBehaviour
           
             turnForce *= (velocity.magnitude + 1);
 
-           
+
 
             if (controller.left)
             {
                 //handle stationary turn/targeting
-                if(!controller.forward && !controller.backward && !isStrafeing && !wasStrafeing)
+                if (!controller.forward && !controller.backward && !isStrafeing && !wasStrafeing)
                 {
                     //sit and spin (better to handle inside player motion, easier to handle right here)
                     thrust *= 0;
@@ -215,19 +233,18 @@ public class playerPhysics : MonoBehaviour
 
                 if (wasStrafeRight)
                 {
-                    thrust *= playerProps.thrustForce * 100;       //and more of a push if we are changing directions
                     wasStrafeRight = false;
-                   
                 }
 
                 if (isStrafeing && !wasStrafeing)
                 {
-                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia
-                    wasStrafeing = true;                    
+                    wasStrafeing = true;
                 }
                 if (isStrafeing)
+                {
                     wasStrafeLeft = true;
-
+                    updateFacing = false;
+                }
 
             }
 
@@ -249,20 +266,19 @@ public class playerPhysics : MonoBehaviour
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
 
                 if (wasStrafeLeft)
-                {
-                    thrust *= playerProps.thrustForce * 100;       //and more of a push if we are changing directions
-                    wasStrafeLeft = false;
-                   
+                {                   
+                    wasStrafeLeft = false;                   
                 }
 
                 if (isStrafeing && !wasStrafeing)
-                {
-                    thrust *= playerProps.thrustForce * 20;        //give it a strong push to overcome inertia                    
+                {                                        
                     wasStrafeing = true;                    
                 }
                 if (isStrafeing)
+                {
                     wasStrafeRight = true;
-
+                    updateFacing = false;
+                }
             }
 
         }
@@ -272,20 +288,40 @@ public class playerPhysics : MonoBehaviour
             velocity *= playerProps.stoppingForce;
 
         //finally, if we are at a fraction of velocity threshold, we might as well stop
-        if (velocity.magnitude < velocityThreshold * 0.25f && !controller.controlerOn)
+        if (velocity.magnitude < velocityThreshold * 0.5f && !controller.controlerOn)
         {
+
+            if (wasInReverse)
+            {
+                //set our facing to inverse
+                transform.Rotate(0, 180, 0);
+                updateFacing = false;
+                wasInReverse = false;
+
+            }
+
             velocity *= 0;
             //clear all movement flags to be sure
             isStrafeing = false;
             isInReverse = false;
+            isInForward = false;
+            wasInForward = false;
             wasStrafeing = false;
-            engagedReverse = false;
+            wasInReverse = false;
             wasStrafeLeft = false;
             wasStrafeRight = false;
             isRotatingTurret = false;
+            updateFacing = false;
 
         }
 
+        if (velocity.magnitude < velocityThreshold)
+            updateFacing = false;
+
+        if (velocity.magnitude > velocityThreshold && wasStrafeing)
+            updateFacing = false;
+        else
+            wasStrafeing = false;
     }
 
 }

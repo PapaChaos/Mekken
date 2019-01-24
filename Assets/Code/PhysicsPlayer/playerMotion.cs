@@ -11,8 +11,7 @@ public class playerMotion : MonoBehaviour
 
     //representation of the player, de-coupled from the empty doing the movement
     public Transform playerGeometry;
-    public Vector3 facingVector =  new Vector3(0, 180, 0);
-   
+      
 
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
     public float yPosGround = 0;
@@ -97,10 +96,7 @@ public class playerMotion : MonoBehaviour
         dir.Normalize();
 
         //look at the direction I am going (if not strafeing)
-        if(!physicsController.isStrafeing && 
-           !physicsController.wasStrafeing && 
-           !physicsController.isRotatingTurret && 
-           physicsController.velocity.magnitude > velocityThreshold)
+        if(physicsController.updateFacing)
         {
             transform.LookAt(transform.position + dir);
         }
@@ -117,9 +113,9 @@ public class playerMotion : MonoBehaviour
 
         //flip it when needed
         playerGeometry.localRotation = Quaternion.identity;
-        if (physicsController.engagedReverse)
+        if (physicsController.wasInReverse)
         {
-            playerGeometry.Rotate(facingVector);  //180 degrees on the Y
+            playerGeometry.Rotate(0,180,0); 
         }
         
     }
@@ -139,7 +135,7 @@ public class playerMotion : MonoBehaviour
     void handleLanding()
     {
 
-        if (playerProps.distanceOffGround < playerProps.surfaceOffset + 0.1f)
+        if (playerProps.distanceOffGround < playerProps.surfaceOffset )
         {
             if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
@@ -152,8 +148,6 @@ public class playerMotion : MonoBehaviour
                 if (playerProps.onSurface == false)
                 {
                     playerProps.onSurface = true;
-                    //physicsController.acceleration *= 0;
-                    //physicsController.velocity *= 0;
                 }
             }
 
@@ -181,7 +175,7 @@ public class playerMotion : MonoBehaviour
         transform.position += physicsController.velocity * Time.deltaTime;
 
 
-        if (playerProps.distanceOffGround < playerProps.surfaceOffset * 2)
+        if (playerProps.distanceOffGround < playerProps.surfaceOffset)
         {
             
             yPosGround = playerProps.terrainYPoint + playerProps.surfaceOffset; 

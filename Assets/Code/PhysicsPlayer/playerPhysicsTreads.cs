@@ -14,11 +14,11 @@ public class playerPhysicsTreads : playerPhysics
             if (!controller.controlerOn)
             {
                 //check reverse engaged and no input
-                if (engagedReverse && velocity.magnitude < velocityThreshold * 0.5f)
+                if (wasInReverse && velocity.magnitude < velocityThreshold * 0.5f)
                 {
                     //give it a little anti-forward push to correct facing
                     velocity = -transform.forward * velocityThreshold;
-                    engagedReverse = false;
+                    wasInReverse = false;
                     isInReverse = false;
                 }
 
@@ -35,16 +35,16 @@ public class playerPhysicsTreads : playerPhysics
 
                 //if we are in reverse but swithc to forward, approach the forward threshold
                 //by applying a negative forward force
-                if (engagedReverse && velocity.magnitude >= velocityThreshold)
+                if (wasInReverse && velocity.magnitude >= velocityThreshold)
                 {
                     thrust -= transform.forward * playerProps.thrustForce;
 
                 }
-                else if (engagedReverse && velocity.magnitude < velocityThreshold)
+                else if (wasInReverse && velocity.magnitude < velocityThreshold)
                 {
                     //give it a push in opposite direction
                     velocity = -1 * transform.forward * velocityThreshold;
-                    engagedReverse = false;
+                    wasInReverse = false;
 
                 }
                 else
@@ -63,17 +63,17 @@ public class playerPhysicsTreads : playerPhysics
                 isInReverse = true;
 
                 //approach the reverse threshold by applying a negative forward force                
-                if (!engagedReverse && velocity.magnitude >= velocityThreshold)
+                if (!wasInReverse && velocity.magnitude >= velocityThreshold)
                 {
                     thrust -= transform.forward * playerProps.thrustForce;
                 }
-                else if (!engagedReverse && velocity.magnitude < velocityThreshold)
+                else if (!wasInReverse && velocity.magnitude < velocityThreshold)
                 {
                     //give it a push in the opposite direction
                     velocity = -1 * transform.forward * velocityThreshold;
-                    engagedReverse = true;
+                    wasInReverse = true;
                 }
-                else if (engagedReverse)
+                else if (wasInReverse)
                 {
                     //once over the threshhold, apply a forward force, but we tell the
                     //geometry to flip it's facing so it appears to be moving in reverse
@@ -147,7 +147,7 @@ public class playerPhysicsTreads : playerPhysics
             velocity *= 0;
             //clear all movement flags to be sure
             isInReverse = false;
-            engagedReverse = false;
+            wasInReverse = false;
             isRotatingTurret = false;
 
         }
