@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -453,9 +453,9 @@ GameObject:
   - component: {fileID: 319879258}
   - component: {fileID: 319879257}
   - component: {fileID: 319879256}
+  - component: {fileID: 319879259}
   - component: {fileID: 319879255}
   - component: {fileID: 319879254}
-  - component: {fileID: 319879259}
   m_Layer: 0
   m_Name: PhysicsPlayer
   m_TagString: Player
@@ -472,7 +472,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 319879253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2729eed07227b46ac644a4c6e14601, type: 3}
+  m_Script: {fileID: 11500000, guid: 86251ebb2c834d945a5737eb59c792eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProps: {fileID: 319879257}
+  gameManager: {fileID: 838747722}
+  physicsController: {fileID: 319879255}
+  playerGeometry: {fileID: 1832200090}
+  facingVector: {x: 0, y: 180, z: 0}
+  finalForce: {x: 0, y: 0, z: 0}
+  yPosGround: 0
+  velocityThreshold: 0.5
+  finalPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &319879255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319879253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7c0148a12ecbb429226db88061904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
@@ -490,27 +511,6 @@ MonoBehaviour:
   isRotatingTurret: 0
   velocityThreshold: 0.5
   gameManager: {fileID: 838747722}
---- !u!114 &319879255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319879253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d57f3a24a130aca408f92d17969709f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerProps: {fileID: 319879257}
-  gameManager: {fileID: 838747722}
-  physicsController: {fileID: 319879254}
-  playerGeometry: {fileID: 1832200090}
-  facingVector: {x: 0, y: 180, z: 0}
-  finalForce: {x: 0, y: 0, z: 0}
-  yPosGround: 0
-  velocityThreshold: 0.5
-  finalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &319879256
 MonoBehaviour:
   m_ObjectHideFlags: 0
