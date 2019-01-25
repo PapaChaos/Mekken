@@ -17,9 +17,21 @@ public class IKsegement : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+
+        //if we have a child, use child as it is imported exactly right
+        if (child)
+            length = Vector3.Distance(transform.position , child.transform.position);
+        else
+        {
+            //use mesh bounds, not as accurate, does not account for joint placement, but works
+            //fine for end effector (foot, hand, whatever)
+            Mesh mesh = GetComponent<MeshFilter>().mesh;
+            length = mesh.bounds.max.z;
+        }
+
+    }
 
 
     public void updateSegmentAndChildren()

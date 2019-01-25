@@ -14,7 +14,7 @@ public class FKsegment : MonoBehaviour
 
     //you can use vector3 or quaternion to animate the rotations
     //as you see fit
-    public Vector3 accumRotation = new Vector3(0,0,0);
+    public Vector3 accumRotation = new Vector3(0, 0, 0);
     public Vector3 startRotation = new Vector3(0, 0, 0);
 
     public Quaternion QstartRotation = Quaternion.identity;
@@ -63,9 +63,13 @@ public class FKsegment : MonoBehaviour
        
         }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime);
+        transform.rotation = quatFinal;
+        
+        //use this code instead if you are doing something with random numbers perlin noise, hint hint.
+        //transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime);
+
     }
 
-    
+
 
 }
