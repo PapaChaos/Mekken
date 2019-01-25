@@ -9,22 +9,17 @@ public class FKsegment : MonoBehaviour
 
     public float amplitude = 1.0f;
     public float frequency = 1.0f;
-    public float phase = 1.0f;
-
-
+   
     public bool jointEnabled = false;
 
+    //you can use vector3 or quaternion to animate the rotations
+    //as you see fit
     public Vector3 accumRotation = new Vector3(0,0,0);
     public Vector3 startRotation = new Vector3(0, 0, 0);
 
-    public Quaternion QaccumRotation = Quaternion.identity;
     public Quaternion QstartRotation = Quaternion.identity;
+    public Quaternion QaccumRotation = Quaternion.identity;
 
-    public FKsegment parent = null;
-    public FKsegment child = null;
-
-    public Vector3 Apos = Vector3.zero;
-    public Vector3 Bpos = Vector3.zero;
 
     public FKSystem fkSystem;
     public Quaternion quatFinal = Quaternion.identity;
@@ -34,86 +29,43 @@ public class FKsegment : MonoBehaviour
     void Awake ()
     {
 
-        //calculate length based on model imported
-        if (child)
-            length = Vector3.Distance(transform.position , child.transform.position);
-        else
-            length = 1.0f;// fine for FK, length does not matter for end effector
 
         startRotation = transform.rotation.eulerAngles;
         QstartRotation = transform.rotation;
+        
 
 
-            
+
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
 
+        //just a simple rotation on the x axis
         float xRot = 0;
 
-        
+
+
         if (jointEnabled)
         {
+
+            //play with parameters to alter motion. 
             xRot = Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
-        }
 
-        accumRotation.x += xRot;
-        QaccumRotation *= Quaternion.Euler(xRot, 0, 0);
+            accumRotation.x += xRot;
 
-
-        if (parent)
-        {
-            //quatFinal.eulerAngles = (startRotation + accumRotation + parent.transform.rotation.eulerAngles);
+            QaccumRotation *= Quaternion.Euler(xRot, 0, 0);
 
             quatFinal = QstartRotation * QaccumRotation;
 
-            transform.rotation = quatFinal;
-        }
-        else
-        {
-            //quatFinal.eulerAngles = accumRotation;
-            quatFinal = QaccumRotation;
-            transform.rotation = quatFinal;
-        }        
-
-        updateSegmentAndChildren();
-    }
-
-    public void updateSegmentAndChildren()
-    {
-
-        updateSegment();
-
-        //update its children
-        if (child)
-            child.updateSegmentAndChildren();
-        
-
-    }
-
-    public void updateSegment()
-    {
-
-        if (parent)
-        {
-
-            Apos = parent.Bpos;         //could also use parent endpoint...
-            transform.position = Apos;  //move me to Apos (parent endpoint)
-        }
-        else
-        {
-            //Apos is always my position
-            Apos = transform.position;
+       
         }
 
-        //Bpos is always where the endpoint will be, as calculated from length 
-        calculateBpos();
+        transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime);
     }
 
-    void calculateBpos()
-    {
-        Bpos = Apos + transform.forward * length;
-    }
+    
+
 }
