@@ -18,13 +18,13 @@ public class playerControl : MonoBehaviour
     public bool firePrimary = false;
     public bool fireSecondary = false;
 
+    
     //is any control key pressed this frame (other than fire)?
     public bool controlerOn = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
     
     }
 
@@ -44,36 +44,64 @@ public class playerControl : MonoBehaviour
 
         controlerOn = false;
 
-
+    
         //assuming player 1
         //TODO: handle 2 players
-        if (Input.GetKey(KeyCode.W) )
+        /* <JPK> not needed and indeed controlerOn should be false
+        if (Input.GetAxis("Horizontal Player 1") == 0)
         {
-            forward = true;
+            right = false;
+            left = false;
+
             controlerOn = true;
         }
-        if (Input.GetKey(KeyCode.A) )
-        {
-            left = true;
-            controlerOn = true;
-        }
-        if (Input.GetKey(KeyCode.D) )
+        */
+       
+        if (Input.GetAxis("Horizontal Player 1") > 0.1)
         {
             right = true;
+            //<JPK> not needed, all control booleans are cleared at the top
+            //left = false;
+
             controlerOn = true;
         }
-        if (Input.GetKey(KeyCode.S) )
+        if (Input.GetAxis("Horizontal Player 1") < -0.1)
+        {
+            left = true;
+            //<JPK> not needed, all control booleans are cleared at the top
+            //right = false;
+
+            controlerOn = true;
+        }
+
+        //<JPK> not needed, all control booleans are cleared at the top
+        /*
+        if (Input.GetAxis("Vertical Player 1") == 0)
+        {
+            forward = false;
+            backward = false;
+
+            controlerOn = true;
+        }
+        */
+
+        if (Input.GetAxis("Vertical Player 1") > 0.1f)
+        {
+            forward = true;
+            //backward = false;
+
+            controlerOn = true;
+        }
+        if (Input.GetAxis("Vertical Player 1") < -0.1f)
         {
             backward = true;
+            //forward = false;
+
             controlerOn = true;
-        }
-        if (Input.GetKey(KeyCode.LeftShift))  //combo key
-        {            
-            strafe = true;           
         }
 
         //TODO: rapid fire or single shot?
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButton("Fire Player 1")) 
         {
             firePrimary = true;
         }
