@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 410968642}
   - component: {fileID: 1505623841}
   m_Layer: 0
-  m_Name: FKBipedalLegs
+  m_Name: FK_BIPEDAL_LEGS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5246,7 +5246,7 @@ GameObject:
   - component: {fileID: 5417662128814460368}
   - component: {fileID: 5417662128813494032}
   m_Layer: 0
-  m_Name: IKSpiderLegs
+  m_Name: IK_SPIDER_LEGS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
