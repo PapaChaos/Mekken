@@ -14,7 +14,8 @@ public class FKsegment : MonoBehaviour
 
     public bool jointEnabled = false;
 
-    public Quaternion accumRotation = Quaternion.identity;
+    public Vector3 accumRotation = new Vector3(0,0,0);
+    public Vector3 startRotation = new Vector3(0, 0, 0);
 
     public FKsegment parent = null;
     public FKsegment child = null;
@@ -23,6 +24,7 @@ public class FKsegment : MonoBehaviour
     public Vector3 Bpos = Vector3.zero;
 
     public FKSystem fkSystem;
+    public Quaternion quatFinal = Quaternion.identity;
 
 
     // Use this for initialization
@@ -35,16 +37,9 @@ public class FKsegment : MonoBehaviour
         else
             length = 1.0f;// fine for FK, length does not matter for end effector
 
-        accumRotation = transform.rotation;
-
-        if (parent)
-        {
-
-            transform.rotation *= Quaternion.Inverse(parent.transform.rotation);
-            accumRotation = transform.rotation;
+        startRotation = transform.rotation.eulerAngles;
 
 
-        }
             
     }
 	
@@ -60,21 +55,19 @@ public class FKsegment : MonoBehaviour
             xRot = Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
         }
 
-        accumRotation *= Quaternion.EulerRotation(xRot * Mathf.Deg2Rad, 0,0);
+        accumRotation.x += xRot;
 
-        //Quaternion quat = new Quaternion();
-        //quat.eulerAngles = accumRotation;
-
+        
         if (parent)
         {
-            transform.rotation = accumRotation * parent.transform.rotation;
+            quatFinal.eulerAngles = (startRotation + accumRotation + parent.transform.rotation.eulerAngles);
+            transform.rotation = quatFinal;
         }
         else
         {
-            transform.rotation = accumRotation;
-        }
-
-        
+            quatFinal.eulerAngles = accumRotation;
+            transform.rotation = quatFinal;
+        }        
 
         updateSegmentAndChildren();
     }
