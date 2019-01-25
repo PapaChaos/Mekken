@@ -17,6 +17,9 @@ public class FKsegment : MonoBehaviour
     public Vector3 accumRotation = new Vector3(0,0,0);
     public Vector3 startRotation = new Vector3(0, 0, 0);
 
+    public Quaternion QaccumRotation = Quaternion.identity;
+    public Quaternion QstartRotation = Quaternion.identity;
+
     public FKsegment parent = null;
     public FKsegment child = null;
 
@@ -38,6 +41,7 @@ public class FKsegment : MonoBehaviour
             length = 1.0f;// fine for FK, length does not matter for end effector
 
         startRotation = transform.rotation.eulerAngles;
+        QstartRotation = transform.rotation;
 
 
             
@@ -56,16 +60,21 @@ public class FKsegment : MonoBehaviour
         }
 
         accumRotation.x += xRot;
+        QaccumRotation *= Quaternion.Euler(xRot, 0, 0);
 
-        
+
         if (parent)
         {
-            quatFinal.eulerAngles = (startRotation + accumRotation + parent.transform.rotation.eulerAngles);
+            //quatFinal.eulerAngles = (startRotation + accumRotation + parent.transform.rotation.eulerAngles);
+
+            quatFinal = QstartRotation * QaccumRotation;
+
             transform.rotation = quatFinal;
         }
         else
         {
-            quatFinal.eulerAngles = accumRotation;
+            //quatFinal.eulerAngles = accumRotation;
+            quatFinal = QaccumRotation;
             transform.rotation = quatFinal;
         }        
 
@@ -80,8 +89,7 @@ public class FKsegment : MonoBehaviour
         //update its children
         if (child)
             child.updateSegmentAndChildren();
-
-
+        
 
     }
 
