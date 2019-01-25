@@ -44,15 +44,23 @@ public class playerPhysics : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-
         //reset thrust each frame
         thrust *= 0;
-        //assume we will update facing by velocity
-        updateFacing = true;
 
+        //using fixed update bellow, so anything that must be handled per frame
+        //should be handled here 
+    }
+
+
+    // Update is called once per frame, fixed update is called when the physics updates at a set rate
+    // this helps to solve things like jitter, and in this case, a frame rendering when the geometry is
+    // changing facing from forward to reverse and v/v. I would prefer not to do this, but it's a fix, done and done.
+    void FixedUpdate()
+    {
+             
 
         if (!gameManager.gameOver)
         {
@@ -98,6 +106,8 @@ public class playerPhysics : MonoBehaviour
         if (playerProps.energy > 0.0f )
         {
 
+            updateFacing = true;
+
             if (controller.forward)
             {
                 isRotatingTurret = false;
@@ -112,12 +122,13 @@ public class playerPhysics : MonoBehaviour
                 }
                 else if (wasInReverse && velocity.magnitude < velocityThreshold)
                 {
-                    velocity *= 0;                    
+                    velocity *= 0;
 
                     //reset out facing
+                    Debug.Log("flip reverse to forward");
                     transform.Rotate(0, 180, 0);
 
-                    updateFacing = true;
+                    updateFacing = false;
                     wasInReverse = false;                    
                     wasInForward = true;
 
@@ -315,9 +326,9 @@ public class playerPhysics : MonoBehaviour
 
         }
 
-        if (velocity.magnitude < velocityThreshold)
-            updateFacing = false;
-
+        if (velocity.magnitude < velocityThreshold * 2.0f)
+            updateFacing = false;        
+            
         if (velocity.magnitude > velocityThreshold && wasStrafeing)
             updateFacing = false;
         else
