@@ -108,5 +108,8 @@ public class playerControl : MonoBehaviour
 
         //TODO: control for power on missle launch
 
+        //TODO: add back strafe combo key
+
+
     }
 }
