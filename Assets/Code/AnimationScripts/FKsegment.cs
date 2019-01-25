@@ -29,7 +29,12 @@ public class FKsegment : MonoBehaviour
     void Awake ()
     {
 
-        
+        //calculate length based on model imported
+        if (child)
+            length = Vector3.Distance(transform.position , child.transform.position);
+        else
+            length = 1.0f;// fine for FK, length does not matter for end effector
+
         accumRotation = transform.rotation;
 
         if (parent)
