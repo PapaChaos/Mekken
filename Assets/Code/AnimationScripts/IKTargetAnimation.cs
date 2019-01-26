@@ -16,11 +16,16 @@ public class IKTargetAnimation : MonoBehaviour
     public IKsegement endEffector;
     public WHOSE_UPDATE whose = WHOSE_UPDATE.JOHN;
 
+    //though this is just a demo of IK animations, we still are a "player"
+    //even if we are an NPC, which is just a player with an AI instead of a person
+    public playerProperties playerProps;
 
-
-    //JOHN's parameters and variables:
+    //JOHN's parameters and variables (you can use these too):
     private bool initialized = false;
-
+    public float groundOffset = 0.0f; //this too can be animated. by default the ball will hug the surface
+    public float amplitude = 1.0f;
+    public float frequency = 1.0f;
+    public Vector3 animPosition = new Vector3(0, 0, 0);
 
     //ADD_YOUR_NAME's parameters and variables:
     //etc...
@@ -58,9 +63,17 @@ public class IKTargetAnimation : MonoBehaviour
     // we can add any number of "updates" and simply choose one above depending on state 
     void updateJohn()
     {
-        //this stinks that we constantly have to check this, but it works...
-        if (!initialized)
-            setInitialPosition();  //based on the model position of the limbs.
+      
+
+        //simple up/down bob script with terrain following
+        float animHeight = 0; // Mathf.Sin(Time.time * frequency) * amplitude;
+
+        animPosition = transform.position;
+
+        //follow the terrain
+        animPosition.y = playerProps.terrainYPoint + groundOffset + animHeight;
+
+        transform.position = animPosition;
 
 
     }

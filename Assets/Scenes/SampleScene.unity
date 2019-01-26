@@ -246,11 +246,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151869136}
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.86, y: -1.87, z: 3.56}
+  m_LocalPosition: {x: -2, y: -2, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.50000006, z: 0.50000006}
   m_Children: []
   m_Father: {fileID: 5417662128815787504}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &151869138
 SphereCollider:
@@ -323,6 +323,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428061}
+  whose: 0
+  playerProps: {fileID: 5417662128815428049}
+  groundOffset: 0
+  amplitude: 1
+  frequency: 1
+  animPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: -1
@@ -570,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: -1
@@ -592,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.25
   frequency: 1
@@ -1954,6 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: 1
@@ -2369,11 +2379,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933177040}
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2, y: -1.53, z: -3.36}
+  m_LocalPosition: {x: -2, y: -2, z: -1.5}
   m_LocalScale: {x: 0.5, y: 0.50000006, z: 0.50000006}
   m_Children: []
   m_Father: {fileID: 5417662128815787504}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &933177042
 SphereCollider:
@@ -2446,6 +2456,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428057}
+  whose: 0
+  playerProps: {fileID: 5417662128815428049}
+  groundOffset: 0
+  amplitude: 1
+  frequency: 1
+  animPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &959503961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,6 +2666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: 1
@@ -2888,7 +2905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233762061}
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: -1.53, z: 2.17}
+  m_LocalPosition: {x: 2, y: -2, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 5417662128815787504}
@@ -2965,6 +2982,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428033}
+  whose: 0
+  playerProps: {fileID: 5417662128815428049}
+  groundOffset: 0
+  amplitude: 1
+  frequency: 1
+  animPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1244369401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2977,6 +3000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.25
   frequency: 1
@@ -3487,6 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: 1
@@ -3739,7 +3764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904041919}
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.16, y: -1.34, z: -3.15}
+  m_LocalPosition: {x: 2, y: -2, z: -1.5}
   m_LocalScale: {x: 0.5, y: 0.50000006, z: 0.50000006}
   m_Children: []
   m_Father: {fileID: 5417662128815787504}
@@ -3816,6 +3841,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428053}
+  whose: 0
+  playerProps: {fileID: 5417662128815428049}
+  groundOffset: 0
+  amplitude: 1
+  frequency: 1
+  animPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1939371983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3828,6 +3859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whose: 0
   length: 2
   amplitude: 0.5
   frequency: -1
@@ -4836,11 +4868,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 5417662128815428063}
   child: {fileID: 0}
+  length: 0
 --- !u!1 &5417662128815428048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,6 +4882,8 @@ GameObject:
   - component: {fileID: 5417662128815787504}
   - component: {fileID: 5417662128814460368}
   - component: {fileID: 5417662128813494032}
+  - component: {fileID: 5417662128815428049}
+  - component: {fileID: 5417662128815428064}
   m_Layer: 0
   m_Name: IK_SPIDER_LEGS
   m_TagString: Untagged
@@ -4859,6 +4891,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5417662128815428049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5417662128815428048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c393214cdbf74e489c3a767e3ca955b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  energy: 100
+  consumption: 0.25
+  maxSpeed: 5
+  structuralIntegrity: 1
+  integrityVelocity: 3
+  thrustForce: 5
+  stoppingForce: 0.5
+  lateralFactor: 1
+  strafeFactor: 2
+  rotateTurretFactor: 200
+  surfaceTransform: {fileID: 1700463732}
+  surface: {fileID: 1700463731}
+  onSurface: 0
+  surfaceTraction: 1
+  distanceOffGround: 1000
+  surfaceOffset: 1
+  terrainYPoint: 100
+  isOnDeathTrap: 0
+  surfaceNormal: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,11 +4954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 0}
   child: {fileID: 5417662128815428053}
+  length: 0
 --- !u!1 &5417662128815428052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,11 +4988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 5417662128815428051}
   child: {fileID: 0}
+  length: 0
 --- !u!1 &5417662128815428054
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,11 +5022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 0}
   child: {fileID: 5417662128815428057}
+  length: 0
 --- !u!1 &5417662128815428056
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,11 +5056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 5417662128815428055}
   child: {fileID: 0}
+  length: 0
 --- !u!1 &5417662128815428058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,11 +5090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 0}
   child: {fileID: 5417662128815428061}
+  length: 0
 --- !u!1 &5417662128815428060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5070,11 +5124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 5417662128815428059}
   child: {fileID: 0}
+  length: 0
 --- !u!1 &5417662128815428062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5106,11 +5158,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e6b0a528626824e827faf5d020d3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Apos: {x: 0, y: 0, z: 0}
-  Bpos: {x: 0, y: 0, z: 0}
-  length: 0
   parent: {fileID: 0}
   child: {fileID: 5417662128815428033}
+  length: 0
+--- !u!114 &5417662128815428064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5417662128815428048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9b53723e4f28c42b43893dc0b909dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whose: 0
+  groundOffset: 2
+  amplitude: 0.25
+  frequency: 6
+  animPosition: {x: 0, y: 0, z: 0}
+  playerProps: {fileID: 5417662128815428049}
 --- !u!4 &5417662128815787488
 Transform:
   m_ObjectHideFlags: 0
@@ -5141,8 +5209,8 @@ Transform:
   - {fileID: 987469157}
   - {fileID: 350640582}
   - {fileID: 1233762062}
-  - {fileID: 933177041}
   - {fileID: 151869137}
+  - {fileID: 933177041}
   - {fileID: 1904041920}
   m_Father: {fileID: 0}
   m_RootOrder: 2
