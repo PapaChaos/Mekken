@@ -7,18 +7,25 @@ using UnityEngine;
 
 public class IKsegement : MonoBehaviour {
 
-    public Vector3 Apos = new Vector3(0, 0, 0);
-    public Vector3 Bpos = new Vector3(0, 0, 0);
-
-    public float length = 0;
+    
 
     public IKsegement parent = null;
     public IKsegement child = null;
 
 
+    public float length = -1;
+
+    private Vector3 Apos = new Vector3(0, 0, 0);
+    private Vector3 Bpos = new Vector3(0, 0, 0);
+
+
+
+
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
+
+        length = -1;
 
         //if we have a child, use child as it is imported exactly right
         if (child)

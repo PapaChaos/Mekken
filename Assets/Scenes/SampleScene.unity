@@ -230,8 +230,9 @@ GameObject:
   - component: {fileID: 151869140}
   - component: {fileID: 151869139}
   - component: {fileID: 151869138}
+  - component: {fileID: 151869141}
   m_Layer: 0
-  m_Name: targetBackRight
+  m_Name: targetLeftFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,6 +310,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151869136}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &151869141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151869136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9553d6d2371e0a44c8f12117f5d15ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endEffector: {fileID: 5417662128815428061}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +497,7 @@ GameObject:
   - component: {fileID: 203441996}
   - component: {fileID: 203441997}
   m_Layer: 0
-  m_Name: SpiderLegLeftFront
+  m_Name: SpiderLegLeftBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +861,7 @@ GameObject:
   - component: {fileID: 350640582}
   - component: {fileID: 350640583}
   m_Layer: 0
-  m_Name: SpiderLegRightBack
+  m_Name: SpiderLegLeftFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,8 +2353,9 @@ GameObject:
   - component: {fileID: 933177044}
   - component: {fileID: 933177043}
   - component: {fileID: 933177042}
+  - component: {fileID: 933177045}
   m_Layer: 0
-  m_Name: targetFrontLeft
+  m_Name: targetLeftBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2418,6 +2433,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933177040}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &933177045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933177040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9553d6d2371e0a44c8f12117f5d15ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endEffector: {fileID: 5417662128815428057}
 --- !u!1 &959503961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,7 +2489,7 @@ GameObject:
   - component: {fileID: 987469157}
   - component: {fileID: 987469158}
   m_Layer: 0
-  m_Name: SpiderLegLeftBack
+  m_Name: SpiderLegRightBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2844,8 +2872,9 @@ GameObject:
   - component: {fileID: 1233762065}
   - component: {fileID: 1233762064}
   - component: {fileID: 1233762063}
+  - component: {fileID: 1233762066}
   m_Layer: 0
-  m_Name: targetFrontRight
+  m_Name: targetRightFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2923,6 +2952,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233762061}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1233762066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233762061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9553d6d2371e0a44c8f12117f5d15ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endEffector: {fileID: 5417662128815428033}
 --- !u!114 &1244369401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3681,8 +3723,9 @@ GameObject:
   - component: {fileID: 1904041923}
   - component: {fileID: 1904041922}
   - component: {fileID: 1904041921}
+  - component: {fileID: 1904041924}
   m_Layer: 0
-  m_Name: targetBackLeft
+  m_Name: targetRightBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3760,6 +3803,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904041919}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1904041924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904041919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9553d6d2371e0a44c8f12117f5d15ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endEffector: {fileID: 5417662128815428053}
 --- !u!114 &1939371983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4816,7 +4872,7 @@ GameObject:
   - component: {fileID: 5417662128813494034}
   - component: {fileID: 5417662128815428051}
   m_Layer: 0
-  m_Name: SpiderLegLeftBackA
+  m_Name: SpiderLegRightBackA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4852,7 +4908,7 @@ GameObject:
   - component: {fileID: 5417662128813494036}
   - component: {fileID: 5417662128815428053}
   m_Layer: 0
-  m_Name: SpiderLegLeftBackB
+  m_Name: SpiderLegRightBackB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4888,7 +4944,7 @@ GameObject:
   - component: {fileID: 5417662128813494038}
   - component: {fileID: 5417662128815428055}
   m_Layer: 0
-  m_Name: SpiderLegLeftFrontA
+  m_Name: SpiderLegLeftBackA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4924,7 +4980,7 @@ GameObject:
   - component: {fileID: 5417662128813494040}
   - component: {fileID: 5417662128815428057}
   m_Layer: 0
-  m_Name: SpiderLegLeftFrontB
+  m_Name: SpiderLegLeftBackB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4960,7 +5016,7 @@ GameObject:
   - component: {fileID: 5417662128813494042}
   - component: {fileID: 5417662128815428059}
   m_Layer: 0
-  m_Name: SpiderLegRightBackA
+  m_Name: SpiderLegLeftFrontA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4996,7 +5052,7 @@ GameObject:
   - component: {fileID: 5417662128813494044}
   - component: {fileID: 5417662128815428061}
   m_Layer: 0
-  m_Name: SpiderLegRightBackB
+  m_Name: SpiderLegLeftFrontB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

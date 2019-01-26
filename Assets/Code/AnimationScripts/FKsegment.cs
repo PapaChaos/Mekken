@@ -5,6 +5,19 @@ using UnityEngine;
 public class FKsegment : MonoBehaviour
 {
 
+    // we use this to choose the animation update to apply - this refers to the person who made it
+    // and/or the animation state we are in (idle,walk,run,die, etc...) 
+    public enum WHOSE_UPDATE
+    {
+        JOHN,
+        ADD_YOUR_NAME,
+        ADD_THE_NEXT_PERSONS_NAME //etc...
+    };
+
+    
+    public WHOSE_UPDATE whose = WHOSE_UPDATE.JOHN;
+    
+
     public float length = 2;
 
     public float amplitude = 1.0f;
@@ -43,9 +56,32 @@ public class FKsegment : MonoBehaviour
     void Update()
     {
 
+
+        //and here is where we actually animate it. we use a switch statement to go to
+        //the animation we want.
+
+        switch (whose)
+        {
+            case WHOSE_UPDATE.JOHN:
+                {
+                    updateJohn();
+                    break;
+                }
+            case WHOSE_UPDATE.ADD_YOUR_NAME:
+                {
+                    //etc...
+
+                    break;
+                }
+        }
+
+        
+    }
+
+    void updateJohn()
+    {
         //just a simple rotation on the x axis
         float xRot = 0;
-
 
 
         if (jointEnabled)
@@ -54,22 +90,23 @@ public class FKsegment : MonoBehaviour
             //play with parameters to alter motion. 
             xRot = Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
 
+
+            //i'm supporting both euler and quat rotations, take yer pick
             accumRotation.x += xRot;
 
             QaccumRotation *= Quaternion.Euler(xRot, 0, 0);
 
             quatFinal = QstartRotation * QaccumRotation;
 
-       
+
         }
 
         transform.rotation = quatFinal;
-        
+
         //use this code instead if you are doing something with random numbers perlin noise, hint hint.
         //transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime);
 
     }
-
 
 
 }
