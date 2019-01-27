@@ -335,4 +335,8 @@ public class playerPhysics : MonoBehaviour
             wasStrafeing = false;
     }
 
+
+
+
+
 }
