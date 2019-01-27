@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
 
     public bool gameOver = false;
-
+    public int playerOneRoundsWon = 0;
+    public int playerTwoRoundsWon = 0;
 
     // Start is called before the first frame update
     void Start()
