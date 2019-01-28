@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 54965734}
   - component: {fileID: 54965733}
   - component: {fileID: 54965732}
+  - component: {fileID: 54965736}
   m_Layer: 0
   m_Name: FK_BIPEDAL_LEGS_JOHN
   m_TagString: Untagged
@@ -306,6 +307,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -133.14401, z: 0}
+--- !u!65 &54965736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54965731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.202206, y: 7.7265935, z: 1.9964451}
+  m_Center: {x: -1.9538346e-13, y: -1.8788915, z: 0.000002026558}
 --- !u!1 &68373840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100022, guid: 56e83bc50bbfcdd499d55059cdfcfa5f,
@@ -1064,11 +1078,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
+  power: 0.5
   cooldown: -1
   timeout: 1
   controller: {fileID: 319879256}
-  playerGeom: {fileID: 319879258}
+  playerGeom: {fileID: 1111845315}
   missile: {fileID: 989154238}
 --- !u!1 &342778303
 GameObject:
@@ -2742,6 +2756,25 @@ Transform:
   m_Father: {fileID: 1740216684}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 26.2, z: 0}
+--- !u!1 &811687625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 1da5580ba5948ee4ebdc2a494f7ca405,
+    type: 3}
+  m_PrefabInstance: {fileID: 1111845314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &811687626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811687625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62990d3dc54339745a3e40137bcfa21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 54965735}
 --- !u!1 &827210728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 56e83bc50bbfcdd499d55059cdfcfa5f,
@@ -3237,6 +3270,7 @@ GameObject:
   - component: {fileID: 989154235}
   - component: {fileID: 989154234}
   - component: {fileID: 989154238}
+  - component: {fileID: 989154239}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -3252,7 +3286,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989154233}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3328,12 +3362,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1fab3e91c2564aa5c5316507e25d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: {x: 0, y: 1, z: 0}
-  powerFactor: 20
+  angle: {x: 0, y: 0, z: 0}
+  powerFactor: 60
   inAir: 0
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
+  GRAVITY_CONSTANT: 0
+--- !u!54 &989154239
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989154233}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1079352336
 GameObject:
   m_ObjectHideFlags: 0

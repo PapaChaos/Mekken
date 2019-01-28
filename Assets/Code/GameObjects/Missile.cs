@@ -18,6 +18,8 @@ public class Missile : MonoBehaviour
     public Vector3 acceleration;
     public Vector3 finalForce;
 
+    public float  GRAVITY_CONSTANT = -9.8f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,9 @@ public class Missile : MonoBehaviour
     void handleMovementAir()
     {
         //reset final force to the initial force of gravity
-        finalForce.Set(0, -9.8f, 0);
+        finalForce.Set(0, GRAVITY_CONSTANT, 0);
+
+
 
         acceleration = finalForce;
         //add more forces here
@@ -64,6 +68,11 @@ public class Missile : MonoBehaviour
 
         velocity = (direction + angle) * power * powerFactor;
         inAir = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collided with" + other.name);
     }
 
 }
