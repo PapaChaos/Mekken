@@ -18,7 +18,7 @@ public class IKsegement : MonoBehaviour {
     private Vector3 Apos = new Vector3(0, 0, 0);
     private Vector3 Bpos = new Vector3(0, 0, 0);
 
-
+   
 
 
     // Use this for initialization
@@ -27,6 +27,7 @@ public class IKsegement : MonoBehaviour {
 
         length = -1;
 
+   
         //if we have a child, use child as it is imported exactly right
         if (child)
             length = Vector3.Distance(transform.position , child.transform.position);
@@ -37,6 +38,8 @@ public class IKsegement : MonoBehaviour {
             Mesh mesh = GetComponent<MeshFilter>().mesh;
             length = mesh.bounds.max.z;
         }
+       
+        
 
     }
 
@@ -77,7 +80,10 @@ public class IKsegement : MonoBehaviour {
 
     public void pointAt(Vector3 target)
     {
+        //here is where we apply the rotation thus where we would apply a contraint
+        
         transform.LookAt(target);
+
     }
 
 

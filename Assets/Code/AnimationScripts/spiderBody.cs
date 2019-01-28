@@ -22,10 +22,13 @@ public class spiderBody : MonoBehaviour
 
     public playerProperties playerProps;
 
+    private Vector3 initialPosition = new Vector3(0, 0, 0);
+    private float myTime = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -53,13 +56,17 @@ public class spiderBody : MonoBehaviour
     {
 
         //simple up/down bob script with terrain following
-        float animHeight = Mathf.Sin(Time.time * frequency) * amplitude;
+        float animHeight = Mathf.Sin(myTime * frequency) * amplitude;
 
+                
         animPosition = transform.position;
         
         animPosition.y = playerProps.terrainYPoint + groundOffset + animHeight;
-
+        
         transform.position = animPosition;
+
+        myTime += Time.deltaTime;
+
 
     }
 }
