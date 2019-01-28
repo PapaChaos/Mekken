@@ -20,6 +20,8 @@ public class Missile : MonoBehaviour
 
     public float  GRAVITY_CONSTANT = -9.8f;
 
+    public float damageValue = 1.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +75,21 @@ public class Missile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("collided with" + other.name);
+        //make an explosion
+
+        //do damage
+        if ( other.transform.GetComponent<damage>() )
+        {
+
+            other.transform.GetComponent<damage>().doDamage(damageValue);
+            //apply force
+            other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 100.0f);
+
+
+        }
+
+
+
     }
 
 }

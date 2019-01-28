@@ -20,7 +20,8 @@ public class playerMotion : MonoBehaviour
 
     public Vector3 finalPosition = new Vector3(0, 0, 0);
    
-    
+    public Vector3 externalImpulseForce = new Vector3(0, 0, 0);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,8 +105,14 @@ public class playerMotion : MonoBehaviour
         //handle the facing of the geometry representing the player
         //this will depend on movement type and context
         handleAvatarFacing();
-       
+
+        //apply external forces last
+
+        physicsController.velocity += externalImpulseForce;
+
+        externalImpulseForce *= 0;
         
+
     }
 
     public void handleAvatarFacing()
@@ -200,7 +207,11 @@ public class playerMotion : MonoBehaviour
 
     }
 
+    public void applyImpulseForce(Vector3 howMuch)
+    {
+        externalImpulseForce += howMuch;
 
+    }
 
 
 
