@@ -27,11 +27,20 @@ public class TankTreadsAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (physicsController.isInForward)
+        {
+            direction = -1;
+        }
+        else
+        {
+            direction = 1;
+
+        }
 
         //direction is a function of physicsController.isInForward , .isInReverse, and .isRotatingTurret
 
         //we need to know if we are left or right tread, our velocity, and movement type
-        speed = direction * physicsController.velocity.magnitude ; // multiplied by some scalar to make it look right
+        speed = direction * physicsController.velocity.magnitude * 0.1f; // multiplied by some scalar to make it look right
 
         Vector2[] uvs = mesh.uv;
 
