@@ -68,14 +68,14 @@ public class playerProperties : MonoBehaviour
 
            
             //get current distance off ground
-            distanceOffGround = hit.distance;
+            distanceOffGround = hit.distance - hitTestMargin.y;
             terrainYPoint = hit.point.y;
             surfaceNormal = hit.normal;
 
             if (distanceOffGround > surfaceOffset * 2.0f)
             {
                 onSurface = false;
-                Debug.Log("NOT ON SURFACE");
+                
             }
             //change our surface properties if the surface changes
             if (hit.transform != surfaceTransform)

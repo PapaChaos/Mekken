@@ -738,7 +738,7 @@ MonoBehaviour:
   distanceOffGround: 1000
   surfaceOffset: 1
   hitTestMargin: {x: 0, y: 20, z: 0}
-  terrainYPoint: 1
+  terrainYPoint: 20
   isOnDeathTrap: 0
   surfaceNormal: {x: 0, y: 0, z: 0}
 --- !u!4 &319879258
