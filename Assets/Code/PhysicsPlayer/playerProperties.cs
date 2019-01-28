@@ -32,6 +32,7 @@ public class playerProperties : MonoBehaviour
     public float surfaceTraction = 1.0f;  //factor affecting friction based on locomotion type
     public float distanceOffGround = 1000.0f;
     public float surfaceOffset = 1.0f;
+    public Vector3 hitTestMargin = new Vector3(0, 20, 0);
 
     public float terrainYPoint = 0;
 
@@ -60,7 +61,7 @@ public class playerProperties : MonoBehaviour
         //find out what surface I am on and swap it's surface properties into my component
         RaycastHit hit;
         bool didHit = false;
-        didHit = Physics.Raycast(transform.position, Vector3.down, out hit, 1000.0f, layerMask);
+        didHit = Physics.Raycast(transform.position + hitTestMargin, Vector3.down, out hit, 1000.0f, layerMask);
 
         if (didHit)
         {

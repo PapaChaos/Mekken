@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -324,7 +324,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428061}
   whose: 0
-  playerProps: {fileID: 5417662128815428049}
+  distanceOffGround: 0
+  terrainYPoint: 50
+  surfaceNormal: {x: 0, y: 0, z: 0}
+  hitTestMargin: {x: 0, y: 20, z: 0}
+  surfaceTransform: {fileID: 1700463732}
+  surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
   frequency: 1
@@ -732,6 +737,7 @@ MonoBehaviour:
   surfaceTraction: 1
   distanceOffGround: 1000
   surfaceOffset: 1
+  hitTestMargin: {x: 0, y: 20, z: 0}
   terrainYPoint: 1
   isOnDeathTrap: 0
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -1696,7 +1702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484017162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2525,7 +2531,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428057}
   whose: 0
-  playerProps: {fileID: 5417662128815428049}
+  distanceOffGround: 0
+  terrainYPoint: 50
+  surfaceNormal: {x: 0, y: 0, z: 0}
+  hitTestMargin: {x: 0, y: 20, z: 0}
+  surfaceTransform: {fileID: 1700463732}
+  surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
   frequency: 1
@@ -3130,7 +3141,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428033}
   whose: 0
-  playerProps: {fileID: 5417662128815428049}
+  distanceOffGround: 0
+  terrainYPoint: 50
+  surfaceNormal: {x: 0, y: 0, z: 0}
+  hitTestMargin: {x: 0, y: 20, z: 0}
+  surfaceTransform: {fileID: 1700463732}
+  surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
   frequency: 1
@@ -4031,7 +4047,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428053}
   whose: 0
-  playerProps: {fileID: 5417662128815428049}
+  distanceOffGround: 0
+  terrainYPoint: 50
+  surfaceNormal: {x: 0, y: 0, z: 0}
+  hitTestMargin: {x: 0, y: 20, z: 0}
+  surfaceTransform: {fileID: 1700463732}
+  surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
   frequency: 1
@@ -5132,7 +5153,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5417662128815428054}
-  m_Mesh: {fileID: 4300010, guid: b5fb6f2669b66f24e934de6be6dbbeb6, type: 3}
+  m_Mesh: {fileID: 4300014, guid: b5fb6f2669b66f24e934de6be6dbbeb6, type: 3}
 --- !u!33 &5417662128814460376
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5140,7 +5161,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5417662128815428056}
-  m_Mesh: {fileID: 4300012, guid: b5fb6f2669b66f24e934de6be6dbbeb6, type: 3}
+  m_Mesh: {fileID: 4300016, guid: b5fb6f2669b66f24e934de6be6dbbeb6, type: 3}
 --- !u!33 &5417662128814460378
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5199,11 +5220,6 @@ MonoBehaviour:
   parent: {fileID: 5417662128815428063}
   child: {fileID: 0}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5253,6 +5269,7 @@ MonoBehaviour:
   surfaceTraction: 1
   distanceOffGround: 1000
   surfaceOffset: 1
+  hitTestMargin: {x: 0, y: 20, z: 0}
   terrainYPoint: 100
   isOnDeathTrap: 0
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -5290,11 +5307,6 @@ MonoBehaviour:
   parent: {fileID: 0}
   child: {fileID: 5417662128815428053}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,11 +5341,6 @@ MonoBehaviour:
   parent: {fileID: 5417662128815428051}
   child: {fileID: 0}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,11 +5375,6 @@ MonoBehaviour:
   parent: {fileID: 0}
   child: {fileID: 5417662128815428057}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,11 +5409,6 @@ MonoBehaviour:
   parent: {fileID: 5417662128815428055}
   child: {fileID: 0}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!1 &5417662128815428058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,11 +5443,6 @@ MonoBehaviour:
   parent: {fileID: 0}
   child: {fileID: 5417662128815428061}
   length: 0
-  eulerInit: {x: 30, y: -30, z: 0}
-  Xrange: 60
-  Yrange: 60
-  Zrange: 0
-  range: {x: 60, y: 60, z: 0}
 --- !u!1 &5417662128815428060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,11 +5477,6 @@ MonoBehaviour:
   parent: {fileID: 5417662128815428059}
   child: {fileID: 0}
   length: 0
-  eulerInit: {x: 70, y: 0, z: 0}
-  Xrange: 70
-  Yrange: 0
-  Zrange: 0
-  range: {x: 70, y: 0, z: 0}
 --- !u!1 &5417662128815428062
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,11 +5511,6 @@ MonoBehaviour:
   parent: {fileID: 0}
   child: {fileID: 5417662128815428033}
   length: 0
-  eulerInit: {x: 0, y: 0, z: 0}
-  Xrange: 90
-  Yrange: 0
-  Zrange: 0
-  range: {x: 0, y: 0, z: 0}
 --- !u!114 &5417662128815428064
 MonoBehaviour:
   m_ObjectHideFlags: 0
