@@ -159,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1
@@ -518,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428061}
-  whose: 0
+  whose: 1
   distanceOffGround: 0
   terrainYPoint: 50
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -527,8 +526,12 @@ MonoBehaviour:
   surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
-  frequency: 1
+  frequency: 10
   animPosition: {x: 0, y: 0, z: 0}
+  pos1: {x: 0, y: 0, z: 0}
+  pos2: {x: 0, y: 0, z: 0}
+  direction: -1
+  howMuch: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1
@@ -778,7 +780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1
@@ -801,7 +802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.25
   frequency: 1
   jointEnabled: 1
@@ -858,7 +858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -2333,7 +2332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -2390,7 +2388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1
@@ -2491,7 +2488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.25
   frequency: 1
   jointEnabled: 1
@@ -2951,7 +2947,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -3132,7 +3127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428057}
-  whose: 0
+  whose: 1
   distanceOffGround: 0
   terrainYPoint: 50
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -3141,8 +3136,12 @@ MonoBehaviour:
   surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
-  frequency: 1
+  frequency: 10
   animPosition: {x: 0, y: 0, z: 0}
+  pos1: {x: 0, y: 0, z: 0}
+  pos2: {x: 0, y: 0, z: 0}
+  direction: 1
+  howMuch: 0
 --- !u!1 &959503961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3436,7 @@ Transform:
   m_LocalScale: {x: 46.801247, y: 7.571566, z: 9.6056}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: -30.936, z: 0}
 --- !u!114 &1101214657
 MonoBehaviour:
@@ -3452,7 +3451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -3846,7 +3844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428033}
-  whose: 0
+  whose: 1
   distanceOffGround: 0
   terrainYPoint: 50
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -3855,8 +3853,12 @@ MonoBehaviour:
   surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
-  frequency: 1
+  frequency: 10
   animPosition: {x: 0, y: 0, z: 0}
+  pos1: {x: 0, y: 0, z: 0}
+  pos2: {x: 0, y: 0, z: 0}
+  direction: 1
+  howMuch: 0
 --- !u!114 &1244369401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3870,7 +3872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.25
   frequency: 1
   jointEnabled: 1
@@ -4238,7 +4239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.25
   frequency: 1
   jointEnabled: 1
@@ -4493,7 +4493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687951733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -83.49, y: 16.73, z: -3.34}
+  m_LocalPosition: {x: -83.49, y: 15.71, z: -3.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5417662128815787504}
@@ -4517,7 +4517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -4795,7 +4794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: 1
   jointEnabled: 1
@@ -4955,7 +4953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endEffector: {fileID: 5417662128815428053}
-  whose: 0
+  whose: 1
   distanceOffGround: 0
   terrainYPoint: 50
   surfaceNormal: {x: 0, y: 0, z: 0}
@@ -4964,8 +4962,12 @@ MonoBehaviour:
   surface: {fileID: 1700463731}
   groundOffset: 0
   amplitude: 1
-  frequency: 1
+  frequency: 10
   animPosition: {x: 0, y: 0, z: 0}
+  pos1: {x: 0, y: 0, z: 0}
+  pos2: {x: 0, y: 0, z: 0}
+  direction: -1
+  howMuch: 0
 --- !u!114 &1939371983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4979,7 +4981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 3
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1
@@ -5460,7 +5461,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whose: 0
-  length: 2
   amplitude: 0.5
   frequency: -1
   jointEnabled: 1

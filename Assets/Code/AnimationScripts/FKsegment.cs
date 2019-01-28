@@ -41,17 +41,50 @@ public class FKsegment : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
-
-
         startRotation = transform.rotation.eulerAngles;
         QstartRotation = transform.rotation;
         
+    }
+
+    void Start()
+    {
+        switch (whose)
+        {
+            case WHOSE_UPDATE.JOHN:
+                {
+                    startJohn();
+                    break;
+                }
+            case WHOSE_UPDATE.ADD_YOUR_NAME:
+                {
+                    //etc...
+
+                    break;
+                }
+            case WHOSE_UPDATE.SOMEONE_ELSE:
+                {
+                    //etc...
+                    startSomeoneElse();
+                    break;
+                }
 
 
+        }
 
 
     }
 
+    void startJohn()
+    {
+
+
+    }
+
+    void startSomeoneElse()
+    {
+
+
+    }
     // Update is called once per frame
     void Update()
     {

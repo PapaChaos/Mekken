@@ -18,9 +18,7 @@ public class Electrical_Trap : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (PlayerMech == )
+        // if (PlayerMech == )
     }
-    {
-         
-    }
+
 }

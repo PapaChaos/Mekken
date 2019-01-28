@@ -31,13 +31,44 @@ public class IKTargetAnimation : MonoBehaviour
     public float frequency = 1.0f;
     public Vector3 animPosition = new Vector3(0, 0, 0);
 
-    //ADD_YOUR_NAME's parameters and variables:
+    //SPECIFIC_POSITION's parameters and variables:
+    public Vector3 pos1 = new Vector3(0, 0, 0);
+    public Vector3 pos2 = new Vector3(0, 0, 0);
+
+    public int direction = 1;
+    public float howMuch = 0;
+
     //etc...
 
     // Start is called when the game loads for the first time
     void Start()
     {
 
+
+        switch (whose)
+        {
+            case WHOSE_UPDATE.JOHN:
+                {
+                    
+                    break;
+                }
+            case WHOSE_UPDATE.SPECIFIC_POSITION:
+                {
+                    startSpecificPosition();
+                    break;
+                }
+        }
+
+    }
+
+
+    void startSpecificPosition()
+    {
+
+        pos1 = transform.position + new Vector3(1, 0, -1);
+        pos2 = transform.position + new Vector3(-1, 0, 1);
+
+        transform.position = pos1;
 
     }
 
@@ -140,6 +171,34 @@ public class IKTargetAnimation : MonoBehaviour
 
     void updateSpecificPosition()
     {
+
+
+        howMuch += Time.deltaTime;
+
+        if (direction == 1)
+        {
+            animPosition = Vector3.Slerp(pos1, pos2, howMuch);
+        }
+        else
+        {
+            animPosition = Vector3.Slerp(pos2, pos1, howMuch);
+        }
+
+        if (howMuch >= 1.0f)
+        {
+            howMuch = 0;
+            direction *= -1;
+
+        }
+
+
+        //simple up/down bob script with terrain following
+        float groundOffset = 1.0f + Mathf.Sin(Time.time * frequency) * amplitude;
+
+
+        //follow the terrain
+        animPosition.y = terrainYPoint + groundOffset;
+        transform.position = animPosition;
 
 
 
