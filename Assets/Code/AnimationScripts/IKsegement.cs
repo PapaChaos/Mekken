@@ -18,8 +18,8 @@ public class IKsegement : MonoBehaviour {
     private Vector3 Apos = new Vector3(0, 0, 0);
     private Vector3 Bpos = new Vector3(0, 0, 0);
 
-   
 
+    private Quaternion lerpQuat = new Quaternion();
 
     // Use this for initialization
     void Awake ()
@@ -81,9 +81,11 @@ public class IKsegement : MonoBehaviour {
     public void pointAt(Vector3 target)
     {
         //here is where we apply the rotation thus where we would apply a contraint
-        
+        lerpQuat = transform.rotation;
         transform.LookAt(target);
 
+        //smooth it out by mis-using lerp
+        transform.rotation = Quaternion.Lerp(lerpQuat, transform.rotation, Time.deltaTime * 10.0f);
     }
 
 
