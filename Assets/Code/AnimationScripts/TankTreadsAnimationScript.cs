@@ -15,6 +15,9 @@ public class TankTreadsAnimationScript : MonoBehaviour
     private int direction = 1;      //should be 1 or -1 depending on movement state
 
     public playerPhysics physicsController;
+    public playerControl playerControl;
+    public bool IsTreadLeft;
+    public bool IsTreadRight;
 
 
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class TankTreadsAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Changes treads direction based on mech Movement
         if (physicsController.isInForward)
         {
             direction = -1;
@@ -34,8 +38,8 @@ public class TankTreadsAnimationScript : MonoBehaviour
         else
         {
             direction = 1;
-
         }
+
 
         //direction is a function of physicsController.isInForward , .isInReverse, and .isRotatingTurret
 
