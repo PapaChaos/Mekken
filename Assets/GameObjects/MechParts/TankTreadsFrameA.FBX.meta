@@ -13,6 +13,8 @@ ModelImporter:
     400006: TAnkTreadsRightA
     2100000: 'Material #6'
     2100002: 'Material #8'
+    2100004: Treads
+    2100006: 'Material #6.002'
     2300000: TankTreadsFrameA
     2300002: TankTreadsLeftA
     2300004: TAnkTreadsRightA

@@ -51,7 +51,7 @@ public class TankTreadsAnimationScript : MonoBehaviour
         for (int i = 0; i < uvs.Length; i++)
         {
             
-            uvs[i].y += Time.deltaTime * speed ; 
+            uvs[i].x += Time.deltaTime * speed ; 
         }
 
         //Set uvs
