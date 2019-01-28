@@ -12,6 +12,8 @@ ModelImporter:
     100012: SpiderLegRightBackB
     100014: SpiderLegRightFrontA
     100016: SpiderLegRightFrontB
+    100018: SpiderLegLEftFrontA
+    100020: SpiderLegLEftFrontB
     400000: //RootNode
     400002: SpiderLegLeftBackA
     400004: SpiderLegLeftBackB
@@ -21,6 +23,8 @@ ModelImporter:
     400012: SpiderLegRightBackB
     400014: SpiderLegRightFrontA
     400016: SpiderLegRightFrontB
+    400018: SpiderLegLEftFrontA
+    400020: SpiderLegLEftFrontB
     2100000: 'Material #2'
     2100002: 'Material #7'
     2300000: //RootNode
@@ -32,6 +36,8 @@ ModelImporter:
     2300012: SpiderLegRightBackB
     2300014: SpiderLegRightFrontA
     2300016: SpiderLegRightFrontB
+    2300018: SpiderLegLEftFrontA
+    2300020: SpiderLegLEftFrontB
     3300000: //RootNode
     3300002: SpiderLegLeftBackA
     3300004: SpiderLegLeftBackB
@@ -41,6 +47,8 @@ ModelImporter:
     3300012: SpiderLegRightBackB
     3300014: SpiderLegRightFrontA
     3300016: SpiderLegRightFrontB
+    3300018: SpiderLegLEftFrontA
+    3300020: SpiderLegLEftFrontB
     4300000: MechMainBodyA
     4300002: SpiderLegRightFrontA
     4300004: SpiderLegRightFrontB
@@ -50,6 +58,8 @@ ModelImporter:
     4300012: SpiderLegLeftFrontB
     4300014: SpiderLegLeftBackA
     4300016: SpiderLegLeftBackB
+    4300018: SpiderLegLEftFrontA
+    4300020: SpiderLegLEftFrontB
     7400000: Take 001
     9500000: //RootNode
     11100000: //RootNode

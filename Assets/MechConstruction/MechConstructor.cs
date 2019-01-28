@@ -95,8 +95,38 @@ public class MechConstructor : MonoBehaviour
 		pMech.mechFrame = Player_Frame;
 		pMech.mechHead = Player_Head;
 		pMech.mechMovement = Player_Movement;
+
+		//mech treads is the only movement module that does not include the frame.
+		if (Player_Movement == MechTreads)
+			pMech.mechTreads = true;
+
+		if (Player_Movement == MechQuadruped)
+			pMech.mechQuadruped = true;
+
+		if (Player_Movement == MechBiped)
+			pMech.mechBiped = true;
+
 		pMech.mechWeaponRight = Player_RightWeapon;
+
+		if (Player_RightWeapon == MechRocketLauncherRight)
+			pMech.RocketLauncherRight = true;
+
+		if (Player_RightWeapon == MechGrenadeLauncherRight)
+			pMech.GrenadeLauncherRight = true;
+
+		if (Player_RightWeapon == MechMortarLauncherRight)
+			pMech.MortarLauncherRight = true;
+
 		pMech.mechWeaponLeft = Player_LeftWeapon;
+		if (Player_LeftWeapon == MechRocketLauncherLeft)
+			pMech.RocketLauncherLeft = true;
+		if (Player_LeftWeapon == MechGrenadeLauncherLeft)
+			pMech.GrenadeLauncherLeft = true;
+		if (Player_LeftWeapon == MechMortarLauncherLeft)
+			pMech.MortarLauncherLeft = true;
+
+
+
 		pMech.ConstructMecha();
 
 		Destroy(this.gameObject);
