@@ -9,7 +9,7 @@ public class IKTargetAnimation : MonoBehaviour
     public enum WHOSE_UPDATE
     {
         JOHN,
-        ADD_YOUR_NAME,
+        SPECIFIC_POSITION,
         ADD_THE_NEXT_PERSONS_NAME //etc...
     };
 
@@ -56,6 +56,11 @@ public class IKTargetAnimation : MonoBehaviour
             case WHOSE_UPDATE.JOHN:
             {
                 updateJohn();
+                break;
+            }
+            case WHOSE_UPDATE.SPECIFIC_POSITION:
+            {
+                updateSpecificPosition();
                 break;
             }
         }
@@ -121,17 +126,25 @@ public class IKTargetAnimation : MonoBehaviour
       
 
         //simple up/down bob script with terrain following
-        float animHeight = 0; // Mathf.Sin(Time.time * frequency) * amplitude;
+        float groundOffset = 1.0f + Mathf.Sin(Time.time * frequency) * amplitude;
 
         animPosition = transform.position;
 
         //follow the terrain
-        animPosition.y = terrainYPoint + groundOffset + animHeight;
+        animPosition.y = terrainYPoint + groundOffset;
 
         transform.position = animPosition;
 
 
     }
+
+    void updateSpecificPosition()
+    {
+
+
+
+    }
+
     void setInitialPosition()
     {
 

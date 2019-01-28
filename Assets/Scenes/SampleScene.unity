@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whose: 0
+  whose: 3
   length: 2
   amplitude: 0.5
   frequency: -1
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whose: 0
+  whose: 3
   length: 2
   amplitude: 0.5
   frequency: -1
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whose: 0
+  whose: 3
   length: 2
   amplitude: 0.5
   frequency: 1
@@ -3765,7 +3765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb42e4cba135534a80f0d46ad2c1c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whose: 0
+  whose: 3
   length: 2
   amplitude: 0.25
   frequency: 1

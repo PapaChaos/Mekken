@@ -19,8 +19,7 @@ public class FKsegment : MonoBehaviour
     public WHOSE_UPDATE whose = WHOSE_UPDATE.JOHN;
     
 
-    public float length = 2;
-
+    
     public float amplitude = 1.0f;
     public float frequency = 1.0f;
    
@@ -81,6 +80,7 @@ public class FKsegment : MonoBehaviour
                     break;
                 }
 
+
         }
 
         
@@ -126,12 +126,12 @@ public class FKsegment : MonoBehaviour
         {
 
             //play with parameters to alter motion. 
-            xRot = Random.Range(-60, 60);// + Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
+            xRot = Random.Range (-60, 60) + Mathf.Sin(fkSystem.FKTime * frequency) * amplitude;
 
             //i'm supporting both euler and quat rotations, take yer pick
             //accumRotation.x += xRot;
 
-            QaccumRotation *= Quaternion.Euler(xRot, Random.Range(-60, 60), Random.Range(-60, 60) );
+            QaccumRotation *= Quaternion.Euler(xRot, 0,  0 );
 
             quatFinal = QstartRotation * QaccumRotation;
 
@@ -141,7 +141,7 @@ public class FKsegment : MonoBehaviour
         //transform.rotation = quatFinal;
 
         //use this code instead if you are doing something with random numbers perlin noise, hint hint.
-        transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime * 0.1f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, quatFinal, Time.deltaTime * 0.5f);
 
     }
 
