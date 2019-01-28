@@ -16,7 +16,7 @@ public class TankTreadsAnimationScript : MonoBehaviour
 
     public playerPhysics physicsController;
     public playerControl playerControl;
-
+    
     public bool IsTreadLeft;
     public bool IsTreadRight;
 
@@ -41,11 +41,53 @@ public class TankTreadsAnimationScript : MonoBehaviour
             direction = 1;
         }
 
+        //Adds tread spin if the mech isn't moving
+        if (physicsController.velocity.magnitude <= 0f)
+        {
+            if(playerControl.left == true)
+            {
+                if (IsTreadLeft == true)
+                {
+                    speed = -1;
 
-        //direction is a function of physicsController.isInForward , .isInReverse, and .isRotatingTurret
+                }
+                if (IsTreadRight == true)
+                {
+                    speed = 1;
 
-        //we need to know if we are left or right tread, our velocity, and movement type
-        speed = direction * physicsController.velocity.magnitude * 0.1f; // multiplied by some scalar to make it look right
+                }
+                Debug.Log("left");
+            }
+            
+            if (playerControl.right == true)
+            {
+                if (IsTreadLeft == true)
+                {
+                    speed = 1;
+
+                }
+                if (IsTreadRight == true)
+                {
+                    speed = -1;
+
+                }
+                Debug.Log("right");
+            }
+            else
+            {
+                speed = 0;
+
+            }
+
+        }    
+        else
+        {        
+            
+            //we need to know if we are left or right tread, our velocity, and movement type
+            speed = direction * physicsController.velocity.magnitude * 0.07f; // multiplied by some scalar to make it look right
+            //direction is a function of physicsController.isInForward , .isInReverse, and .isRotatingTurret
+        }
+        
 
         Vector2[] uvs = mesh.uv;
 
