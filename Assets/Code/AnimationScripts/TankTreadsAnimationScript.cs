@@ -17,8 +17,8 @@ public class TankTreadsAnimationScript : MonoBehaviour
     public playerPhysics physicsController;
     public playerControl playerControl;
     
-    public bool IsTreadLeft;
-    public bool IsTreadRight;
+    private bool IsTreadLeft;
+    private bool IsTreadRight;
 
 
     // Start is called before the first frame update
@@ -26,6 +26,15 @@ public class TankTreadsAnimationScript : MonoBehaviour
     {
         mesh = GetComponent<MeshFilter>().mesh;
 
+        // if(Object.name == "TankTreadsLeftA")
+        // { IsTreadLeft == true}
+        //  else
+        // { IsTreadLeft == false}
+
+        //if (Object.name == "TAnkTreadsRightA")
+        //  { IsTreadRight == true}
+        // else
+        // { IsTreadRight == false}
     }
 
     // Update is called once per frame
@@ -51,11 +60,15 @@ public class TankTreadsAnimationScript : MonoBehaviour
                     speed = -1;
 
                 }
+                else
+                { }
                 if (IsTreadRight == true)
                 {
                     speed = 1;
 
                 }
+                else
+                { }
                 Debug.Log("left");
             }
             
@@ -66,11 +79,15 @@ public class TankTreadsAnimationScript : MonoBehaviour
                     speed = 1;
 
                 }
+                else
+                { }
                 if (IsTreadRight == true)
                 {
                     speed = -1;
 
                 }
+                else
+                { }
                 Debug.Log("right");
             }
             else
