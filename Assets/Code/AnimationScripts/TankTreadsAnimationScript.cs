@@ -16,6 +16,7 @@ public class TankTreadsAnimationScript : MonoBehaviour
 
     public playerPhysics physicsController;
     public playerControl playerControl;
+
     public bool IsTreadLeft;
     public bool IsTreadRight;
 

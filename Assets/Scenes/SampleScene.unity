@@ -5062,7 +5062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
-  playerControl: {fileID: 0}
+  playerControl: {fileID: 319879256}
   IsTreadLeft: 0
   IsTreadRight: 0
 --- !u!1 &1700463729 stripped
@@ -5111,7 +5111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
-  playerControl: {fileID: 0}
+  playerControl: {fileID: 319879256}
   IsTreadLeft: 0
   IsTreadRight: 0
 --- !u!1 &1712622829
