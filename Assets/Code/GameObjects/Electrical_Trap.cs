@@ -7,8 +7,8 @@ public class Electrical_Trap : MonoBehaviour
 
     public bool Power = true;
     private float timer = -1.0f;   //keep track of time elapsed
-
     public float interval = 1.0f;
+    AudioSource Electricity; 
 
 
     // Start is called before the first frame update
@@ -44,7 +44,8 @@ public class Electrical_Trap : MonoBehaviour
         Debug.Log("electrical fence collided with " + other.transform.name);
 
         //TODO: add electrical zap here
-
+        Electricity = GetComponent<AudioSource>();
+        Electricity.Play(0);
         if (Power == false)
         {
             Debug.Log("Do nothing, power is off");
@@ -52,7 +53,7 @@ public class Electrical_Trap : MonoBehaviour
         }
         else
         {
-
+     
             //Take dmg as player is inbound//
             Debug.Log("AU");
 
