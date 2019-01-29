@@ -8,7 +8,7 @@ public class Electrical_Trap : MonoBehaviour
     public bool Power = true;
     private float timer = -1.0f;   //keep track of time elapsed
     public float interval = 1.0f;
-    public AudioSource Electricity; 
+    public AudioSource Electricity01; 
 
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Electrical_Trap : MonoBehaviour
         //get time now and add some random
         timer = Time.time + Random.Range(0, 3);
 
-        Electricity = GetComponent<AudioSource>();
+        Electricity01 = GetComponent<AudioSource>();
 
 
     }
@@ -60,7 +60,7 @@ public class Electrical_Trap : MonoBehaviour
             if (other.tag == "Player")
             {
                 //TODO: add electrical zap here                
-                Electricity.Play(0);
+                Electricity01.Play(0);
                 other.transform.GetComponent<damage>().doDamage(1.0f);
             }
 
@@ -84,7 +84,7 @@ public class Electrical_Trap : MonoBehaviour
             if (other.tag == "Player")
             {
                 //TODO: add electrical zap here                
-                Electricity.Play(0);
+                Electricity01.Play(0);
                 other.transform.GetComponent<damage>().doDamage(1.0f);
             }
             
