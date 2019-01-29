@@ -4967,9 +4967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsController: {fileID: 2089206047}
-  playerControl: {fileID: 0}
-  IsTreadLeft: 0
-  IsTreadRight: 0
+  playerControl: {fileID: 2089206049}
 --- !u!114 &1641520668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4983,9 +4981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsController: {fileID: 2089206047}
-  playerControl: {fileID: 0}
-  IsTreadLeft: 0
-  IsTreadRight: 0
+  playerControl: {fileID: 2089206049}
 --- !u!1 &1687951733
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,8 +5059,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
   playerControl: {fileID: 319879256}
-  IsTreadLeft: 0
-  IsTreadRight: 0
 --- !u!1 &1700463729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 56e83bc50bbfcdd499d55059cdfcfa5f,
@@ -5112,8 +5106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
   playerControl: {fileID: 319879256}
-  IsTreadLeft: 0
-  IsTreadRight: 0
 --- !u!1 &1712622829
 GameObject:
   m_ObjectHideFlags: 0
