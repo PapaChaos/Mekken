@@ -6,15 +6,17 @@ public class Electrical_Trap : MonoBehaviour
 { 
 
     public bool Power = true;
-    private float time = 0.0f;   //keep track of time elapsed
+    private float timer = -1.0f;   //keep track of time elapsed
+
+    public float interval = 1.0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-              
+        //get time now and add some random
+        timer = Time.time + Random.Range(0, 3);    
         
-       
-        //get time now
 
     }
 
@@ -22,13 +24,16 @@ public class Electrical_Trap : MonoBehaviour
     void Update()
     {
         
-        //check if time elapsed is greater than time on
+        //check if time elapsed is greater than time now
+        if(Time.time > timer)
+        {
+            Power = !Power;
+            timer = Time.time + interval + Random.Range(0, 3);
 
-        //if yes and power on, turn off power, reset time (get the time)
+            Debug.Log("Power is " + Power);
 
-        //if yes and power off, turn on power, reset time (get the time)
+        }
 
-        //otherwise, accumulate time
 
     }
 
@@ -36,7 +41,9 @@ public class Electrical_Trap : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("collided with " + other.transform.name);
+        Debug.Log("electrical fence collided with " + other.transform.name);
+
+        //TODO: add electrical zap here
 
         if (Power == false)
         {
@@ -48,7 +55,20 @@ public class Electrical_Trap : MonoBehaviour
 
             //Take dmg as player is inbound//
             Debug.Log("AU");
+
+            if (other.tag == "Player")
+            {
+                other.transform.GetComponent<damage>().doDamage(1.0f);
+            }
+
+            
     
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+
+
+    }
+
 }

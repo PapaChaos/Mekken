@@ -7,7 +7,7 @@ public class RocketLauncher : MonoBehaviour
 
 
     public Transform target;
-
+    private Quaternion initRotation = new Quaternion();
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,12 @@ public class RocketLauncher : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        initRotation = transform.rotation;
         transform.LookAt(target.position);
+
+        transform.rotation = Quaternion.Lerp(initRotation, transform.rotation, Time.deltaTime * 10.0f);
+
     }
 }

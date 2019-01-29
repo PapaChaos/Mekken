@@ -21,15 +21,30 @@ public class damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("damage script collided with" + other.name);     
+        Debug.Log("damage script collided with" + other.name);
+
+        //maybe we are stuck until poweroff?
+        if (other.tag == "electric_fence")
+        {
+            //do something
+            if (other.transform.GetComponent<Electrical_Trap>().Power == true)
+            {
+                transform.GetComponent<playerPhysics>().velocity *= 0;
+            }
+
+        }
         
 
     }
+    private void OnTriggerStay(Collider other)
+    {
 
+    }
     public void doDamage(float howMuch)
     {
 
         Debug.Log(transform.name + " took " + howMuch + " damage");
+        damageReceived = howMuch;
 
     }
 
