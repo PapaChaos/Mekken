@@ -688,6 +688,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1832200090}
     m_Modifications:
+    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: leftTread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: rightTread
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4968,6 +4976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 2089206047}
   playerControl: {fileID: 2089206049}
+  treadside: -1
 --- !u!114 &1641520668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,6 +4991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 2089206047}
   playerControl: {fileID: 2089206049}
+  treadside: 1
 --- !u!1 &1687951733
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,6 +5069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
   playerControl: {fileID: 319879256}
+  treadside: -1
 --- !u!1 &1700463729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 56e83bc50bbfcdd499d55059cdfcfa5f,
@@ -5106,6 +5117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   physicsController: {fileID: 319879255}
   playerControl: {fileID: 319879256}
+  treadside: 1
 --- !u!1 &1712622829
 GameObject:
   m_ObjectHideFlags: 0

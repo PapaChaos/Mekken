@@ -14,27 +14,18 @@ public class TankTreadsAnimationScript : MonoBehaviour
     private float speed;            //the rate at which it animates
     private int direction = 1;      //should be 1 or -1 depending on movement state
 
+
     public playerPhysics physicsController;
     public playerControl playerControl;
-    
-    private bool IsTreadLeft;
-    private bool IsTreadRight;
+    public int treadside = 1;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         mesh = GetComponent<MeshFilter>().mesh;
-
-        // if(Object.name == "TankTreadsLeftA")
-        // { IsTreadLeft == true}
-        //  else
-        // { IsTreadLeft == false}
-
-        //if (Object.name == "TAnkTreadsRightA")
-        //  { IsTreadRight == true}
-        // else
-        // { IsTreadRight == false}
+       
     }
 
     // Update is called once per frame
@@ -51,48 +42,16 @@ public class TankTreadsAnimationScript : MonoBehaviour
         }
 
         //Adds tread spin if the mech isn't moving
-        if (physicsController.velocity.magnitude <= 0f)
+        if (physicsController.isRotatingTurret)
         {
             if(playerControl.left == true)
             {
-                if (IsTreadLeft == true)
-                {
-                    speed = -1;
-
-                }
-                else
-                { }
-                if (IsTreadRight == true)
-                {
-                    speed = 1;
-
-                }
-                else
-                { }
-                Debug.Log("left");
-            }
-            
-            if (playerControl.right == true)
-            {
-                if (IsTreadLeft == true)
-                {
-                    speed = 1;
-
-                }
-                else
-                { }
-                if (IsTreadRight == true)
-                {
-                    speed = -1;
-
-                }
-                else
-                { }
-                Debug.Log("right");
+               
+                speed = direction  * 0.5f * treadside;
             }
             else
             {
-                speed = 0;
+                speed = direction * 0.5f * treadside;
 
             }
 

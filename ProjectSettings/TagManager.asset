@@ -8,6 +8,8 @@ TagManager:
   - NormalSurface
   - PadSurface
   - DeathSurface
+  - leftTread
+  - rightTread
   layers:
   - Default
   - TransparentFX
