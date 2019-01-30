@@ -5,8 +5,9 @@ using UnityEngine;
 public class damage : MonoBehaviour
 {
 
-    public float damageReceived = 0;
-
+    public playerProperties playerProps;
+    public GameManager gameManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,13 @@ public class damage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (playerProps.structuralIntegrity <= 0 && gameManager.getGameOver() == false)
+        {
+            Debug.Log("PLAYER DEAD BY DAMAGE");
+            gameManager.setGameOver(true);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,8 +52,10 @@ public class damage : MonoBehaviour
     public void doDamage(float howMuch)
     {
 
+        //TODO: display some damage
         Debug.Log(transform.name + " took " + howMuch + " damage");
-        damageReceived = howMuch;
+        playerProps.structuralIntegrity -= howMuch;
+
 
     }
 
