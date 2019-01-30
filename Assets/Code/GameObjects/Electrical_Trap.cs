@@ -84,7 +84,7 @@ public class Electrical_Trap : MonoBehaviour
                 Debug.Log(other.name + " continues to say AU");
 
                 //TODO: add electrical zap here 
-                if(!Electricity01.isPlaying)
+                //if(!Electricity01.isPlaying)
                     Electricity01.Play(0);
 
                 other.transform.GetComponent<damage>().doDamage(1.0f);
