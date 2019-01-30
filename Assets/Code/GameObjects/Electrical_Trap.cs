@@ -68,7 +68,7 @@ public class Electrical_Trap : MonoBehaviour
                     Electricity01.Play(0);
 
                 other.transform.GetComponent<damage>().doDamage(Time.deltaTime);
-
+                other.transform.GetComponent<playerPhysics>().velocity *= 0;
 
 
             }
@@ -99,7 +99,7 @@ public class Electrical_Trap : MonoBehaviour
                     Electricity01.Play(0);
 
                 other.transform.GetComponent<damage>().doDamage(Time.deltaTime);
-
+                other.transform.GetComponent<playerPhysics>().velocity *= 0;
 
             }
         }
