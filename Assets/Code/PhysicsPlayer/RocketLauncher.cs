@@ -13,6 +13,7 @@ public class RocketLauncher : MonoBehaviour
     private Quaternion initRotation = new Quaternion();
 
     public float dot = 90;
+    public float angle = 90;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class RocketLauncher : MonoBehaviour
 
         Vector3 rocketFwd = transform.forward;
         Vector3 playerFwd = playerGeom.forward;
+        Vector3 playerRight = playerGeom.right;
+        Vector3 playerLeft = playerRight * -1;
 
        
         if (visibilityCone.lockedOn)
@@ -33,8 +36,19 @@ public class RocketLauncher : MonoBehaviour
 
             dot = Mathf.Rad2Deg * Mathf.Acos(Vector3.Dot(rocketFwd, playerFwd));
 
+            //this is a Unity function that does the same thing
+            angle = Vector3.Angle(rocketFwd, playerFwd);
+
             if ( dot > 160)
                 visibilityCone.lockedOn = false;
+
+            //check the angle between the rocket and the perpendicular vector to playerFwd, aka "right"
+            //TODO: confirm same mathe if rocket launcher on the other arm (prolly will need "left" aka right * -1
+
+            dot = Mathf.Rad2Deg * Mathf.Acos(Vector3.Dot(rocketFwd, playerLeft)); //when rocket is on the right
+            if (dot < 60)
+                visibilityCone.lockedOn = false;
+
 
         }
         
@@ -49,13 +63,14 @@ public class RocketLauncher : MonoBehaviour
 
         if (visibilityCone.lockedOn)
         {
+            //lock on to the target using the GLOBAL coordinate system
             initRotation = transform.rotation;
             transform.LookAt(target.position);
             transform.rotation = Quaternion.Lerp(initRotation, transform.rotation, Time.deltaTime * 20.0f);
         }
         else
         {
-            
+            //reset rotation using the LOCAL coordinate system
             initRotation = Quaternion.identity;
             transform.localRotation = Quaternion.Lerp( transform.localRotation, initRotation, Time.deltaTime * 20.0f);
         }
