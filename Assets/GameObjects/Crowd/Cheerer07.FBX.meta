@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: aa3393e3ec6e00b4e88368aca173c086
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BipedalLegLeftA005
+    100002: BipedalLegLeftB005
+    100004: BipedalLegLeftC005
+    100006: BipedalLegLeftD005
+    100008: BipedalLegRightA005
+    100010: BipedalLegRightB005
+    100012: BipedalLegRightC005
+    100014: BipedalLegRightD005
+    100016: Box109
+    100018: Box110
+    100020: Box111
+    100022: Box112
+    100024: Box113
+    100026: Box114
+    100028: Box115
+    100030: Box116
+    100032: Box117
+    100034: Box118
+    100036: Box119
+    100038: Box120
+    100040: Box121
+    100042: Box122
+    100044: //RootNode
+    100046: Object017
+    400000: BipedalLegLeftA005
+    400002: BipedalLegLeftB005
+    400004: BipedalLegLeftC005
+    400006: BipedalLegLeftD005
+    400008: BipedalLegRightA005
+    400010: BipedalLegRightB005
+    400012: BipedalLegRightC005
+    400014: BipedalLegRightD005
+    400016: Box109
+    400018: Box110
+    400020: Box111
+    400022: Box112
+    400024: Box113
+    400026: Box114
+    400028: Box115
+    400030: Box116
+    400032: Box117
+    400034: Box118
+    400036: Box119
+    400038: Box120
+    400040: Box121
+    400042: Box122
+    400044: //RootNode
+    400046: Object017
+    2100000: 'Material #38'
+    2100002: 'Material #39'
+    2100004: 'Material #45'
+    2100006: No Name
+    2300000: BipedalLegLeftA005
+    2300002: BipedalLegLeftB005
+    2300004: BipedalLegLeftC005
+    2300006: BipedalLegLeftD005
+    2300008: BipedalLegRightA005
+    2300010: BipedalLegRightB005
+    2300012: BipedalLegRightC005
+    2300014: BipedalLegRightD005
+    2300016: Box109
+    2300018: Box110
+    2300020: Box111
+    2300022: Box112
+    2300024: Box113
+    2300026: Box114
+    2300028: Box115
+    2300030: Box116
+    2300032: Box117
+    2300034: Box118
+    2300036: Box119
+    2300038: Box120
+    2300040: Box121
+    2300042: Box122
+    2300044: //RootNode
+    2300046: Object017
+    3300000: BipedalLegLeftA005
+    3300002: BipedalLegLeftB005
+    3300004: BipedalLegLeftC005
+    3300006: BipedalLegLeftD005
+    3300008: BipedalLegRightA005
+    3300010: BipedalLegRightB005
+    3300012: BipedalLegRightC005
+    3300014: BipedalLegRightD005
+    3300016: Box109
+    3300018: Box110
+    3300020: Box111
+    3300022: Box112
+    3300024: Box113
+    3300026: Box114
+    3300028: Box115
+    3300030: Box116
+    3300032: Box117
+    3300034: Box118
+    3300036: Box119
+    3300038: Box120
+    3300040: Box121
+    3300042: Box122
+    3300044: //RootNode
+    3300046: Object017
+    4300000: MechMainBodyA006
+    4300002: BipedalLegLeftA005
+    4300004: BipedalLegLeftB005
+    4300006: BipedalLegRightC005
+    4300008: BipedalLegLeftD005
+    4300010: BipedalLegRightA005
+    4300012: BipedalLegRightB005
+    4300014: BipedalLegLeftC005
+    4300016: BipedalLegRightD005
+    4300018: Object017
+    4300020: Box109
+    4300022: Box110
+    4300024: Box111
+    4300026: Box112
+    4300028: Box113
+    4300030: Box114
+    4300032: Box115
+    4300034: Box116
+    4300036: Box117
+    4300038: Box118
+    4300040: Box119
+    4300042: Box120
+    4300044: Box121
+    4300046: Box122
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #38'
+    second: {fileID: 2100000, guid: abc8e4fbde406634599ff65d942a2287, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #39'
+    second: {fileID: 2100000, guid: 67ba746e077909541a4a1ea73309a110, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #45'
+    second: {fileID: 2100000, guid: 67bb44a03d34dc2449e6f646574d60ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 67bb44a03d34dc2449e6f646574d60ab, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
