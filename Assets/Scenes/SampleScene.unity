@@ -3813,6 +3813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 1
   interval: 3
+  rend: {fileID: 0}
   Electricity01: {fileID: 0}
 --- !u!65 &1079352338
 BoxCollider:
@@ -3905,7 +3906,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0.87
   MinDistance: 30
   MaxDistance: 500
   Pan2D: 0
