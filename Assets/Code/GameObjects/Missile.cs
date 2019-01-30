@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-
-    
+        
 
     //these may be a function of the player, if they have control of cannon angle,
     //or it is an inherent property of the projectile/weapon system
@@ -56,13 +55,6 @@ public class Missile : MonoBehaviour
         //move the object
         transform.position += velocity * Time.deltaTime;
 
-        if (transform.position.y < 0.5f)
-        {
-            Debug.Log("BOOM!!!");
-            inAir = false;
-        }
-
-
     }
 
     public void fireMissile(Vector3 direction, float power)
@@ -77,18 +69,25 @@ public class Missile : MonoBehaviour
         Debug.Log("collided with" + other.name);
         //make an explosion
 
+        Debug.Log("BOOM!!!");
+        inAir = false;
+
+        //TODO: make sure missile only collides with the enemy, not with who launched it,
+        //      except where it is a grenade or a mortar gone very wrong. in that case,
+        //      we prolly need a short timer after launch before it is "armed" so it
+        //      clears our collision box before it can explode
+
         //do damage
         if ( other.transform.GetComponent<damage>() )
         {
 
             other.transform.GetComponent<damage>().doDamage(damageValue);
-            //apply force
-            other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 100.0f);
+
+            //apply force as an impulse, this needs to be fairly huge as it applies to velocity only once.
+            other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 10000.0f);
 
 
         }
-
-
 
     }
 

@@ -32,8 +32,6 @@ public class Electrical_Trap : MonoBehaviour
             Power = !Power;
             timer = Time.time + interval + Random.Range(0, 3);
 
-            Debug.Log("Power is " + Power);
-
         }
 
 
@@ -42,55 +40,58 @@ public class Electrical_Trap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        Debug.Log("electrical fence collided with " + other.transform.name);
-
-
-        if (Power == false)
+        if (other.tag == "Player")
         {
-            Debug.Log("Do nothing, power is off");
 
-        }
-        else
-        {
-     
-            //Take dmg as player is inbound//
-            Debug.Log("AU");
-
-            if (other.tag == "Player")
+            if (Power == false)
             {
+                Debug.Log("Do nothing, power is off");
+
+            }
+            else
+            {
+
+                //Take dmg as player is inbound//
+                Debug.Log(other.name + " says AU");
+                
                 //TODO: add electrical zap here                
                 Electricity01.Play(0);
                 other.transform.GetComponent<damage>().doDamage(1.0f);
-            }
 
-            
-    
+
+
+            }
         }
+
+        //TODO: Elctric fence should explode projectiles as well
+
     }
+
     private void OnTriggerStay(Collider other)
     {
-        if (Power == false)
-        {
-            Debug.Log("Do nothing, power is off");
 
-        }
-        else
+        if (other.tag == "Player")
         {
 
-            //Take dmg as player is inbound//
-            Debug.Log("AU");
+            if (Power == false)
+            {  
 
-            if (other.tag == "Player")
-            {
-                //TODO: add electrical zap here                
-                Electricity01.Play(0);
-                other.transform.GetComponent<damage>().doDamage(1.0f);
             }
-            
+            else
+            {
 
+                //Take dmg as player is inbound//
+                Debug.Log(other.name + " continues to say AU");
+
+                //TODO: add electrical zap here 
+                if(!Electricity01.isPlaying)
+                    Electricity01.Play(0);
+
+                other.transform.GetComponent<damage>().doDamage(1.0f);
+
+
+            }
         }
-
     }
 
 }
