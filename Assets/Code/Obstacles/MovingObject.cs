@@ -39,10 +39,14 @@ public class MovingObject : MonoBehaviour
 			if (waypointLocation.Count > 1) //makes sure that we do this only if we got more than one waypoint.
 			{
 				float frameMovement = movementSpeed * Time.deltaTime;
-				transform.position = Vector3.MoveTowards(transform.position, waypointLocation[targetWaypoint], frameMovement);
 
-				
-				currentDistance = Vector3.Distance(gameObject.transform.position, waypointLocation[targetWaypoint]);
+				if (targetWaypoint < waypointLocation.Count) //just in case someone deletes the last waypoint in editor during play.
+				{
+					transform.position = Vector3.MoveTowards(transform.position, waypointLocation[targetWaypoint], frameMovement);
+
+
+					currentDistance = Vector3.Distance(gameObject.transform.position, waypointLocation[targetWaypoint]);
+				}
 				if (waypointDistance != 0) //we don't divide by zero.
 				{
 					alphaLerp = 1 - (currentDistance / waypointDistance);
@@ -50,7 +54,7 @@ public class MovingObject : MonoBehaviour
 					transform.eulerAngles = Vector3.Lerp(waypointRotation[previousWaypoint], waypointRotation[targetWaypoint], alphaLerp);
 				}
 
-				if (currentDistance < 0.1f)
+				if (currentDistance < 0.1f || targetWaypoint >= waypointLocation.Count)
 				{
 					targetWaypoint = NextWaypoint();
 					waypointDistance = Vector3.Distance(waypointLocation[previousWaypoint], waypointLocation[targetWaypoint]);
@@ -78,12 +82,16 @@ public class MovingObject : MonoBehaviour
 							addPosition = false;
 							waypoint--;
 							waypoint--;
-						
 						}
 
 						else
 						{
 							waypoint = 0;
+						}
+					//this last one is just in case someone removes an waypoint in the editor at playtime.
+						if (waypoint >= waypointLocation.Count)
+						{
+							waypoint--;
 						}
 
 					}
