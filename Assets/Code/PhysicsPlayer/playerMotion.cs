@@ -32,7 +32,7 @@ public class playerMotion : MonoBehaviour
     void Update()
     {
 
-        if (!gameManager.gameOver)
+        if (!gameManager.getGameOver())
         {
             
             handleGravity();
@@ -48,7 +48,7 @@ public class playerMotion : MonoBehaviour
                 if (playerProps.isOnDeathTrap)
                 {
                     Debug.Log("DEAD!!!");
-                    gameManager.gameOver = true;
+                    gameManager.setGameOver(true);
                     physicsController.velocity *= 0;
                     physicsController.acceleration *= 0;
                     //TODO: Do something dammit!
@@ -147,7 +147,7 @@ public class playerMotion : MonoBehaviour
             if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
                 Debug.Log("CRASH!!!!!");
-                gameManager.gameOver = true;
+                gameManager.setGameOver(true);
             }
             else
             {

@@ -62,7 +62,7 @@ public class playerPhysics : MonoBehaviour
     {
              
 
-        if (!gameManager.gameOver)
+        if ( !gameManager.getGameOver() )
         {
             if (playerProps.onSurface)
                 handleOnSurface();

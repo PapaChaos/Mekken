@@ -227,7 +227,6 @@ GameObject:
   - component: {fileID: 54965732}
   - component: {fileID: 54965736}
   - component: {fileID: 54965738}
-  - component: {fileID: 54965737}
   m_Layer: 0
   m_Name: FK_BIPEDAL_LEGS_JOHN
   m_TagString: Untagged
@@ -322,19 +321,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.202206, y: 7.7265935, z: 1.9964451}
   m_Center: {x: -1.9538346e-13, y: -1.8788915, z: 0.000002026558}
---- !u!114 &54965737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54965731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27e5b67d68ed3d40876077d8c4bc006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageReceived: 0
 --- !u!54 &54965738
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1128,7 +1114,7 @@ MonoBehaviour:
   energy: 100
   consumption: 0.25
   maxSpeed: 5
-  structuralIntegrity: 1000
+  structuralIntegrity: 100
   integrityVelocity: 3
   thrustForce: 10
   stoppingForce: 0.5
@@ -1190,7 +1176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27e5b67d68ed3d40876077d8c4bc006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReceived: 0
+  playerProps: {fileID: 319879257}
+  gameManager: {fileID: 838747722}
 --- !u!54 &319879261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5071,7 +5058,7 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
   GRAVITY_CONSTANT: 0
-  damageValue: 1
+  damageValue: 30
   owner: {fileID: 0}
 --- !u!54 &1377103967
 Rigidbody:
@@ -6613,7 +6600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27e5b67d68ed3d40876077d8c4bc006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageReceived: 0
+  playerProps: {fileID: 1998686204}
+  gameManager: {fileID: 838747722}
 --- !u!114 &1998686201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6699,7 +6687,7 @@ MonoBehaviour:
   energy: 100
   consumption: 0.25
   maxSpeed: 5
-  structuralIntegrity: 1000
+  structuralIntegrity: 100
   integrityVelocity: 3
   thrustForce: 10
   stoppingForce: 0.5
