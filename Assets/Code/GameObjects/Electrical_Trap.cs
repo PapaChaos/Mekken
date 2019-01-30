@@ -54,8 +54,10 @@ public class Electrical_Trap : MonoBehaviour
                 //Take dmg as player is inbound//
                 Debug.Log(other.name + " says AU");
                 
-                //TODO: add electrical zap here                
-                Electricity01.Play(0);
+                //TODO: add electrical zap here
+                if(Electricity01.isPlaying == false)
+                    Electricity01.Play(0);
+
                 other.transform.GetComponent<damage>().doDamage(1.0f);
 
 
