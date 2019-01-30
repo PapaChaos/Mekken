@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class ButtonHandler : MonoBehaviour
 {
 
-    public void doSomething(string something)
+    public void LoadScene(int scene)
     {
-
-        Debug.Log("DO SOMETHING " + something);
+        SceneManager.LoadScene(scene);
+        Debug.Log("Loading scene " + scene);
     }
 
 }

@@ -21,7 +21,8 @@ public class Missile : MonoBehaviour
 
     public float damageValue = 1.0f;
 
-
+    public Transform owner;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,9 @@ public class Missile : MonoBehaviour
 
         //append to velocity
         velocity += acceleration * Time.deltaTime;
+
+        //point the missile
+        transform.LookAt(transform.position + velocity);
         
         //move the object
         transform.position += velocity * Time.deltaTime;
@@ -66,20 +70,22 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided with" + other.name);
-        //make an explosion
-
-        Debug.Log("BOOM!!!");
-        inAir = false;
+       
 
         //TODO: make sure missile only collides with the enemy, not with who launched it,
         //      except where it is a grenade or a mortar gone very wrong. in that case,
         //      we prolly need a short timer after launch before it is "armed" so it
         //      clears our collision box before it can explode
 
-        //do damage
-        if ( other.transform.GetComponent<damage>() )
+        //do damagefor other player only
+        if ( other.transform.GetComponent<damage>() && other.transform != owner)
         {
+
+            Debug.Log("collided with" + other.name);
+            //make an explosion
+
+            Debug.Log("BOOM!!!");
+            inAir = false;
 
             other.transform.GetComponent<damage>().doDamage(damageValue);
 
