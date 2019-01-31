@@ -91,9 +91,9 @@ public class Missile : MonoBehaviour
             //apply force as an impulse, this needs to be fairly huge as it applies to velocity only once.
             other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 10000.0f);
 
-
+           
+            }
         }
 
     }
-
-}
+   
