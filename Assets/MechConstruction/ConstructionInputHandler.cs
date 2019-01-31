@@ -13,10 +13,16 @@ public class ConstructionInputHandler : MonoBehaviour
 	//Inactive and highlighted sprite
 	public Sprite nothighlighted;
 	public Sprite highlighted;
+	public Sprite Checkmark;
 
 	public enum activeController { Keyboard1, Keyboard2, GamePad1, GamePad2 };
 	public activeController playerController;
 
+	public float HoverScale = 1.2f;
+	public Vector3 HoveredScale;
+
+	//mainly only for check mark. Might want to find alternative way to do this? Maybe check for buttons in the grids instead?
+	public MechConstructor mc;
 
 	#region InputManager input names in lists.
 	//Keyboard Inputs	| Todo: add these to inputs instead of prewritten strings?
@@ -40,9 +46,11 @@ public class ConstructionInputHandler : MonoBehaviour
 
 	void Start()
     {
+		HoveredScale = new Vector3(HoverScale, HoverScale, HoverScale);
 		//Sets the section starts as current targets.
 		SectionCurrentTarget = SectionStart;
 		SectionCurrentTarget.image.sprite = highlighted;
+		SectionCurrentTarget.transform.localScale = HoveredScale;
 
 		switch (playerController)
 		{
@@ -83,6 +91,9 @@ public class ConstructionInputHandler : MonoBehaviour
 	void PlayerDirection(UIDirection dir)
 	{
 		SectionCurrentTarget.image.sprite = nothighlighted;
+		SectionCurrentTarget.transform.localScale = new Vector3(1f, 1f, 1f);
+
+		//SectionCurrentTarget.GetComponentInParent<GridLayoutGroup>().cellSize = new Vector2(75f,75f);
 
 		switch (dir)
 		{
@@ -119,7 +130,9 @@ public class ConstructionInputHandler : MonoBehaviour
 				break;
 			}
 				SectionCurrentTarget.image.sprite = highlighted;
-		}
+		SectionCurrentTarget.transform.localScale = HoveredScale;
+		//SectionCurrentTarget.GetComponentInParent<GridLayoutGroup>().cellSize = new Vector2(85f, 85f);
+	}
 
 	#region Player Controls
 	void GetInput()
@@ -175,6 +188,25 @@ public class ConstructionInputHandler : MonoBehaviour
 		if (Input.GetButtonDown(currentActiveInputs[3]))
 		{
 			Button bt = SectionCurrentTarget.gameObject.GetComponent<Button>();
+
+			//really naughty way of adding and removing checkmarks. 
+			//It checks the button's transform parent (that is a grid) and get all the children with button components and checks if the buttons is the target button. 
+			//If not then set the buttons to have a transparent image if true then set the checkmark.
+
+			foreach (Button b in bt.transform.parent.GetComponentsInChildren<Button>())
+			{
+				Debug.Log(b);
+				//this is only to check if the button has an child and that child has an image (Mainly to check if it's the fight button or not).
+				if (b.transform.GetChild(0).GetChild(0).GetComponent<Image>())
+				{
+					if (b != bt)
+					{
+						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = nothighlighted;
+					}
+					else
+						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = Checkmark;
+				}
+			}
 			bt.onClick.Invoke();
 		}
 	}

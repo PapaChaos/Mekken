@@ -18,15 +18,26 @@ public class Missile : MonoBehaviour
     public Vector3 finalForce;
 
     public float  GRAVITY_CONSTANT = -9.8f;
-
+    public float missileAccel = 0.0f;
     public float damageValue = 1.0f;
 
     public Transform owner;
-    
+
+    public ParticleSystem hitSystem;
+    public ParticleSystem propulsionSystem;
+
+    public float hitTimer = -1;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(propulsionSystem)
+            propulsionSystem.Stop();
+
+        if(hitSystem)
+            hitSystem.Stop();
+
     }
 
     // Update is called once per frame
@@ -36,6 +47,17 @@ public class Missile : MonoBehaviour
         {
             handleMovementAir();            
         }
+
+        if (hitTimer > 0 && Time.time > hitTimer)
+        {
+            //reset timer
+            hitTimer = -1;
+            //send it to hell
+            transform.position = new Vector3(0, -666, 0);
+            //reshow
+            transform.GetComponent<MeshRenderer>().enabled = true;
+
+        }
         
     }
 
@@ -44,8 +66,7 @@ public class Missile : MonoBehaviour
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, GRAVITY_CONSTANT, 0);
-
-
+        finalForce += transform.forward * missileAccel;
 
         acceleration = finalForce;
         //add more forces here
@@ -66,6 +87,8 @@ public class Missile : MonoBehaviour
 
         velocity = (direction + angle) * power * powerFactor;
         inAir = true;
+        propulsionSystem.Play();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -87,14 +110,24 @@ public class Missile : MonoBehaviour
             Debug.Log("BOOM!!!");
             inAir = false;
 
+            if (hitSystem)
+                hitSystem.Play();
+
+            if (propulsionSystem)
+                propulsionSystem.Stop();
+
+            hitTimer = Time.time + 2.0f;
+
+            transform.GetComponent<MeshRenderer>().enabled = false;
+
             other.transform.GetComponent<damage>().doDamage(damageValue);
 
             //apply force as an impulse, this needs to be fairly huge as it applies to velocity only once.
             other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 10000.0f);
 
-
+           
+            }
         }
 
     }
-
-}
+   

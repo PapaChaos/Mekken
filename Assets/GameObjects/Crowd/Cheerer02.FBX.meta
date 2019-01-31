@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: ddaeaacb274d20248b547b4b5cf2e61c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: BipedalLegLeftA009
+    100002: BipedalLegLeftB009
+    100004: BipedalLegLeftC009
+    100006: BipedalLegLeftD009
+    100008: BipedalLegRightA009
+    100010: BipedalLegRightB009
+    100012: BipedalLegRightC009
+    100014: BipedalLegRightD009
+    100016: Box165
+    100018: Box166
+    100020: Box167
+    100022: Box168
+    100024: Box169
+    100026: Box170
+    100028: Box171
+    100030: Box172
+    100032: Box173
+    100034: Box174
+    100036: Box175
+    100038: Box176
+    100040: Box177
+    100042: Box178
+    100044: //RootNode
+    100046: MechHead006
+    100048: Object018
+    100050: Plane001
+    100052: Rectangle002
+    400000: BipedalLegLeftA009
+    400002: BipedalLegLeftB009
+    400004: BipedalLegLeftC009
+    400006: BipedalLegLeftD009
+    400008: BipedalLegRightA009
+    400010: BipedalLegRightB009
+    400012: BipedalLegRightC009
+    400014: BipedalLegRightD009
+    400016: Box165
+    400018: Box166
+    400020: Box167
+    400022: Box168
+    400024: Box169
+    400026: Box170
+    400028: Box171
+    400030: Box172
+    400032: Box173
+    400034: Box174
+    400036: Box175
+    400038: Box176
+    400040: Box177
+    400042: Box178
+    400044: //RootNode
+    400046: MechHead006
+    400048: Object018
+    400050: Plane001
+    400052: Rectangle002
+    2100000: 'Material #38'
+    2100002: 'Material #39'
+    2100004: 'Material #40'
+    2100006: No Name
+    2300000: BipedalLegLeftA009
+    2300002: BipedalLegLeftB009
+    2300004: BipedalLegLeftC009
+    2300006: BipedalLegLeftD009
+    2300008: BipedalLegRightA009
+    2300010: BipedalLegRightB009
+    2300012: BipedalLegRightC009
+    2300014: BipedalLegRightD009
+    2300016: Box165
+    2300018: Box166
+    2300020: Box167
+    2300022: Box168
+    2300024: Box169
+    2300026: Box170
+    2300028: Box171
+    2300030: Box172
+    2300032: Box173
+    2300034: Box174
+    2300036: Box175
+    2300038: Box176
+    2300040: Box177
+    2300042: Box178
+    2300044: //RootNode
+    2300046: MechHead006
+    2300048: Plane001
+    2300050: Rectangle002
+    3300000: BipedalLegLeftA009
+    3300002: BipedalLegLeftB009
+    3300004: BipedalLegLeftC009
+    3300006: BipedalLegLeftD009
+    3300008: BipedalLegRightA009
+    3300010: BipedalLegRightB009
+    3300012: BipedalLegRightC009
+    3300014: BipedalLegRightD009
+    3300016: Box165
+    3300018: Box166
+    3300020: Box167
+    3300022: Box168
+    3300024: Box169
+    3300026: Box170
+    3300028: Box171
+    3300030: Box172
+    3300032: Box173
+    3300034: Box174
+    3300036: Box175
+    3300038: Box176
+    3300040: Box177
+    3300042: Box178
+    3300044: //RootNode
+    3300046: MechHead006
+    3300048: Plane001
+    3300050: Rectangle002
+    4300000: MechMainBodyA010
+    4300002: BipedalLegLeftA009
+    4300004: BipedalLegLeftB009
+    4300006: BipedalLegRightC009
+    4300008: BipedalLegLeftD009
+    4300010: BipedalLegRightA009
+    4300012: BipedalLegRightB009
+    4300014: BipedalLegLeftC009
+    4300016: BipedalLegRightD009
+    4300018: MechHead006
+    4300020: Box172
+    4300022: Box173
+    4300024: Box174
+    4300026: Box175
+    4300028: Box176
+    4300030: Box177
+    4300032: Box178
+    4300034: Box165
+    4300036: Box166
+    4300038: Box167
+    4300040: Box168
+    4300042: Box169
+    4300044: Box170
+    4300046: Box171
+    4300048: Plane001
+    4300050: Rectangle002
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #38'
+    second: {fileID: 2100000, guid: abc8e4fbde406634599ff65d942a2287, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #39'
+    second: {fileID: 2100000, guid: 67ba746e077909541a4a1ea73309a110, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #40'
+    second: {fileID: 2100000, guid: 1d532077b21a1f14284c8f9e4bbf9970, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 1d532077b21a1f14284c8f9e4bbf9970, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

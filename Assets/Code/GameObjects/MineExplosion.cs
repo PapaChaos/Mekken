@@ -22,7 +22,7 @@ public class MineExplosion : MonoBehaviour
         explosionParticle.Stop();
     }
 
-    // On Trigger
+    // On Trigge
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
