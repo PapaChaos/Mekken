@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MineExplosion : MonoBehaviour
 {
+    //Katarina, Frasier & Knut
 
     private AudioSource explosionSound;
-    private ParticleSystem explosionParticle;
+    private particle_Explosion  explosionParticle;
     private GameObject Mine;
     private bool isTriggered = false;
     public float damageValue = 1.0f;
@@ -15,20 +16,22 @@ public class MineExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        explosionSound = GetComponent<AudioSource>();
+       explosionSound = GetComponent<AudioSource>();
         explosionSound.Stop();
 
-        explosionParticle = GetComponent<ParticleSystem>();
-        explosionParticle.Stop();
+        explosionParticle = GetComponent<particle_Explosion>();
+        explosionParticle.ps_Explosion.Stop();
     }
 
     // On Trigger
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        if (isTriggered == false)
         {
-                explosionParticle.Play();
+
+            if (isTriggered == false)
+            {
+                explosionParticle.ps_Explosion.Play();
                 explosionSound.Play();
                 Mine = GameObject.Find("ExplodingMine");
                 Mine.GetComponent<MeshRenderer>().enabled = false;
@@ -39,6 +42,9 @@ public class MineExplosion : MonoBehaviour
                 {
                     other.transform.GetComponent<damage>().doDamage(damageValue);
                 }
+            }
+
         }
+        
     }
 }

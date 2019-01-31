@@ -7,7 +7,7 @@ public class Mine : MonoBehaviour
     public Renderer rend;
     public GameObject explosionPrefab;
     // Start is called before the first frame update
-    //Frasier & Katarina
+    //Frasier, Katarina & Knut
     void Start()
     {
         rend = GetComponent<Renderer>();
