@@ -110,6 +110,9 @@ public class playerPhysics : MonoBehaviour
 
             if (controller.forward)
             {
+
+                
+
                 isRotatingTurret = false;
                 isInForward = true;
                 isInReverse = false;
@@ -333,6 +336,12 @@ public class playerPhysics : MonoBehaviour
             updateFacing = false;
         else
             wasStrafeing = false;
+
+
+        if (controller.controlerOn)
+            Debug.Log(controller.playerNumberText + " THRUST " + thrust.ToString() );
+
+
     }
 
 
