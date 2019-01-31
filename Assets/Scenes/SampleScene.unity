@@ -12846,8 +12846,8 @@ MonoBehaviour:
   missileAccel: 0
   damageValue: 25
   owner: {fileID: 0}
-  hitSystem: {fileID: 0}
-  propulsionSystem: {fileID: 0}
+  hitSystem: {fileID: 2101059019}
+  propulsionSystem: {fileID: 1203560314}
   hitTimer: -1
 --- !u!54 &1377103967
 Rigidbody:
