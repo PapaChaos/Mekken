@@ -17,6 +17,7 @@ public class MineExplosion : MonoBehaviour
     {
         explosionSound = GetComponent<AudioSource>();
         explosionSound.Stop();
+        explosionParticle.transform.position = transform.position;
 
     }
     private void Update()
