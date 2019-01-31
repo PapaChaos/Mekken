@@ -938,11 +938,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142833097}
+  - component: {fileID: 142833092}
   - component: {fileID: 142833096}
   - component: {fileID: 142833095}
   - component: {fileID: 142833094}
   - component: {fileID: 142833093}
-  - component: {fileID: 142833092}
   - component: {fileID: 142833091}
   - component: {fileID: 142833090}
   - component: {fileID: 142833089}
@@ -1114,7 +1114,6 @@ MonoBehaviour:
   playerProps: {fileID: 142833095}
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 142833092}
-  controller: {fileID: 142833094}
   playerGeometry: {fileID: 813833685}
   finalForce: {x: 0, y: 0, z: 0}
   yPosGround: 0
@@ -2121,7 +2120,6 @@ MonoBehaviour:
   playerProps: {fileID: 319879257}
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 319879255}
-  controller: {fileID: 319879256}
   playerGeometry: {fileID: 1832200090}
   finalForce: {x: 0, y: 0, z: 0}
   yPosGround: 0
