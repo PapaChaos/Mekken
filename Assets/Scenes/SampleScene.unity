@@ -7488,7 +7488,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.49
+      scalar: 0.6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -7541,7 +7541,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8.25
+      scalar: 8.55265
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -7598,8 +7598,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.9803922, b: 0.20000002, a: 1}
-        key1: {r: 0.7924528, g: 0, b: 0, a: 1}
+        key0: {r: 1, g: 0.8775682, b: 0.19999999, a: 1}
+        key1: {r: 0.7921569, g: 0.50159574, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -8033,7 +8033,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 19.379889
+    angle: 11.292708
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -8119,7 +8119,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.21464488
+      value: 0.17518374
       mode: 0
       spread: 0
       speed:
@@ -16698,8 +16698,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9811321, g: 0, b: 0, a: 1}
-        key1: {r: 1, g: 0.8795767, b: 0, a: 1}
+        key0: {r: 0.7830189, g: 0.22682251, b: 0.15143289, a: 1}
+        key1: {r: 0.9150943, g: 0.62840587, b: 0.06474723, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -16707,15 +16707,15 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 25443
+        ctime1: 53585
         ctime2: 0
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 20239
-        atime1: 26792
+        atime0: 0
+        atime1: 65535
         atime2: 0
         atime3: 0
         atime4: 0
