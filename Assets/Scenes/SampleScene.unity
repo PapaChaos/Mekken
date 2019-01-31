@@ -228,17 +228,17 @@ PrefabInstance:
     - target: {fileID: 1281287261257827789, guid: 24f209bd5aade714a82f30f80f9d2e2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.078645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1281287261257827789, guid: 24f209bd5aade714a82f30f80f9d2e2f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4914677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1281287261257827789, guid: 24f209bd5aade714a82f30f80f9d2e2f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0900245
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1281287261257827789, guid: 24f209bd5aade714a82f30f80f9d2e2f,
         type: 3}
@@ -294,6 +294,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.23951519
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281287262281515591, guid: 24f209bd5aade714a82f30f80f9d2e2f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449529147, guid: 24f209bd5aade714a82f30f80f9d2e2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24f209bd5aade714a82f30f80f9d2e2f, type: 3}
@@ -1300,7 +1309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319879253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.38, y: 15.25, z: 50.07}
+  m_LocalPosition: {x: -50.25, y: 13.69, z: 51.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1832200090}
@@ -2415,6 +2424,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!198 &428050182 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1281287260455554083, guid: 24f209bd5aade714a82f30f80f9d2e2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 20931253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468651700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3230,12 @@ Transform:
   m_Father: {fileID: 1740216684}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 26.2, z: 0}
+--- !u!199 &763129073 stripped
+ParticleSystemRenderer:
+  m_CorrespondingSourceObject: {fileID: 1281287262281515590, guid: 24f209bd5aade714a82f30f80f9d2e2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 20931253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &811687625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 1da5580ba5948ee4ebdc2a494f7ca405,
@@ -3783,8 +3804,12 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
   GRAVITY_CONSTANT: -9.8
+  missileAccel: 0
   damageValue: 1
   owner: {fileID: 0}
+  hitSystem: {fileID: 0}
+  propulsionSystem: {fileID: 0}
+  hitTimer: -1
 --- !u!135 &944337956
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3954,17 +3979,17 @@ PrefabInstance:
     - target: {fileID: 48279836426182886, guid: 6e2eb60a567ae144cb4f9af8578663cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.964733
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 48279836426182886, guid: 6e2eb60a567ae144cb4f9af8578663cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.3306375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 48279836426182886, guid: 6e2eb60a567ae144cb4f9af8578663cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.2834628
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 48279836426182886, guid: 6e2eb60a567ae144cb4f9af8578663cc,
         type: 3}
@@ -5303,8 +5328,12 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
   GRAVITY_CONSTANT: 0
+  missileAccel: 0
   damageValue: 30
   owner: {fileID: 0}
+  hitSystem: {fileID: 0}
+  propulsionSystem: {fileID: 0}
+  hitTimer: -1
 --- !u!54 &1377103967
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5497,8 +5526,12 @@ MonoBehaviour:
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
   GRAVITY_CONSTANT: 0
+  missileAccel: 0
   damageValue: 1
   owner: {fileID: 0}
+  hitSystem: {fileID: 0}
+  propulsionSystem: {fileID: 0}
+  hitTimer: -1
 --- !u!135 &1450343734
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5873,6 +5906,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!199 &1688731761 stripped
+ParticleSystemRenderer:
+  m_CorrespondingSourceObject: {fileID: 1449529148, guid: 24f209bd5aade714a82f30f80f9d2e2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 20931253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1699827305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7069,7 +7108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998686197}
   m_LocalRotation: {x: -0, y: -0.23908208, z: -0, w: 0.97099936}
-  m_LocalPosition: {x: -83.02, y: 15.25, z: 31.18}
+  m_LocalPosition: {x: -94.2, y: 15.25, z: 13.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1816450679}
@@ -7374,6 +7413,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
   explosionPrefab: {fileID: 0}
+--- !u!82 &2137545439
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137545435}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 31fc439701d07434e8309560a774ac98, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2137545441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b65905091ab17784c9ad4b705ae8b76a,
@@ -7392,9 +7527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce4307942e746f478afd250b6fcc78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps_Explosion: {fileID: 0}
-  psr_Explosion: {fileID: 0}
-  psr_Sparks: {fileID: 0}
+  ps_Explosion: {fileID: 428050182}
+  psr_Explosion: {fileID: 763129073}
+  psr_Sparks: {fileID: 1688731761}
   blackbodyMaxValue: 5000
   blackbodyMinValue: 500
   blackbodyValue: 5000
@@ -7429,7 +7564,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   EmissiveStrength: 5
   TimeLeftRatio: 0
-  TimeMax: 0
+  TimeMax: 10
 --- !u!1001 &1688912853002510721
 PrefabInstance:
   m_ObjectHideFlags: 0
