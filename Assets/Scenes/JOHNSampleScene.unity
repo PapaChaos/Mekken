@@ -1114,6 +1114,7 @@ MonoBehaviour:
   playerProps: {fileID: 142833095}
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 142833092}
+  controller: {fileID: 142833094}
   playerGeometry: {fileID: 813833685}
   finalForce: {x: 0, y: 0, z: 0}
   yPosGround: 0
@@ -2120,6 +2121,7 @@ MonoBehaviour:
   playerProps: {fileID: 319879257}
   gameManager: {fileID: 838747722}
   physicsController: {fileID: 319879255}
+  controller: {fileID: 319879256}
   playerGeometry: {fileID: 1832200090}
   finalForce: {x: 0, y: 0, z: 0}
   yPosGround: 0

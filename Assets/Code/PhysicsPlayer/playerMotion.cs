@@ -8,7 +8,7 @@ public class playerMotion : MonoBehaviour
     public playerProperties playerProps;
     public GameManager gameManager;
     public playerPhysics physicsController;
-
+   
     //representation of the player, de-coupled from the empty doing the movement
     public Transform playerGeometry;
       
