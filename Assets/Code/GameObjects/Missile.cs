@@ -18,7 +18,7 @@ public class Missile : MonoBehaviour
     public Vector3 finalForce;
 
     public float  GRAVITY_CONSTANT = -9.8f;
-
+    public float missileAccel = 0.0f;
     public float damageValue = 1.0f;
 
     public Transform owner;
@@ -44,8 +44,7 @@ public class Missile : MonoBehaviour
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, GRAVITY_CONSTANT, 0);
-
-
+        finalForce += transform.forward * missileAccel;
 
         acceleration = finalForce;
         //add more forces here

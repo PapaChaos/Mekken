@@ -47,6 +47,7 @@ public class FireProjectile : MonoBehaviour
     {
         //move the missle into initial position
         missile.transform.position = playerGeom.position + playerGeom.forward + Vector3.up;
+        missile.transform.forward = playerGeom.forward;
 
         //own the missile
         missile.owner = transform;
