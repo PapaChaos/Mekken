@@ -1244,6 +1244,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1832200090}
     m_Modifications:
+    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: leftTread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: rightTread
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1275,14 +1283,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: leftTread
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: rightTread
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18167,11 +18167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33b3ca93739b1c94aa114349a18dda34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33b3ca93739b1c94aa114349a18dda34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33b3ca93739b1c94aa114349a18dda34, type: 3}
       propertyPath: m_LocalRotation.x
@@ -20631,6 +20631,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1816450679}
     m_Modifications:
+    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: leftTread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: rightTread
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -20662,14 +20670,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: leftTread
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: rightTread
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_Materials.Array.data[0]
