@@ -10,11 +10,12 @@ using UnityEngine;
 public class particle_Explosion : MonoBehaviour
 {
 	public ParticleSystem ps_Explosion;				//Reference the Explosion Particle System
-	public ParticleSystemRenderer psr_Explosion;    //Reference the Explosion Particle System Renderer
+	public ParticleSystem psr_Explosion;           //Reference the Explosion Particle System Renderer
 
-	public ParticleSystemRenderer psr_Sparks;
+    public ParticleSystem psr_Sparks;
+    public ParticleSystem psr_SmokePillar;
 
-	public float blackbodyMaxValue = 5000;			//the starting value.
+    public float blackbodyMaxValue = 5000;			//the starting value.
 	public float blackbodyMinValue = 500;			//the end value.
 	public float blackbodyValue = 5000;             //Blackbody color temperature. More info: http://www.giangrandi.ch/optics/blackbody/blackbody.shtml
 
@@ -26,11 +27,38 @@ public class particle_Explosion : MonoBehaviour
 	public float TimeLeftRatio;						//this goes from 1 to 0 and should help					
 	public float TimeMax;							//Couldn't find an variable in the Particle System to get the duration of the particle emitter. Only duration I found was the one spawning the particles not their life time.
 
-	void Start()
+    private float runTimeMax = 0;
+
+    public void PlaySystem()
+    {
+        ps_Explosion.Play();
+        psr_Explosion.Play();
+        psr_Sparks.Play();
+        psr_SmokePillar.Play();
+        runTimeMax = TimeMax;
+
+    }
+
+    private void Awake()
+    {
+        ps_Explosion.Stop();
+        psr_Explosion.Stop();
+        psr_Sparks.Stop();
+        psr_SmokePillar.Stop();
+    }
+
+
+    void Start()
 	{
-		//Albedo color might not really be important or even visible as the emissive most likely absorbs the albedo color. But, in case we want to remove the emissive texture I added this in.
-		//Maybe have a null or false check on emissive to see if this should be set?
-		var main = ps_Explosion.main;
+
+        ps_Explosion.Stop();            
+        psr_Explosion.Stop();
+        psr_Sparks.Stop();
+        psr_SmokePillar.Stop();
+
+        //Albedo color might not really be important or even visible as the emissive most likely absorbs the albedo color. But, in case we want to remove the emissive texture I added this in.
+        //Maybe have a null or false check on emissive to see if this should be set?
+        var main = ps_Explosion.main;
 		var colorLifeTime = ps_Explosion.colorOverLifetime;
 
 		main.startColor = Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue);
@@ -43,13 +71,13 @@ public class particle_Explosion : MonoBehaviour
 	private void Update()
 	{
 		//Checks if the TimeMax is set.
-		if (TimeMax != 0f)	
+		if (runTimeMax != 0f)	
 		{
 			TimePassed += Time.deltaTime;
 
 			//make sure that the TimeLeftRatio doesn't drop under 0. Because we don't divide by zero.
-			if ((1 - (TimePassed / TimeMax)) > 0f)              
-				TimeLeftRatio = 1 - (TimePassed / TimeMax);
+			if ((1 - (TimePassed / runTimeMax)) > 0f)              
+				TimeLeftRatio = 1 - (TimePassed / runTimeMax);
 
 			//make sure that the TimeLeftRatio ends at 0.
 			else
@@ -57,11 +85,9 @@ public class particle_Explosion : MonoBehaviour
 
 			blackbodyValue = ((blackbodyMaxValue - blackbodyMinValue) * TimeLeftRatio) + blackbodyMinValue;     //this shouldn't go under 500.
 
-			psr_Explosion.material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature of the explosion.
-			psr_Sparks.material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength);
+			psr_Explosion.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature of the explosion.
+			psr_Sparks.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength);
 		}
-		else
-			print("You need to set the Time Max variable in "+ gameObject.transform.name); //just easy debug if someone messes up.
-
+		
 	}
 }
