@@ -1,6 +1,7 @@
 ﻿//
 //Created by Dan Wad. To handle Mech Construction from UI.
 //TODO: Add a check if both players are ready before constructing mechs. Might want to do that in the GameManager.
+//31.Jan added in enums instead for checks.
 //
 
 
@@ -11,7 +12,18 @@ using UnityEngine;
 public class MechConstructor : MonoBehaviour
 {
 	//the chosen mech parts.
-	public GameObject Player_Frame, Player_Movement, Player_RightWeapon, Player_LeftWeapon, Player_Head;
+	public enum Module_Frame { None, Frame01 };
+	public enum Module_Movement { None, Treads, Biped, Quadruped };
+	public enum Module_RightWeapon { None, RocketLauncher, GrenadeLauncher, MortarLauncher };
+	public enum Module_LeftWeapon { None, RocketLauncher, GrenadeLauncher, MortarLauncher };
+	public enum Module_HeadModule { None, Head01, Head02, Head03 };
+
+	public Module_Frame chosenFrame = Module_Frame.None;
+	public Module_Movement chosenMovement = Module_Movement.None;
+	public Module_RightWeapon chosenRightWeapon = Module_RightWeapon.None;
+	public Module_LeftWeapon chosenLeftWeapon = Module_LeftWeapon.None;
+	public Module_HeadModule chosenHead = Module_HeadModule.None;
+
 
 	//each gameobject for each button press. Was thinking about using lists instead but it might just make the code look more complicated then necessary.
 	public GameObject MechFrame01, MechTreads, MechBiped, MechQuadruped, MechRocketLauncherRight, MechGrenadeLauncherRight;
@@ -24,62 +36,61 @@ public class MechConstructor : MonoBehaviour
 	//int Player is set up in case we want to add more than 2 players later to each fight.
 	public void Player_Frame01_Button(int Player)
 	{
-		Player_Frame = MechFrame01;
+		chosenFrame = Module_Frame.Frame01;
 	}
 	public void Player_Treads_Button(int Player)
 	{
-		Player_Movement = MechTreads;
+		chosenMovement = Module_Movement.Treads;
 	}
 	public void Player_Biped_Button(int Player)
 	{
-		Player_Movement = MechBiped;
+		chosenMovement = Module_Movement.Biped;
 	}
 	public void Player_Quadruped_Button(int Player)
 	{
-		Player_Movement = MechQuadruped;
+		chosenMovement = Module_Movement.Quadruped;
 	}
 	public void Player_RocketLauncherRight_Button(int Player)
 	{
-		Player_RightWeapon = MechRocketLauncherRight;
+		chosenRightWeapon = Module_RightWeapon.RocketLauncher;
 	}
 	public void Player_GrenadeLauncherRight_Button(int Player)
 	{
-		Player_RightWeapon = MechGrenadeLauncherRight;
+		chosenRightWeapon = Module_RightWeapon.GrenadeLauncher;
 	}
 	public void Player_MortarLauncherRight_Button(int Player)
 	{
-		Player_RightWeapon = MechMortarLauncherRight;
+		chosenRightWeapon = Module_RightWeapon.MortarLauncher;
 	}
 	public void Player_RocketLauncherLeft_Button(int Player)
 	{
-		Player_LeftWeapon = MechRocketLauncherLeft;
+		chosenLeftWeapon = Module_LeftWeapon.RocketLauncher;
 	}
 	public void Player_GrenadeLauncherLeft_Button(int Player)
 	{
-		Player_LeftWeapon = MechGrenadeLauncherLeft;
+		chosenLeftWeapon = Module_LeftWeapon.GrenadeLauncher;
 	}
 	public void Player_MortarLauncherLeft_Button(int Player)
 	{
-		Player_LeftWeapon = MechMortarLauncherLeft;
+		chosenLeftWeapon = Module_LeftWeapon.MortarLauncher;
 	}
 	public void Player_Head01_Button(int Player)
 	{
-		Player_Head = MechHead01;
+		chosenHead = Module_HeadModule.Head01;
 	}
 	public void Player_Head02_Button(int Player)
 	{
-		Player_Head = MechHead02;
+		chosenHead = Module_HeadModule.Head02;
 	}
 	public void Player_Head03_Button(int Player)
 	{
-		Player_Head = MechHead03;
+		chosenHead = Module_HeadModule.Head03;
 	}
 	public void Player_Start_Button(int Player)
 	{
-		if (Player_Frame && Player_Movement && Player_RightWeapon && Player_LeftWeapon && Player_Head)
-		{
-			BothPlayersReady();
-		}
+		if(chosenFrame != Module_Frame.None && chosenMovement != Module_Movement.None && chosenRightWeapon != Module_RightWeapon.None &&
+			chosenLeftWeapon != Module_LeftWeapon.None && chosenHead != Module_HeadModule.None)
+		BothPlayersReady();
 	}
 
 	//This function is to generate the mechs and start the match.
@@ -92,38 +103,77 @@ public class MechConstructor : MonoBehaviour
 
 		GameObject player = Instantiate(Player, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
 		PlayerMech pMech = player.GetComponent<PlayerMech>();
-		pMech.mechFrame = Player_Frame;
-		pMech.mechHead = Player_Head;
-		pMech.mechMovement = Player_Movement;
 
 		//mech treads is the only movement module that does not include the frame.
-		if (Player_Movement == MechTreads)
-			pMech.mechTreads = true;
+		if (chosenMovement == Module_Movement.Treads)
+			switch (chosenFrame)
+			{
+				case Module_Frame.Frame01:
+					pMech.mechFrame = MechFrame01;
+					break;
+			}
 
-		if (Player_Movement == MechQuadruped)
-			pMech.mechQuadruped = true;
+		switch (chosenMovement)
+		{
+			case Module_Movement.Treads:
+				pMech.mechMovement = MechTreads;
+				pMech.mechTreads = true;
+				break;
+			case Module_Movement.Biped:
+				pMech.mechMovement = MechBiped;
+				pMech.mechBiped = true;
+				break;
+			case Module_Movement.Quadruped:
+				pMech.mechMovement = MechQuadruped;
+				pMech.mechQuadruped = true;
+				break;
+		}
 
-		if (Player_Movement == MechBiped)
-			pMech.mechBiped = true;
+		switch (chosenRightWeapon)
+		{
+			case Module_RightWeapon.RocketLauncher:
+				pMech.mechWeaponRight = MechRocketLauncherRight;
+				pMech.RocketLauncherRight = true;
+				break;
+			case Module_RightWeapon.GrenadeLauncher:
+				pMech.mechWeaponRight = MechGrenadeLauncherRight;
+				pMech.GrenadeLauncherRight = true;
+				break;
+			case Module_RightWeapon.MortarLauncher:
+				pMech.mechWeaponRight = MechMortarLauncherRight;
+				pMech.MortarLauncherRight = true;
+				break;
+		}
 
-		pMech.mechWeaponRight = Player_RightWeapon;
+		switch(chosenLeftWeapon)
+		{
+			case Module_LeftWeapon.RocketLauncher:
+				pMech.mechWeaponLeft = MechRocketLauncherLeft;
+				pMech.RocketLauncherLeft = true;
+				break;
+			case Module_LeftWeapon.GrenadeLauncher:
+				pMech.mechWeaponLeft = MechGrenadeLauncherLeft;
+				pMech.GrenadeLauncherLeft = true;
+				break;
+			case Module_LeftWeapon.MortarLauncher:
+				pMech.mechWeaponLeft = MechMortarLauncherLeft;
+				pMech.MortarLauncherLeft = true;
+				break;
 
-		if (Player_RightWeapon == MechRocketLauncherRight)
-			pMech.RocketLauncherRight = true;
+		}
 
-		if (Player_RightWeapon == MechGrenadeLauncherRight)
-			pMech.GrenadeLauncherRight = true;
-
-		if (Player_RightWeapon == MechMortarLauncherRight)
-			pMech.MortarLauncherRight = true;
-
-		pMech.mechWeaponLeft = Player_LeftWeapon;
-		if (Player_LeftWeapon == MechRocketLauncherLeft)
-			pMech.RocketLauncherLeft = true;
-		if (Player_LeftWeapon == MechGrenadeLauncherLeft)
-			pMech.GrenadeLauncherLeft = true;
-		if (Player_LeftWeapon == MechMortarLauncherLeft)
-			pMech.MortarLauncherLeft = true;
+		switch (chosenHead)
+		{
+			case Module_HeadModule.Head01:
+				pMech.mechHead = MechHead01;
+				break;
+			case Module_HeadModule.Head02:
+				pMech.mechHead = MechHead02;
+				break;
+			case Module_HeadModule.Head03:
+				pMech.mechHead = MechHead03;
+				break;
+		}
 
 
 
