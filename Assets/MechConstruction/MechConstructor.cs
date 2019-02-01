@@ -11,6 +11,9 @@ using UnityEngine;
 
 public class MechConstructor : MonoBehaviour
 {
+
+    public MechasReadyLoadGame loader;
+
 	//the chosen mech parts.
 	public enum Module_Frame { None, Frame01 };
 	public enum Module_Movement { None, Treads, Biped, Quadruped };
@@ -32,6 +35,8 @@ public class MechConstructor : MonoBehaviour
 	public GameObject Player;
 	public GameObject PlayerSpawn;
 	public bool PlayerReady;
+
+    private int pnum = 0;  //player number assigned
 
 	//int Player is set up in case we want to add more than 2 players later to each fight.
 	public void Player_Frame01_Button(int Player)
@@ -93,7 +98,8 @@ public class MechConstructor : MonoBehaviour
 		BothPlayersReady();
 	}
 
-	//This function is to generate the mechs and start the match.
+    //This function is to generate the mechs and start the match.
+    
 	void BothPlayersReady()
 	{
 
@@ -175,10 +181,16 @@ public class MechConstructor : MonoBehaviour
 				break;
 		}
 
+        
 
+        pMech.ConstructMecha();
+        DontDestroyOnLoad(pMech);
 
-		pMech.ConstructMecha();
+        Destroy(this.gameObject);
 
-		Destroy(this.gameObject);
-	}
+        pnum++;
+        pMech.PlayerNumber = pnum;
+        loader.incrementReady();
+
+    }
 }
