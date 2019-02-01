@@ -6,7 +6,7 @@ public class RocketLauncher : MonoBehaviour
 {
 
 
-    public Transform target;
+    public Transform target = null;
     public rocketConeTarget visibilityCone;
     public Transform playerGeom;
 
@@ -60,6 +60,9 @@ public class RocketLauncher : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+
+        if (!target)
+            return; //early out
 
         if (visibilityCone.lockedOn)
         {

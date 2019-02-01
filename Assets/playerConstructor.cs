@@ -93,10 +93,7 @@ public class playerConstructor : MonoBehaviour
 
                 //hmmm is this gonna screw the next child? do i need to mark it for destruction, then loop again??
                 if (nukeIt)
-                    Destroy(child);
-
-
-
+                    GameObject.Destroy(child.gameObject);
             }
             
 
