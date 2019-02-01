@@ -1148,6 +1148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0749e69440efb464bbe5a18c57d80330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 2
+  mechConstruct: {fileID: 0}
 --- !u!1 &151869136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,6 +2315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0749e69440efb464bbe5a18c57d80330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 1
+  mechConstruct: {fileID: 0}
 --- !u!1001 &329561705
 PrefabInstance:
   m_ObjectHideFlags: 0

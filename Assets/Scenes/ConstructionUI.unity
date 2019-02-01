@@ -332,6 +332,11 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 523546909}
+    - target: {fileID: 4397321777968518623, guid: a1cfe55cfbd73f04887c58788aea6ecb,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4841098649398140554, guid: a1cfe55cfbd73f04887c58788aea6ecb,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1135,6 +1140,11 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 523546909}
+    - target: {fileID: 2980734085010726255, guid: fd3a41a82b1e4be41837e031c3c76bdb,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7127587453216928896, guid: fd3a41a82b1e4be41837e031c3c76bdb,
         type: 3}
       propertyPath: m_AnchorMin.y

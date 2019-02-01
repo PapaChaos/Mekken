@@ -11,11 +11,12 @@ using UnityEngine;
 
 public class MechConstructor : MonoBehaviour
 {
+    //<JPK>
+    public MechasReadyLoadGame loader;      //quick and easy way to load arena
+    public int playerNumber = 0;            //player number assigned
 
-    public MechasReadyLoadGame loader;
-
-	//the chosen mech parts.
-	public enum Module_Frame { None, Frame01 };
+    //the chosen mech parts.
+    public enum Module_Frame { None, Frame01 };
 	public enum Module_Movement { None, Treads, Biped, Quadruped };
 	public enum Module_RightWeapon { None, RocketLauncher, GrenadeLauncher, MortarLauncher };
 	public enum Module_LeftWeapon { None, RocketLauncher, GrenadeLauncher, MortarLauncher };
@@ -36,7 +37,7 @@ public class MechConstructor : MonoBehaviour
 	public GameObject PlayerSpawn;
 	public bool PlayerReady;
 
-    private int pnum = 0;  //player number assigned
+    
 
 	//int Player is set up in case we want to add more than 2 players later to each fight.
 	public void Player_Frame01_Button(int Player)
@@ -181,15 +182,15 @@ public class MechConstructor : MonoBehaviour
 				break;
 		}
 
-        
 
-        pMech.ConstructMecha();
+      
+        pMech.ConstructMecha(playerNumber);
         DontDestroyOnLoad(pMech);
 
         Destroy(this.gameObject);
 
-        pnum++;
-        pMech.PlayerNumber = pnum;
+        
+        
         loader.incrementReady();
 
     }

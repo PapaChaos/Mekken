@@ -32,9 +32,12 @@ public class PlayerMech : MonoBehaviour
 	}
 
 	//This gets called from the player construction HUD.
-	public void ConstructMecha()
+	public void ConstructMecha(int playerNumber)
 	{
 
+        this.gameObject.name = "PlayerMecha" + playerNumber;
+
+        PlayerNumber = playerNumber;
 
 		//////////////////////////////
 		//		Movement Module		//
