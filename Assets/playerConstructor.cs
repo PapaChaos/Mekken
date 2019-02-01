@@ -53,7 +53,8 @@ public class playerConstructor : MonoBehaviour
             foreach (Transform child in pm)
             {
 
-                //prolly want to apply final corrections and positions here as well
+                //apply final corrections and positions here as well
+                
 
                 bool nukeIt = true;
 
@@ -77,38 +78,38 @@ public class playerConstructor : MonoBehaviour
 
                 if (child.name == "RocketLauncherR" && mechConstruct.RocketLauncherRight)
                 {
-                    child.position = mechConstruct.RocketLauncherPosition;
+                    child.localPosition = mechConstruct.RocketLauncherPosition;
                     nukeIt = false;
                 }                    
 
                 if (child.name == "GrenadeLauncherR" && mechConstruct.GrenadeLauncherRight)
                 {
-                    child.position = mechConstruct.GrenadeLauncherPosition;
+                    child.localPosition = mechConstruct.GrenadeLauncherPosition;
                     nukeIt = false;
                 }
                     
                 if (child.name == "MortarLauncherR" && mechConstruct.MortarLauncherRight)
                 {
-                    child.position = mechConstruct.MortarLauncherPosition;
+                    child.localPosition = mechConstruct.MortarLauncherPosition;
                     nukeIt = false;
                 }                    
 
                 if (child.name == "RocketLauncherL" && mechConstruct.RocketLauncherLeft)
                 {
-                    child.position = mechConstruct.RocketLauncherPosition;
+                    child.localPosition = mechConstruct.RocketLauncherPosition;
                     nukeIt = false;
                 }                   
 
                 if (child.name == "GrenadeLauncherL" && mechConstruct.GrenadeLauncherLeft)
                 {
-                    child.position = mechConstruct.GrenadeLauncherPosition;
+                    child.localPosition = mechConstruct.GrenadeLauncherPosition;
                     nukeIt = false;
                 }
                     
 
                 if (child.name == "MortarLauncherL" && mechConstruct.MortarLauncherLeft)
                 {
-                    child.position = mechConstruct.MortarLauncherPosition;
+                    child.localPosition = mechConstruct.MortarLauncherPosition;
                     nukeIt = false;
                 }
 
@@ -117,9 +118,13 @@ public class playerConstructor : MonoBehaviour
                 if (nukeIt)
                     GameObject.Destroy(child.gameObject);
             }
-            
-            
+
+
+            //nuke the builder
+            GameObject.Destroy(builder);
+
             //remove this script?
+            this.enabled = false;
         }
     }
 }
