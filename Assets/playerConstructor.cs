@@ -48,7 +48,7 @@ public class playerConstructor : MonoBehaviour
 
             //this would be a fine place for a bitmask! 
             //but lets just get the job done, this should work fine for now
-            foreach (Transform child in transform)
+            foreach (Transform child in pm)
             {
 
                 //prolly want to apply final corrections and positions here as well

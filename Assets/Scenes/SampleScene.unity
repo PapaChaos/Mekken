@@ -15819,7 +15819,7 @@ MonoBehaviour:
   strafe: 0
   firePrimary: 0
   fireSecondary: 0
-  playerNumberText: 1
+  playerNumberText: 2
   controlerOn: 0
 --- !u!114 &1774473713
 MonoBehaviour:
@@ -15978,7 +15978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0749e69440efb464bbe5a18c57d80330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 2
   mechConstruct: {fileID: 0}
 --- !u!1001 &1776302927
 PrefabInstance:
