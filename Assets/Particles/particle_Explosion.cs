@@ -1,7 +1,7 @@
 ﻿//Created by Dan Wad. 22. Jan.
-//Updated by Dan Wad. 23. Jan. Added comments and made variable names more readable.
-
-//todo: add burst shockwave and embers?
+//Updated by Dan Wad. 23. Jan. Added comments and made variable names more readable. Added sparks
+//Updated by Dan Wad. 01. Feb. removed unnecessary code. Added a variable (particleRunTime) for total particle life to destroy game object when done playing.
+//todo: add burst shockwave? Needs HLSL coding to make a nice distortion effect.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -9,58 +9,62 @@ using UnityEngine;
 
 public class particle_Explosion : MonoBehaviour
 {
-	public ParticleSystem ps_Explosion;				//Reference the Explosion Particle System
-	public ParticleSystem psr_Explosion;           //Reference the Explosion Particle System Renderer
+	public ParticleSystem ps_Explosion;				//Reference the Explosion Particle System.
+    public ParticleSystem ps_Sparks;				//Reference the Sparks Particle System.
+    public ParticleSystem ps_SmokePillar;			//Reference the Smoke Particle System.
 
-    public ParticleSystem psr_Sparks;
-    public ParticleSystem psr_SmokePillar;
-
-    public float blackbodyMaxValue = 5000;			//the starting value.
-	public float blackbodyMinValue = 500;			//the end value.
+    public float blackbodyMaxValue = 5000;			//the blackbody starting value.
+	public float blackbodyMinValue = 500;			//the blackbody end value.
 	public float blackbodyValue = 5000;             //Blackbody color temperature. More info: http://www.giangrandi.ch/optics/blackbody/blackbody.shtml
 
 	public Gradient grad = new Gradient();			//Albedo Color over time Gradient.
 
 	public float EmissiveStrength = 5;				//The strength of the Emissive Texture.
 
-	private float TimePassed;						//Shouldn't be editable.
-	public float TimeLeftRatio;						//this goes from 1 to 0 and should help					
-	public float TimeMax;							//Couldn't find an variable in the Particle System to get the duration of the particle emitter. Only duration I found was the one spawning the particles not their life time.
+	private float timePassed;						//Shouldn't be editable.
+	public float timeLeftRatio;						//this goes from 1 to 0 and should help	setting the colors of the black body value.				
+	public float timeMax;							//Couldn't find an variable in the Particle System to get the duration of the particle emitter. Only duration I found was the one spawning the particles not their life time.
+													//this was actually ment for the explosion particle for the blackbody color to 
 
-    private float runTimeMax = 0;
+    public float particleRunTime = 0;				//this is for making sure that the blackbody colors change good and shouldn't be set to the time max as the time max is the actual duration of the particle.
 
-    public void PlaySystem()
+	public bool explodeWhenInitialized = false;		//if true this will explode the moment it's initialized.
+	public bool testPlaySystem = false;				//just to test the function call
+	private bool particleRunning = false;
+	public bool destroyOnComplete = true;
+
+
+	public void PlaySystem()						//function to activate the particle.
     {
         ps_Explosion.Play();
-        psr_Explosion.Play();
-        psr_Sparks.Play();
-        psr_SmokePillar.Play();
-        runTimeMax = TimeMax;
+        ps_Sparks.Play();
+        ps_SmokePillar.Play();
+		particleRunning = true;
+	}
 
-    }
-
-    private void Awake()
+    private void Awake()							//stops the particle from playing unless explodeWhenInitialized is activated.
     {
-        ps_Explosion.Stop();
-        psr_Explosion.Stop();
-        psr_Sparks.Stop();
-        psr_SmokePillar.Stop();
-    }
+		if (!explodeWhenInitialized)
+		{
+			ps_Explosion.Stop();
+			ps_Sparks.Stop();
+			ps_SmokePillar.Stop();
+		}
+		else
+		{
+			PlaySystem();
+		}
+	}
 
 
-    void Start()
+	void Start()
 	{
-
-        ps_Explosion.Stop();            
-        psr_Explosion.Stop();
-        psr_Sparks.Stop();
-        psr_SmokePillar.Stop();
-
-        //Albedo color might not really be important or even visible as the emissive most likely absorbs the albedo color. But, in case we want to remove the emissive texture I added this in.
-        //Maybe have a null or false check on emissive to see if this should be set?
-        var main = ps_Explosion.main;
+		//Albedo color might not really be important or even visible as the emissive most likely absorbs the albedo color. But, in case we want to remove the emissive texture I added this in.
+		//Maybe have a null or false check on emissive to see if this should be set?
+		var main = ps_Explosion.main;
 		var colorLifeTime = ps_Explosion.colorOverLifetime;
 
+		//this is to set the starting color.
 		main.startColor = Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue);
 		colorLifeTime.enabled = true;
 
@@ -70,24 +74,38 @@ public class particle_Explosion : MonoBehaviour
 	}
 	private void Update()
 	{
-		//Checks if the TimeMax is set.
-		if (runTimeMax != 0f)	
+		//activates the PlaySystem function when activating the bool. the particleRunning check is to make sure it only happens once.
+		if (testPlaySystem == true && !particleRunning)
+			PlaySystem();
+
+		//Checks if the TimeMax and if the particle is running is set.
+		if (timeMax != 0f && particleRunning)	
 		{
-			TimePassed += Time.deltaTime;
+			timePassed += Time.deltaTime;
 
 			//make sure that the TimeLeftRatio doesn't drop under 0. Because we don't divide by zero.
-			if ((1 - (TimePassed / runTimeMax)) > 0f)              
-				TimeLeftRatio = 1 - (TimePassed / runTimeMax);
+			if ((1 - (timePassed / timeMax)) > 0f)              
+				timeLeftRatio = 1 - (timePassed / timeMax);
 
 			//make sure that the TimeLeftRatio ends at 0.
 			else
-				TimeLeftRatio = 0f;                             
+				timeLeftRatio = 0f;
 
-			blackbodyValue = ((blackbodyMaxValue - blackbodyMinValue) * TimeLeftRatio) + blackbodyMinValue;     //this shouldn't go under 500.
+			//One shot particles should always delete themselves after they are done.
+			if (timePassed > particleRunTime && destroyOnComplete)
+				Destroy(gameObject);
+			
+			//reset timePassed if destroyOnComplete is false.
+			else if (timePassed > particleRunTime && !destroyOnComplete)
+			{
+				timePassed = 0f;
+				particleRunning = false;
+			}
 
-			psr_Explosion.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature of the explosion.
-			psr_Sparks.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength);
+			blackbodyValue = ((blackbodyMaxValue - blackbodyMinValue) * timeLeftRatio) + blackbodyMinValue;     //This calculates the explosion and ember color value for each frame and shouldn't go under the blackbodyMinValue.
+
+			ps_Explosion.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature for the explosion.
+			ps_Sparks.GetComponent<ParticleSystemRenderer>().material.SetColor("_EmissionColor", Mathf.CorrelatedColorTemperatureToRGB(blackbodyValue) * EmissiveStrength); //Just sets the emissive color based on the temperature for the sparks.
 		}
-		
 	}
 }

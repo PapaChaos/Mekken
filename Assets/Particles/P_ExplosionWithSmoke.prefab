@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9577,8 +9577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps_Explosion: {fileID: 1281287260455554083}
-  psr_Explosion: {fileID: 1281287260455554082}
-  psr_Sparks: {fileID: 1449529148}
+  ps_Sparks: {fileID: 1449529149}
+  ps_SmokePillar: {fileID: 1281287262281515589}
   blackbodyMaxValue: 3000
   blackbodyMinValue: 500
   blackbodyValue: 5000
@@ -9612,8 +9612,11 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   EmissiveStrength: 5
-  TimeLeftRatio: 0
-  TimeMax: 1
+  timeLeftRatio: 0
+  timeMax: 2
+  particleRunTime: 6
+  explodeWhenInitialized: 0
+  testPlaySystem: 0
 --- !u!1 &1281287262281515448
 GameObject:
   m_ObjectHideFlags: 0
@@ -11172,7 +11175,7 @@ ParticleSystem:
     speedRange: {x: 0, y: 1}
     tilesX: 8
     tilesY: 8
-    animationType: 1
+    animationType: 0
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
