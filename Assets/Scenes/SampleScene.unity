@@ -3627,7 +3627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62990d3dc54339745a3e40137bcfa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 319879258}
   visibilityCone: {fileID: 1345890790}
   playerGeom: {fileID: 1543587758}
   dot: 0
@@ -5863,7 +5863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62990d3dc54339745a3e40137bcfa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1774473711}
   visibilityCone: {fileID: 228565840}
   playerGeom: {fileID: 1832200090}
   dot: 0
@@ -6255,7 +6255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62990d3dc54339745a3e40137bcfa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1774473711}
   visibilityCone: {fileID: 366659964}
   playerGeom: {fileID: 1832200090}
   dot: 0
@@ -16189,7 +16189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62990d3dc54339745a3e40137bcfa21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 319879258}
   visibilityCone: {fileID: 1646901571}
   playerGeom: {fileID: 1543587758}
   dot: 0

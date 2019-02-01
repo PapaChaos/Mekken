@@ -25,6 +25,8 @@ public class playerConstructor : MonoBehaviour
     {
         if (!isInitialized)
         {
+            //mark initialized
+            isInitialized = true;
 
             //get the mecha template assigned to me
             GameObject builder = GameObject.Find("PlayerMecha" + playerNumber);
@@ -74,33 +76,49 @@ public class playerConstructor : MonoBehaviour
                     nukeIt = false;
 
                 if (child.name == "RocketLauncherR" && mechConstruct.RocketLauncherRight)
+                {
+                    child.position = mechConstruct.RocketLauncherPosition;
                     nukeIt = false;
+                }                    
 
                 if (child.name == "GrenadeLauncherR" && mechConstruct.GrenadeLauncherRight)
+                {
+                    child.position = mechConstruct.GrenadeLauncherPosition;
                     nukeIt = false;
-
+                }
+                    
                 if (child.name == "MortarLauncherR" && mechConstruct.MortarLauncherRight)
+                {
+                    child.position = mechConstruct.MortarLauncherPosition;
                     nukeIt = false;
+                }                    
 
                 if (child.name == "RocketLauncherL" && mechConstruct.RocketLauncherLeft)
+                {
+                    child.position = mechConstruct.RocketLauncherPosition;
                     nukeIt = false;
+                }                   
 
                 if (child.name == "GrenadeLauncherL" && mechConstruct.GrenadeLauncherLeft)
+                {
+                    child.position = mechConstruct.GrenadeLauncherPosition;
                     nukeIt = false;
+                }
+                    
 
                 if (child.name == "MortarLauncherL" && mechConstruct.MortarLauncherLeft)
+                {
+                    child.position = mechConstruct.MortarLauncherPosition;
                     nukeIt = false;
+                }
 
-                //hmmm is this gonna screw the next child? do i need to mark it for destruction, then loop again??
+
+                //nuke it
                 if (nukeIt)
                     GameObject.Destroy(child.gameObject);
             }
             
-
-            //if i have a rocket launcher, set it's target now?
-
-            //mark initialized
-
+            
             //remove this script?
         }
     }
