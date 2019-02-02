@@ -62,6 +62,10 @@ public class playerConstructor : MonoBehaviour
                 if (child.name == "MechMainBodyA")
                     nukeIt = false;
 
+                //don't nuke the direction sprite
+                if (child.tag == "directionSprite")
+                    nukeIt = false;
+                
                 //deal with the head first, one of three possible names
                 if (mechConstruct.mechHead.name == child.name)
                     nukeIt = false;

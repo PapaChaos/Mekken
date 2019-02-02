@@ -10,6 +10,7 @@ TagManager:
   - DeathSurface
   - leftTread
   - rightTread
+  - directionSprite
   layers:
   - Default
   - TransparentFX
