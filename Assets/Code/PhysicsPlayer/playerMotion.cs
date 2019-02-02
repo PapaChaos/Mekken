@@ -169,7 +169,8 @@ public class playerMotion : MonoBehaviour
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, playerProps.surface.GRAVITY_CONSTANT * playerProps.mass, 0);
-        finalForce += physicsController.thrust;
+
+        //finalForce += physicsController.thrust;
 
 
         physicsController.acceleration = finalForce / playerProps.mass;
