@@ -6,6 +6,8 @@ public class SimpleCamera : MonoBehaviour
 {
     public Transform player1;
     public Transform player2;
+    public float distanceFactor = 1.0f;
+    public float upFactor = 1.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,8 @@ public class SimpleCamera : MonoBehaviour
 
         Vector3 perpendicular = Vector3.Cross( (player1.position - player2.position).normalized, Vector3.up);
 
-        transform.position = midPoint + perpendicular * playerDistance * aspect + Vector3.up * playerDistance * aspect;
+        transform.position = midPoint + (perpendicular * playerDistance * aspect * distanceFactor) 
+                                      + (Vector3.up * playerDistance * aspect * upFactor);
 
         transform.LookAt(midPoint);
 
