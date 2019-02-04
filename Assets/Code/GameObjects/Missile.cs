@@ -26,7 +26,7 @@ public class Missile : MonoBehaviour
     public ParticleSystem hitSystem;
     public ParticleSystem propulsionSystem;
 
-    private AudioSource RocketHit;
+    private AudioSource MissileHit;
 
     public float hitTimer = -1;
 
@@ -40,8 +40,8 @@ public class Missile : MonoBehaviour
         if(hitSystem)
             hitSystem.Stop();
 
-        RocketHit = GetComponent<AudioSource>();
-        RocketHit.Stop();
+        MissileHit = GetComponent<AudioSource>();
+        MissileHit.Stop();
 
     }
 
@@ -92,7 +92,9 @@ public class Missile : MonoBehaviour
 
         velocity = (direction + angle) * power * powerFactor;
         inAir = true;
-        propulsionSystem.Play();
+
+        if (propulsionSystem)
+            propulsionSystem.Play();
 
     }
 
@@ -121,7 +123,7 @@ public class Missile : MonoBehaviour
             if (propulsionSystem)
                 propulsionSystem.Stop();
 
-            RocketHit.Play();
+            MissileHit.Play();
 
             hitTimer = Time.time + 2.0f;
 
