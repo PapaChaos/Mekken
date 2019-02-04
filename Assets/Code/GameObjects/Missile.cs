@@ -26,6 +26,8 @@ public class Missile : MonoBehaviour
     public ParticleSystem hitSystem;
     public ParticleSystem propulsionSystem;
 
+    private AudioSource RocketHit;
+
     public float hitTimer = -1;
 
 
@@ -37,6 +39,9 @@ public class Missile : MonoBehaviour
 
         if(hitSystem)
             hitSystem.Stop();
+
+        RocketHit = GetComponent<AudioSource>();
+        RocketHit.Stop();
 
     }
 
@@ -115,6 +120,8 @@ public class Missile : MonoBehaviour
 
             if (propulsionSystem)
                 propulsionSystem.Stop();
+
+            RocketHit.Play();
 
             hitTimer = Time.time + 2.0f;
 
