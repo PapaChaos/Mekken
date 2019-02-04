@@ -44,6 +44,7 @@ ModelImporter:
     100076: Ramp3RS
     100078: Ramp4LS
     100080: Ramp4RS
+    100082: GeneratorB 1
     400000: //RootNode
     400002: Box020
     400004: Box027
@@ -85,6 +86,7 @@ ModelImporter:
     400076: Ramp3RS
     400078: Ramp4LS
     400080: Ramp4RS
+    400082: GeneratorB 1
     2100000: 'Material #46'
     2100002: 'Material #47'
     2100004: 'Material #28'
