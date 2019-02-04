@@ -36,6 +36,14 @@ ModelImporter:
     100060: SpotTowerB
     100062: SpotTowerC
     100064: SpotTowerD
+    100066: Ramp1LS
+    100068: Ramp1RS
+    100070: Ramp2LS
+    100072: Ramp2RS
+    100074: Ramp3LS
+    100076: Ramp3RS
+    100078: Ramp4LS
+    100080: Ramp4RS
     400000: //RootNode
     400002: Box020
     400004: Box027
@@ -69,6 +77,14 @@ ModelImporter:
     400060: SpotTowerB
     400062: SpotTowerC
     400064: SpotTowerD
+    400066: Ramp1LS
+    400068: Ramp1RS
+    400070: Ramp2LS
+    400072: Ramp2RS
+    400074: Ramp3LS
+    400076: Ramp3RS
+    400078: Ramp4LS
+    400080: Ramp4RS
     2100000: 'Material #46'
     2100002: 'Material #47'
     2100004: 'Material #28'
@@ -116,6 +132,14 @@ ModelImporter:
     2300052: SpotTowerB
     2300054: SpotTowerC
     2300056: SpotTowerD
+    2300058: Ramp1LS
+    2300060: Ramp1RS
+    2300062: Ramp2LS
+    2300064: Ramp2RS
+    2300066: Ramp3LS
+    2300068: Ramp3RS
+    2300070: Ramp4LS
+    2300072: Ramp4RS
     3300000: Box020
     3300002: Box027
     3300004: Box036
@@ -145,6 +169,14 @@ ModelImporter:
     3300052: SpotTowerB
     3300054: SpotTowerC
     3300056: SpotTowerD
+    3300058: Ramp1LS
+    3300060: Ramp1RS
+    3300062: Ramp2LS
+    3300064: Ramp2RS
+    3300066: Ramp3LS
+    3300068: Ramp3RS
+    3300070: Ramp4LS
+    3300072: Ramp4RS
     4300000: Cylinder001
     4300002: Cylinder022
     4300004: Box020
@@ -174,6 +206,14 @@ ModelImporter:
     4300052: SpotTowerB
     4300054: SpotTowerC
     4300056: SpotTowerD
+    4300058: Ramp4LS
+    4300060: Ramp4RS
+    4300062: Ramp1LS
+    4300064: Ramp1RS
+    4300066: Ramp2LS
+    4300068: Ramp2RS
+    4300070: Ramp3LS
+    4300072: Ramp3RS
     6400000: Box020
     6400002: Box027
     6400004: Box036
@@ -203,6 +243,14 @@ ModelImporter:
     6400052: SpotTowerB
     6400054: SpotTowerC
     6400056: SpotTowerD
+    6400058: Ramp1LS
+    6400060: Ramp1RS
+    6400062: Ramp2LS
+    6400064: Ramp2RS
+    6400066: Ramp3LS
+    6400068: Ramp3RS
+    6400070: Ramp4LS
+    6400072: Ramp4RS
   externalObjects: {}
   materials:
     importMaterials: 1
