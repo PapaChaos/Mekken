@@ -15,6 +15,27 @@ ModelImporter:
     100018: Object024
     100020: Object028
     100022: Tube001
+    100024: BridgeA
+    100026: BridgeB
+    100028: BridgeC
+    100030: BridgeD
+    100032: GeneratorA
+    100034: GeneratorB
+    100036: GeneratorC
+    100038: GeneratorD
+    100040: Ground
+    100042: Ramp1
+    100044: Ramp2
+    100046: Ramp3
+    100048: Ramp4
+    100050: RampFloor
+    100052: SpawnA
+    100054: SpawnB
+    100056: SpotTowerA
+    100058: SpotTowerA 1
+    100060: SpotTowerB
+    100062: SpotTowerC
+    100064: SpotTowerD
     400000: //RootNode
     400002: Box020
     400004: Box027
@@ -27,6 +48,27 @@ ModelImporter:
     400018: Object024
     400020: Object028
     400022: Tube001
+    400024: BridgeA
+    400026: BridgeB
+    400028: BridgeC
+    400030: BridgeD
+    400032: GeneratorA
+    400034: GeneratorB
+    400036: GeneratorC
+    400038: GeneratorD
+    400040: Ground
+    400042: Ramp1
+    400044: Ramp2
+    400046: Ramp3
+    400048: Ramp4
+    400050: RampFloor
+    400052: SpawnA
+    400054: SpawnB
+    400056: SpotTowerA
+    400058: SpotTowerA 1
+    400060: SpotTowerB
+    400062: SpotTowerC
+    400064: SpotTowerD
     2100000: 'Material #46'
     2100002: 'Material #47'
     2100004: 'Material #28'
@@ -37,6 +79,14 @@ ModelImporter:
     2100014: 'Material #95'
     2100016: 'Material #97'
     2100018: 'Material #99'
+    2100020: 'Material #27'
+    2100022: 'Material #29'
+    2100024: 'Material #31'
+    2100026: 'Material #33'
+    2100028: 'Material #35'
+    2100030: 'Material #36'
+    2100032: 'Material #30'
+    2100034: 'Material #32'
     2300000: Box020
     2300002: Box027
     2300004: Box036
@@ -46,6 +96,26 @@ ModelImporter:
     2300012: Cylinder118
     2300014: Object024
     2300016: Object028
+    2300018: BridgeA
+    2300020: BridgeB
+    2300022: BridgeC
+    2300024: BridgeD
+    2300026: GeneratorA
+    2300028: GeneratorB
+    2300030: GeneratorC
+    2300032: GeneratorD
+    2300034: Ground
+    2300036: Ramp1
+    2300038: Ramp2
+    2300040: Ramp3
+    2300042: Ramp4
+    2300044: RampFloor
+    2300046: SpawnA
+    2300048: SpawnB
+    2300050: SpotTowerA 1
+    2300052: SpotTowerB
+    2300054: SpotTowerC
+    2300056: SpotTowerD
     3300000: Box020
     3300002: Box027
     3300004: Box036
@@ -55,6 +125,26 @@ ModelImporter:
     3300012: Cylinder118
     3300014: Object024
     3300016: Object028
+    3300018: BridgeA
+    3300020: BridgeB
+    3300022: BridgeC
+    3300024: BridgeD
+    3300026: GeneratorA
+    3300028: GeneratorB
+    3300030: GeneratorC
+    3300032: GeneratorD
+    3300034: Ground
+    3300036: Ramp1
+    3300038: Ramp2
+    3300040: Ramp3
+    3300042: Ramp4
+    3300044: RampFloor
+    3300046: SpawnA
+    3300048: SpawnB
+    3300050: SpotTowerA 1
+    3300052: SpotTowerB
+    3300054: SpotTowerC
+    3300056: SpotTowerD
     4300000: Cylinder001
     4300002: Cylinder022
     4300004: Box020
@@ -64,6 +154,26 @@ ModelImporter:
     4300012: Cylinder118
     4300014: Box036
     4300016: Object028
+    4300018: Ground
+    4300020: RampFloor
+    4300022: GeneratorD
+    4300024: Ramp1
+    4300026: Ramp2
+    4300028: Ramp3
+    4300030: Ramp4
+    4300032: SpawnA
+    4300034: SpawnB
+    4300036: BridgeA
+    4300038: BridgeB
+    4300040: BridgeC
+    4300042: BridgeD
+    4300044: GeneratorA
+    4300046: GeneratorB
+    4300048: GeneratorC
+    4300050: SpotTowerA
+    4300052: SpotTowerB
+    4300054: SpotTowerC
+    4300056: SpotTowerD
     6400000: Box020
     6400002: Box027
     6400004: Box036
@@ -73,6 +183,26 @@ ModelImporter:
     6400012: Cylinder118
     6400014: Object024
     6400016: Object028
+    6400018: BridgeA
+    6400020: BridgeB
+    6400022: BridgeC
+    6400024: BridgeD
+    6400026: GeneratorA
+    6400028: GeneratorB
+    6400030: GeneratorC
+    6400032: GeneratorD
+    6400034: Ground
+    6400036: Ramp1
+    6400038: Ramp2
+    6400040: Ramp3
+    6400042: Ramp4
+    6400044: RampFloor
+    6400046: SpawnA
+    6400048: SpawnB
+    6400050: SpotTowerA 1
+    6400052: SpotTowerB
+    6400054: SpotTowerC
+    6400056: SpotTowerD
   externalObjects: {}
   materials:
     importMaterials: 1
