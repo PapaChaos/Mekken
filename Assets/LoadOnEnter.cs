@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadOnEnter : StateMachineBehaviour
 {
+
+    public int stageToLoad;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(stageToLoad);
    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -15,7 +15,7 @@ public class SkipCredits : MonoBehaviour
     private bool held = false;
 
     public string key = ""; // Whichever key you're using to control the effects. Just hardcode it in if you want
-    public string Scene = ""; // Whichever scene you want to go to. Can be Hardcoded
+    public string Scene = "MainMenu"; // Whichever scene you want to go to. Can be Hardcoded
 
     void Update()
     {
