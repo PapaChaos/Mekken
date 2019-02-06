@@ -11,6 +11,10 @@ TagManager:
   - leftTread
   - rightTread
   - directionSprite
+  - Mortars
+  - Rockets
+  - Grenades
+  - TargetCone
   layers:
   - Default
   - TransparentFX

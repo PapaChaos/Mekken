@@ -127,6 +127,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351711013876}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!1 &3935992351726826418
 GameObject:
@@ -190,6 +191,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351739759303}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!114 &3935992351739891784
 MonoBehaviour:
@@ -226,6 +228,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351849844631}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &376681850896033204
 MonoBehaviour:
@@ -245,6 +248,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351871232274}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &3935992351871628183
 MonoBehaviour:
@@ -483,6 +487,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992352224154409}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &7263762853279868068
 MonoBehaviour:
@@ -502,6 +507,7 @@ MonoBehaviour:
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992352379570050}
   missile: {fileID: 0}
+  missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!1 &3935992352450156349
 GameObject:
@@ -518,7 +524,7 @@ GameObject:
   - component: {fileID: 3935992352450156351}
   m_Layer: 0
   m_Name: RocketCone
-  m_TagString: Untagged
+  m_TagString: TargetCone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,7 +632,7 @@ GameObject:
   - component: {fileID: 3935992352755839267}
   m_Layer: 0
   m_Name: RocketCone
-  m_TagString: Untagged
+  m_TagString: TargetCone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
