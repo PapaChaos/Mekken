@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireProjectile : MonoBehaviour
 {
 
-
     public float power = 1.0f;    
     public float timeout = 1.0f;  
 
@@ -16,23 +15,19 @@ public class FireProjectile : MonoBehaviour
     private Missile missile;
     private float cooldown = -1.0f;
 
-    //TODO: decide how to set this based on mecha constructor, maybe just LEFT is secondary
+    //TODO: decide how to set this based on mecha constructor, maybe just LEFT is secondary?
     //      we could make a subclass, but just for one boolean??
-    public bool isPrimary = false;
+    public bool isPrimary = false;  //set in inspector I think
         
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+   
     // Update is called once per frame
     void Update()
     {
 
+        //timeout is how long we must wait before we can fire again
         if (Time.time - cooldown > timeout)
         {
+            //reset the cooldown
             cooldown = -1.0f;
             
         }
@@ -71,7 +66,7 @@ public class FireProjectile : MonoBehaviour
             //get the first unused missile in the pool
             if (tmisl.isInUse == false)
             {
-                //got one so scoot
+                //got one, so scoot
                 missile = tmisl;
                 tmisl.isInUse = true;
                 return;

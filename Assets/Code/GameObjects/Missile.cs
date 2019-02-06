@@ -83,10 +83,16 @@ public class Missile : MonoBehaviour
     {
         //reset final force to the initial force of gravity
         finalForce.Set(0, GRAVITY_CONSTANT, 0);
+
+        //add thrust acceleration if the missle has it
         finalForce += transform.forward * missileAccel;
 
+        // set acceleration
         acceleration = finalForce;
-        //add more forces here
+
+        //add more impulse forces here like a contrary expolsion, or maybe wind?
+        //...
+
 
         //append to velocity
         velocity += acceleration * Time.deltaTime;
@@ -101,11 +107,16 @@ public class Missile : MonoBehaviour
 
     public void fireMissile(Vector3 direction, float power)
     {
-
+        // initial muzzle velocity is an impulse based on explosive power,
+        // forward facing, and angle of launch, modified by player input. 
+        // imagine a golf swing (power) from an input device
+        
         velocity = (direction + angle) * power * powerFactor;
+
         inAir = true;
         isInUse = true;
 
+        //play particle effect
         if (propulsionSystem)
             propulsionSystem.Play();
 
@@ -128,25 +139,31 @@ public class Missile : MonoBehaviour
             //make an explosion
 
             Debug.Log("BOOM!!!");
+
+            //i've hit something, so this aint true anymore
             inAir = false;
 
+            //particles
             if (hitSystem)
                 hitSystem.Play();
 
             if (propulsionSystem)
                 propulsionSystem.Stop();
-
+            
+            //sound
             MissileHit.Play();
 
+            //event timer, how long does this effect last?
             hitTimer = Time.time + 2.0f;
 
+            //hide the missile (it exploded)
             transform.GetComponent<MeshRenderer>().enabled = false;
 
+            //pass damge to player
             other.transform.GetComponent<damage>().doDamage(damageValue);
 
             //apply force as an impulse, this needs to be fairly huge as it applies to velocity only once.
             other.transform.GetComponent<playerMotion>().applyImpulseForce(transform.forward * damageValue * 10000.0f);
-
 
 
         }
