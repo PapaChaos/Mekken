@@ -47,7 +47,8 @@ public class Missile : MonoBehaviour
             hitSystem.Stop();
 
         MissileHit = GetComponent<AudioSource>();
-        MissileHit.Stop();
+        if(MissileHit)
+            MissileHit.Stop();
 
     }
 

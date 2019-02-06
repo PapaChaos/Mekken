@@ -29,11 +29,12 @@ public class damage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
+        //TODO: best place to put this? maybe...
 
         //maybe we are stuck until poweroff?
         if (other.tag == "electric_fence")
         {
-            Debug.Log("damage script collided with" + other.name);
+            Debug.Log("player damage script collided with" + other.name);
 
             //do something
             if (other.transform.GetComponent<Electrical_Trap>().Power == true)

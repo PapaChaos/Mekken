@@ -9,9 +9,9 @@ public class FireProjectile : MonoBehaviour
     public float power = 1.0f;    
     public float timeout = 1.0f;  
 
-    public playerControl controller;
-    public Transform playerGeom;    
-    public Transform missilePool;
+    public playerControl controller;    //the controller mapping keys and gamepads to actions
+    public Transform playerGeom;        //where it is gonna shoot from
+    public Transform missilePool;       //pool of missiles of type of missle, in the scene
 
     private Missile missile;
     private float cooldown = -1.0f;
@@ -37,6 +37,7 @@ public class FireProjectile : MonoBehaviour
             
         }
 
+        //if fire primary and it is primary...
         if(controller.firePrimary && cooldown < 0 && isPrimary)
         {
             cooldown = Time.time;
@@ -46,7 +47,8 @@ public class FireProjectile : MonoBehaviour
             fire();
         
         }
-
+        
+        //if fire secondary and it is not primary, aka secondary
         if (controller.fireSecondary && cooldown < 0 && !isPrimary)
         {
             cooldown = Time.time;

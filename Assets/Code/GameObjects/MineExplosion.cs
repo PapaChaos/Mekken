@@ -22,6 +22,7 @@ public class MineExplosion : MonoBehaviour
     }
     private void Update()
     {
+        //mine has been discharged, but we want to wait a bit before we hide the explosion
         if (timer > 0 && Time.time > timer)
         {
             //reset the timer
