@@ -11,8 +11,9 @@ public class Missile : MonoBehaviour
     public Vector3 angle = new Vector3(0, 0.5f, 0);
     public float powerFactor = 20.0f;
 
+    public bool inAir = false;
+
     //these we will eventual make private
-    public bool inAir = false;    
     public Vector3 velocity;
     public Vector3 acceleration;
     public Vector3 finalForce;
@@ -107,7 +108,7 @@ public class Missile : MonoBehaviour
         //      we prolly need a short timer after launch before it is "armed" so it
         //      clears our collision box before it can explode
 
-        //do damagefor other player only
+        //do damage for other player only
         if ( other.transform.GetComponent<damage>() && other.transform != owner)
         {
 

@@ -14,7 +14,11 @@ public class FireProjectile : MonoBehaviour
     public Transform playerGeom;
     public Missile missile;
 
-    
+
+    //TODO: decide how to set this based on mecha constructor, maybe just LEFT is secondary
+    //      we could make a subclass, but just for one boolean??
+    public bool isPrimary = false;
+        
     
     // Start is called before the first frame update
     void Start()
@@ -32,14 +36,21 @@ public class FireProjectile : MonoBehaviour
             
         }
 
-        if(controller.firePrimary && cooldown < 0)
+        if(controller.firePrimary && cooldown < 0 && isPrimary)
         {
             cooldown = Time.time;
             fire();
         
         }
 
-        
+        if (controller.fireSecondary && cooldown < 0 && !isPrimary)
+        {
+            cooldown = Time.time;
+            fire();
+
+        }
+
+
 
     }
 
