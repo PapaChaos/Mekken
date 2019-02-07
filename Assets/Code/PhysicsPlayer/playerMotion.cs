@@ -22,6 +22,8 @@ public class playerMotion : MonoBehaviour
    
     private Vector3 externalImpulseForce = new Vector3(0, 0, 0);
 
+    private bool hitObstacle = false;
+    private float hitTimer = -1;
 
 
     // Start is called before the first frame update
@@ -33,6 +35,13 @@ public class playerMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if (hitTimer > 0 && Time.time > hitTimer )
+        {
+            hitTimer = -1;
+            hitObstacle = false;
+        }
 
         if (!gameManager.getGameOver())
         {
@@ -70,6 +79,13 @@ public class playerMotion : MonoBehaviour
 
     }
 
+    public void hitSomething(Collider other)
+    {
+        hitObstacle = true;
+        hitTimer = Time.time + 1.0f; 
+    }
+
+
     public virtual void handleMovementSurface()
     {
 
@@ -82,8 +98,13 @@ public class playerMotion : MonoBehaviour
         //reset final force to the initial force of gravity
         finalForce.Set(0, 0, 0);
 
-        finalForce += physicsController.thrust;
+        //if i did NOT hit something, apply the controller force.
+        if (!hitObstacle)
+            finalForce += physicsController.thrust;
+        
+        
         //add more forces here
+
 
         physicsController.acceleration = finalForce / playerProps.mass;
 
@@ -102,7 +123,7 @@ public class playerMotion : MonoBehaviour
         dir.Normalize();
 
         //look at the direction I am going (if not strafeing)
-        if(physicsController.updateFacing)
+        if(physicsController.updateFacing && !hitObstacle)
         {
             transform.LookAt(transform.position + dir);
         }

@@ -49,14 +49,22 @@ public class damage : MonoBehaviour
         {
             Debug.Log("Hit Something else " + other.name);
 
+
             //we hit an obstacle so we should bounce off of it using PlayerMotion
             //applyImpulseForce
 
             //get some info about current physics state, like ummm velocity
-            //physicsController.velocity
+            Vector3 velo = physicsController.velocity;
+
+            //REFINE
+            physicsController.velocity *= 0;
+
+            playerMove.hitSomething(other);
 
             //apply a force to the player
-           //playerMove.applyImpulseForce(someVeryLargeVector);  
+            playerMove.applyImpulseForce(velo * -10.0f);
+
+           
         
         }
         
