@@ -22,6 +22,8 @@ public class playerMotion : MonoBehaviour
    
     public Vector3 externalImpulseForce = new Vector3(0, 0, 0);
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,12 +131,25 @@ public class playerMotion : MonoBehaviour
 
     public void handleTerrainSlope()
     {
+        //get the normal from the polygon we are currently standing on (playerProps is always updating this)
         Vector3 surfNorm = playerProps.surfaceNormal;
 
-        //get forward of geometry
-        Vector3 fwd = playerGeometry.forward;
+        //get avatar current rotation
+        Quaternion quat1 = playerGeometry.rotation;
 
+        //get current forward vector of geometry
+        Vector3 fwd = playerGeometry.forward;       
+
+        //look at proposed slope
         playerGeometry.LookAt(playerGeometry.position + fwd, surfNorm);
+
+        //get that rotation
+        Quaternion quat2 = playerGeometry.rotation;
+
+        //interpolate from q1 to q2
+        playerGeometry.rotation = Quaternion.Lerp(quat1, quat2, Time.deltaTime * 10);
+
+
 
 
     }
