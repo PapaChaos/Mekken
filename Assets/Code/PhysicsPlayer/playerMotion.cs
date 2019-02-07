@@ -20,7 +20,7 @@ public class playerMotion : MonoBehaviour
 
     public Vector3 finalPosition = new Vector3(0, 0, 0);
    
-    public Vector3 externalImpulseForce = new Vector3(0, 0, 0);
+    private Vector3 externalImpulseForce = new Vector3(0, 0, 0);
 
 
 

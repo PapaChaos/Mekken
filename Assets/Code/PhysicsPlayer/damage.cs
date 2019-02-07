@@ -6,6 +6,8 @@ public class damage : MonoBehaviour
 {
 
     public playerProperties playerProps;
+    public playerMotion playerMove;
+    public playerPhysics physicsController;
     public GameManager gameManager;
     
     // Start is called before the first frame update
@@ -46,6 +48,16 @@ public class damage : MonoBehaviour
         else if (other.tag == "Obstacle")
         {
             Debug.Log("Hit Something else " + other.name);
+
+            //we hit an obstacle so we should bounce off of it using PlayerMotion
+            //applyImpulseForce
+
+            //get some info about current physics state, like ummm velocity
+            //physicsController.velocity
+
+            //apply a force to the player
+           //playerMove.applyImpulseForce(someVeryLargeVector);  
+        
         }
         
 

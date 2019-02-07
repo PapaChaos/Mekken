@@ -122,11 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351711013876}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!1 &3935992351726826418
@@ -186,11 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351739759303}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!114 &3935992351739891784
@@ -223,11 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351849844631}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &376681850896033204
@@ -243,11 +237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992351871232274}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &3935992351871628183
@@ -340,7 +332,6 @@ MonoBehaviour:
   yPosGround: 0
   velocityThreshold: 0.5
   finalPosition: {x: 0, y: 0, z: 0}
-  externalImpulseForce: {x: 0, y: 0, z: 0}
 --- !u!114 &3935992352015376569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProps: {fileID: 3935992352015376569}
+  playerMove: {fileID: 3935992352015376572}
+  physicsController: {fileID: 3935992352015376566}
   gameManager: {fileID: 0}
 --- !u!65 &3935992352015376571
 BoxCollider:
@@ -482,11 +475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992352224154409}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 0
 --- !u!114 &7263762853279868068
@@ -502,11 +493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  cooldown: -1
   timeout: 1
   controller: {fileID: 3935992352015376567}
   playerGeom: {fileID: 3935992352379570050}
-  missile: {fileID: 0}
   missilePool: {fileID: 0}
   isPrimary: 1
 --- !u!1 &3935992352450156349
@@ -898,14 +887,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d6438ef7a603ad54ab2da106729411c3, type: 2}
     - target: {fileID: 2300002, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 202d01a7aa8c8724cb458aac62f319b4, type: 2}
+    - target: {fileID: 2300000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6438ef7a603ad54ab2da106729411c3, type: 2}
     - target: {fileID: 2300004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
