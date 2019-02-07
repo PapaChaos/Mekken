@@ -5,18 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     private bool gameOver = false;
     public int playerOneRoundsWon = 0;
     public int playerTwoRoundsWon = 0;
 
     private float timer = -1;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

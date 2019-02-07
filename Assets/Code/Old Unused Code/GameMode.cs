@@ -1,5 +1,5 @@
-﻿/*
- * JPK added simple header for test
+﻿/*	Created by Dan Wad.
+ * Old game manager made by Dan Wad. Removed for Assets/Code/Game/GameManager.cs
  * 
  */
 
@@ -14,15 +14,10 @@ public class GameMode : MonoBehaviour
 
 	void Start()
 	{
-		l_ActivePlayers.Clear();
+		l_ActivePlayers.Clear(); //I like to always clear lists in case of old data. 
 		l_ActivePlayers = GetAllActivePlayers();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
 	public List<PlayerMovement> GetAllActivePlayers()   //A simple public function to call for player check in case we want more than 2 players later.
 	{
 		List<PlayerMovement> ActivePlayersLeft = new List<PlayerMovement>();
