@@ -18,8 +18,13 @@ public class FireProjectile : MonoBehaviour
     //TODO: decide how to set this based on mecha constructor, maybe just LEFT is secondary?
     //      we could make a subclass, but just for one boolean??
     public bool isPrimary = false;  //set in inspector I think
-        
-   
+
+
+    public AudioSource fireSound;
+    public AudioSource dudSound;
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -90,6 +95,9 @@ public class FireProjectile : MonoBehaviour
 
         //tell the missle to fire
         missile.fireMissile(playerGeom.forward, power);
+
+        if (fireSound)
+            fireSound.Play();
 
     }
     
