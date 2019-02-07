@@ -668,6 +668,11 @@ PrefabInstance:
       propertyPath: missilePool
       value: 
       objectReference: {fileID: 1163957286}
+    - target: {fileID: 4619435601560767243, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 893d996774001fb4b8e467c1a0d2ca5a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac42afafe8808f4cad5f1ccc7edb06c, type: 3}
 --- !u!4 &62429911 stripped
