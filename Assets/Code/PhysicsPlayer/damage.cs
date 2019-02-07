@@ -28,7 +28,7 @@ public class damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         //TODO: best place to put this? maybe...
 
         //maybe we are stuck until poweroff?
@@ -42,6 +42,10 @@ public class damage : MonoBehaviour
                 transform.GetComponent<playerPhysics>().velocity *= 0;
             }
 
+        }
+        else if (other.tag == "Obstacle")
+        {
+            Debug.Log("Hit Something else " + other.name);
         }
         
 

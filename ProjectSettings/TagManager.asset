@@ -15,6 +15,7 @@ TagManager:
   - Rockets
   - Grenades
   - TargetCone
+  - Obstacle
   layers:
   - Default
   - TransparentFX

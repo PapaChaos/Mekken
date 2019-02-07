@@ -55,11 +55,14 @@ public class playerMotion : MonoBehaviour
                     physicsController.acceleration *= 0;
                     //TODO: Do something dammit!
                 }
+
                 
                 handleMovementSurface();
 
                 //handle slopes
                 handleTerrainSlope();
+
+
 
             }
         }
@@ -138,16 +141,17 @@ public class playerMotion : MonoBehaviour
         Quaternion quat1 = playerGeometry.rotation;
 
         //get current forward vector of geometry
-        Vector3 fwd = playerGeometry.forward;       
+        Vector3 fwd = playerGeometry.forward;
 
-        //look at proposed slope
-        playerGeometry.LookAt(playerGeometry.position + fwd, surfNorm);
+        Vector3 cross = Vector3.Cross(fwd, surfNorm);
+        
 
-        //get that rotation
-        Quaternion quat2 = playerGeometry.rotation;
+
+        //get that new rotation
+        //Quaternion quat2 = playerGeometry.rotation;
 
         //interpolate from q1 to q2
-        playerGeometry.rotation = Quaternion.Lerp(quat1, quat2, Time.deltaTime * 10);
+        //playerGeometry.rotation = Quaternion.Lerp(quat1, quat2, 0.5f);
 
 
 
