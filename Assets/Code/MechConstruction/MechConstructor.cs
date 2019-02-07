@@ -44,54 +44,68 @@ public class MechConstructor : MonoBehaviour
 	{
 		chosenFrame = Module_Frame.Frame01;
 	}
+
 	public void Player_Treads_Button(int Player)
 	{
 		chosenMovement = Module_Movement.Treads;
 	}
+
 	public void Player_Biped_Button(int Player)
 	{
 		chosenMovement = Module_Movement.Biped;
 	}
+
 	public void Player_Quadruped_Button(int Player)
 	{
 		chosenMovement = Module_Movement.Quadruped;
 	}
+
 	public void Player_RocketLauncherRight_Button(int Player)
 	{
 		chosenRightWeapon = Module_RightWeapon.RocketLauncher;
 	}
+
 	public void Player_GrenadeLauncherRight_Button(int Player)
 	{
 		chosenRightWeapon = Module_RightWeapon.GrenadeLauncher;
 	}
+
 	public void Player_MortarLauncherRight_Button(int Player)
 	{
 		chosenRightWeapon = Module_RightWeapon.MortarLauncher;
 	}
+
 	public void Player_RocketLauncherLeft_Button(int Player)
 	{
 		chosenLeftWeapon = Module_LeftWeapon.RocketLauncher;
 	}
+
 	public void Player_GrenadeLauncherLeft_Button(int Player)
 	{
 		chosenLeftWeapon = Module_LeftWeapon.GrenadeLauncher;
 	}
+
 	public void Player_MortarLauncherLeft_Button(int Player)
 	{
 		chosenLeftWeapon = Module_LeftWeapon.MortarLauncher;
 	}
+
 	public void Player_Head01_Button(int Player)
 	{
 		chosenHead = Module_HeadModule.Head01;
 	}
+
 	public void Player_Head02_Button(int Player)
 	{
 		chosenHead = Module_HeadModule.Head02;
 	}
+
 	public void Player_Head03_Button(int Player)
 	{
 		chosenHead = Module_HeadModule.Head03;
 	}
+
+	//this is the start button to check if both players are ready.
 	public void Player_Start_Button(int Player)
 	{
 		if(chosenFrame != Module_Frame.None && chosenMovement != Module_Movement.None && chosenRightWeapon != Module_RightWeapon.None &&
@@ -103,9 +117,6 @@ public class MechConstructor : MonoBehaviour
     
 	void BothPlayersReady()
 	{
-
-		print("Match is starting!");
-
 		//Player_Frame, Player_Movement, Player_RightWeapon, Player_LeftWeapon, Player_Head;
 
 		GameObject player = Instantiate(Player, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);

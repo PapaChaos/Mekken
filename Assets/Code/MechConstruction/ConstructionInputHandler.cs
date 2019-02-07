@@ -11,9 +11,7 @@ public class ConstructionInputHandler : MonoBehaviour
 	private Selectable SectionCurrentTarget;
 
 	//Inactive and highlighted sprite
-	public Sprite nothighlighted;
-	public Sprite highlighted;
-	public Sprite Checkmark;
+	public Sprite transparent, highlighted, checkmark;
 
 	public enum activeController { Keyboard1, Keyboard2, GamePad1, GamePad2 };
 	public activeController playerController;
@@ -28,12 +26,7 @@ public class ConstructionInputHandler : MonoBehaviour
 	//Keyboard Inputs	| Todo: add these to inputs instead of prewritten strings?
 	public float axisDeadZone;
 
-	public List<string> Keyboard1Inputs;
-	public List<string> Keyboard2Inputs;
-
-	//Gamepad Inputs	| Todo: add these to inputs instead of prewritten strings?
-	public List<string> Gamepad1Inputs;
-	public List<string> Gamepad2Inputs;
+	public List<string> Keyboard1Inputs, Keyboard2Inputs, Gamepad1Inputs, Gamepad2Inputs;
 
 	public List<string> currentActiveInputs;
 	#endregion
@@ -90,10 +83,8 @@ public class ConstructionInputHandler : MonoBehaviour
 	//The shortest I could get the menu controls was in this way.
 	void PlayerDirection(UIDirection dir)
 	{
-		SectionCurrentTarget.image.sprite = nothighlighted;
+		SectionCurrentTarget.image.sprite = transparent;
 		SectionCurrentTarget.transform.localScale = new Vector3(1f, 1f, 1f);
-
-		//SectionCurrentTarget.GetComponentInParent<GridLayoutGroup>().cellSize = new Vector2(75f,75f);
 
 		switch (dir)
 		{
@@ -131,7 +122,6 @@ public class ConstructionInputHandler : MonoBehaviour
 			}
 				SectionCurrentTarget.image.sprite = highlighted;
 		SectionCurrentTarget.transform.localScale = HoveredScale;
-		//SectionCurrentTarget.GetComponentInParent<GridLayoutGroup>().cellSize = new Vector2(85f, 85f);
 	}
 
 	#region Player Controls
@@ -185,6 +175,7 @@ public class ConstructionInputHandler : MonoBehaviour
 			}
 			
 		}
+
 		if (Input.GetButtonDown(currentActiveInputs[3]))
 		{
 			Button bt = SectionCurrentTarget.gameObject.GetComponent<Button>();
@@ -201,10 +192,10 @@ public class ConstructionInputHandler : MonoBehaviour
 				{
 					if (b != bt)
 					{
-						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = nothighlighted;
+						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = transparent;
 					}
 					else
-						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = Checkmark;
+						b.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = checkmark;
 				}
 			}
 			bt.onClick.Invoke();

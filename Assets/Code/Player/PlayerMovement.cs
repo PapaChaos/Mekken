@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+
 	//References
 	public Player player;
 
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool canStrafe;
 	public float forwardSpeed, strafeSpeed, rotationSpeed;
 
-	//Adjustments
+	//Module Adjustments
 	public float heightAdjustment;
 
 	//private variables
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		playerNumber = player.PlayerNumber;
 	}
+
+
 	void Update () {
 			if (canStrafe)
 				xMov = strafeSpeed * Input.GetAxis("Horizontal Player " + (playerNumber+1));

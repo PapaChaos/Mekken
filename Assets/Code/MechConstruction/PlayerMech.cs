@@ -2,20 +2,18 @@
 
 public class PlayerMech : MonoBehaviour
 {
-
+	//Frame Modules
 	public GameObject mechMovement, mechFrame, mechWeaponRight, mechWeaponLeft, mechHead;
 
-	public bool mechTreads = false;
-	public bool mechQuadruped = false;
-	public bool mechBiped = false;
+	//Movement Module
+	public bool mechTreads = false, mechQuadruped = false, mechBiped = false;
+	
+	//Weapon Right
+	public bool RocketLauncherRight = false, GrenadeLauncherRight = false, MortarLauncherRight = false;
 
-	public bool RocketLauncherRight = false;
-	public bool GrenadeLauncherRight = false;
-	public bool MortarLauncherRight = false;
+	//Weapon Left
+	public bool RocketLauncherLeft = false, GrenadeLauncherLeft = false, MortarLauncherLeft = false;
 
-	public bool RocketLauncherLeft = false;
-	public bool GrenadeLauncherLeft = false;
-	public bool MortarLauncherLeft = false;
 
 	public Vector3 GrenadeLauncherPosition = new Vector3(1.67f, 0f, 0.614f);
 	public Vector3 RocketLauncherPosition = new Vector3(2.724f, 0f, 0f);
@@ -24,6 +22,7 @@ public class PlayerMech : MonoBehaviour
 	public int PlayerNumber;
 
 	private float adjustment_Movement;
+
 	private void Awake()
 	{
 		GrenadeLauncherPosition = new Vector3(1.67f, 0f, 0.614f);
@@ -34,6 +33,11 @@ public class PlayerMech : MonoBehaviour
 	//This gets called from the player construction HUD.
 	public void ConstructMecha(int playerNumber)
 	{
+		/*
+		 * 
+		 * 
+		 * 
+		*/
 
         this.gameObject.name = "PlayerMecha" + playerNumber;
 
@@ -117,19 +121,13 @@ public class PlayerMech : MonoBehaviour
 			WeaponLeft.transform.localPosition = new Vector3(-MortarLauncherPosition.x, MortarLauncherPosition.y, MortarLauncherPosition.z);
 
 		if (mechQuadruped)
-		{
 			WeaponLeft.transform.localPosition = new Vector3(WeaponLeft.transform.localPosition.x, 3f, WeaponLeft.transform.localPosition.z);
-		}
 
-		if (mechBiped)
-		{
+		else if (mechBiped)
 			WeaponLeft.transform.localPosition = new Vector3(WeaponLeft.transform.localPosition.x, 5.08f, WeaponLeft.transform.localPosition.z);
-		}
 
-		if (mechTreads)
-		{
+		else if (mechTreads)
 			WeaponLeft.transform.localPosition = new Vector3(WeaponLeft.transform.localPosition.x, 3.1f, WeaponLeft.transform.localPosition.z);
-		}
 
 		//////////////////////////////
 		//		   Mech Head		//
@@ -137,16 +135,13 @@ public class PlayerMech : MonoBehaviour
 
 		GameObject Head = Instantiate(mechHead, new Vector3(transform.position.x, transform.position.y + adjustment_Movement, transform.position.z), Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z), gameObject.transform);
 		if (mechQuadruped)
-		{
 			Head.transform.localPosition = new Vector3(0f, 2.417f, 0f);
-		}
+
 		if (mechBiped)
-		{
 			Head.transform.localPosition = new Vector3(0f, 4.323f, 0f);
-		}
+
 		if (mechTreads)
-		{
 			Head.transform.localPosition = new Vector3(0f, 2.39f, 0f);
-		}
+
 	}
 }

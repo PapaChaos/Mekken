@@ -47,18 +47,24 @@ public class playerPhysics : MonoBehaviour
 
     void FixedUpdate()
     {
+		if (!gameManager.getGameOver())
+			handleOnSurface();
+		//using fixed update bellow, so anything that must be handled per frame
+		//should be handled here 
+	}
 
 
-        //using fixed update bellow, so anything that must be handled per frame
-        //should be handled here 
-    }
+	// Update is called once per frame, fixed update is called when the physics updates at a set rate
+	// this helps to solve things like jitter, and in this case, a frame rendering when the geometry is
+	// changing facing from forward to reverse and v/v. I would prefer not to do this, but it's a fix, done and done.
 
-
-    // Update is called once per frame, fixed update is called when the physics updates at a set rate
-    // this helps to solve things like jitter, and in this case, a frame rendering when the geometry is
-    // changing facing from forward to reverse and v/v. I would prefer not to do this, but it's a fix, done and done.
+	//removed as we shouldn't have any handling in air.
+	/*
     void Update()
     {
+
+
+		
         //reset thrust each frame
         thrust *= 0;
 
@@ -99,8 +105,9 @@ public class playerPhysics : MonoBehaviour
 
 
     }
+	*/
 
-    public virtual void handleOnSurface()
+	public virtual void handleOnSurface()
     {
         //do we have any gas in the tank?
         if (playerProps.energy > 0.0f )
@@ -199,13 +206,9 @@ public class playerPhysics : MonoBehaviour
                     //forward on the ground means thrust on the forward vector
                     thrust += transform.forward * playerProps.thrustForce;
                     updateFacing = true;
-
-
                 }
 
                 playerProps.energy -= playerProps.consumption * Time.deltaTime;
-
-
 
             }
 
@@ -315,6 +318,7 @@ public class playerPhysics : MonoBehaviour
             }
 
             velocity *= 0;
+
             //clear all movement flags to be sure
             isStrafeing = false;
             isInReverse = false;
@@ -326,7 +330,6 @@ public class playerPhysics : MonoBehaviour
             wasStrafeRight = false;
             isRotatingTurret = false;
             updateFacing = false;
-
         }
 
         if (velocity.magnitude < velocityThreshold * 2.0f)
@@ -336,14 +339,5 @@ public class playerPhysics : MonoBehaviour
             updateFacing = false;
         else
             wasStrafeing = false;
-
-
-
-
     }
-
-
-
-
-
 }
