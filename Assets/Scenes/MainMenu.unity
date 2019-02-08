@@ -1887,7 +1887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1363050451
@@ -3429,6 +3429,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9120852751319214089, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3800,21 +3815,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120852751481469669, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9120852751976591780, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
         type: 3}
       propertyPath: m_Type
@@ -3845,6 +3845,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120852751319214091, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120852751319214091, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120852751319214091, guid: cdd4a6b6a5c541d4b84509a874fec8cc,
+        type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdd4a6b6a5c541d4b84509a874fec8cc, type: 3}
