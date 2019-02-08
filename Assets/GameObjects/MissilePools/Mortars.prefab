@@ -33026,8 +33026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: {x: 0, y: 0.5, z: 0}
   powerFactor: 20
-  inAir: 1
-  isInUse: 0
+  inAir: 0
+  isInUse: 1
   velocity: {x: 15.356817, y: 10, z: 12.812813}
   acceleration: {x: 0, y: 0, z: 0}
   finalForce: {x: 0, y: 0, z: 0}
@@ -33485,7 +33485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: {x: 0, y: 0.5, z: 0}
   powerFactor: 20
-  inAir: 0
+  inAir: 1
   isInUse: 0
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
@@ -33513,7 +33513,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!64 &4200675303517010545
 MeshCollider:
   m_ObjectHideFlags: 0
