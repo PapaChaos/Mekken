@@ -28,7 +28,7 @@ public class Missile : MonoBehaviour
     public ParticleSystem hitSystem;
     public ParticleSystem propulsionSystem;
 
-    private AudioSource MissileHit;
+    public AudioSource MissileHit;
 
     public float hitTimer = -1;
 
@@ -149,8 +149,9 @@ public class Missile : MonoBehaviour
 
             if (propulsionSystem)
                 propulsionSystem.Stop();
-            
+
             //sound
+            if (MissileHit);
             MissileHit.Play();
 
             //event timer, how long does this effect last?

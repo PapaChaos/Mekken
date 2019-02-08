@@ -219,26 +219,6 @@ MonoBehaviour:
   physicsController: {fileID: 3935992352015376566}
   playerControl: {fileID: 3935992352015376567}
   treadside: 1
---- !u!114 &3347149629167678885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935992351711049684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 1
-  timeout: 1
-  controller: {fileID: 3935992352015376567}
-  playerGeom: {fileID: 3935992351711013876}
-  missilePool: {fileID: 0}
-  isPrimary: 1
-  fireSound: {fileID: 2997017502003198239}
-  dudSound: {fileID: 0}
 --- !u!82 &2997017502003198239
 AudioSource:
   m_ObjectHideFlags: 0
@@ -335,6 +315,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3347149629167678885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935992351711049684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
+  timeout: 1
+  controller: {fileID: 3935992352015376567}
+  playerGeom: {fileID: 3935992351711013876}
+  missilePool: {fileID: 0}
+  isPrimary: 1
+  fireSound: {fileID: 2997017502003198239}
+  dudSound: {fileID: 0}
 --- !u!1 &3935992351726826418
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,26 +902,6 @@ MonoBehaviour:
   isPrimary: 0
   fireSound: {fileID: 2997017502003198239}
   dudSound: {fileID: 0}
---- !u!114 &7263762853279868068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935992352379411362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 1
-  timeout: 1
-  controller: {fileID: 3935992352015376567}
-  playerGeom: {fileID: 3935992352379570050}
-  missilePool: {fileID: 0}
-  isPrimary: 1
-  fireSound: {fileID: 7519731634922387619}
-  dudSound: {fileID: 0}
 --- !u!82 &7519731634922387619
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1018,6 +998,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7263762853279868068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935992352379411362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4aa31c1d22856341a18d21909e8c5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 1
+  timeout: 1
+  controller: {fileID: 3935992352015376567}
+  playerGeom: {fileID: 3935992352379570050}
+  missilePool: {fileID: 0}
+  isPrimary: 1
+  fireSound: {fileID: 7519731634922387619}
+  dudSound: {fileID: 0}
 --- !u!1 &3935992352450156349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,20 +1126,6 @@ MonoBehaviour:
   lockedOn: 0
   me: {fileID: 3935992352015376564}
   lockedObj: {fileID: 0}
---- !u!114 &5598098067107879179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935992352605299438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943038e3ab7ae7446b36bf8a6874376a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSound: {fileID: 1817272892918604696}
-  playerphys: {fileID: 3935992352015376566}
 --- !u!82 &1817272892918604696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1236,6 +1222,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5598098067107879179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935992352605299438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943038e3ab7ae7446b36bf8a6874376a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSound: {fileID: 1817272892918604696}
+  playerphys: {fileID: 3935992352015376566}
 --- !u!1 &3935992352755839265
 GameObject:
   m_ObjectHideFlags: 0
