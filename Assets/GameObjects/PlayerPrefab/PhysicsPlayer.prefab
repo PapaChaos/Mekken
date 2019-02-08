@@ -89,7 +89,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3b9ad3f5962611848b722d8a6a4f505a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 893d996774001fb4b8e467c1a0d2ca5a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1473,6 +1473,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935992351726826421}
     m_Modifications:
+    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: leftTread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
+      propertyPath: m_TagString
+      value: rightTread
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1508,14 +1516,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: leftTread
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
-      propertyPath: m_TagString
-      value: rightTread
       objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: d0dd0e84159b45441a38131d1c85b99a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1562,6 +1562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935992351726826421}
     m_Modifications:
+    - target: {fileID: 100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
+      propertyPath: m_Name
+      value: GrenadeLauncherR
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1613,10 +1617,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
-      propertyPath: m_Name
-      value: GrenadeLauncherR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
@@ -1724,6 +1724,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935992351726826421}
     m_Modifications:
+    - target: {fileID: 100000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
+      propertyPath: m_Name
+      value: MortarLauncherL
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1771,10 +1775,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
-      propertyPath: m_Name
-      value: MortarLauncherL
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2089,6 +2089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935992351726826421}
     m_Modifications:
+    - target: {fileID: 100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
+      propertyPath: m_Name
+      value: GrenadeLauncherL
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2137,10 +2141,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
-      propertyPath: m_Name
-      value: GrenadeLauncherL
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8f9e4adf492234f8d86f8c540d644f, type: 3}
 --- !u!4 &3935992352224154409 stripped
@@ -2162,6 +2162,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935992351726826421}
     m_Modifications:
+    - target: {fileID: 100000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
+      propertyPath: m_Name
+      value: MortarLauncherR
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2209,10 +2213,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
-      propertyPath: m_Name
-      value: MortarLauncherR
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: da2ad637dd23e3b4bb840ed1eb63c510, type: 3}
       propertyPath: m_Materials.Array.data[0]
