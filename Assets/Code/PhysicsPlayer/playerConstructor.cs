@@ -125,7 +125,7 @@ public class playerConstructor : MonoBehaviour
 
 
             //nuke the builder
-            GameObject.Destroy(builder);
+            //GameObject.Destroy(builder);
 
             //disable this script
             this.enabled = false;
