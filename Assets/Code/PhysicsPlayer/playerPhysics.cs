@@ -38,17 +38,23 @@ public class playerPhysics : MonoBehaviour
 
 
     public GameManager gameManager;
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        
+		gameManager = FindObjectOfType<GameManager>();
     }
 
 
-    void FixedUpdate()
-    {
-		if (!gameManager.getGameOver())
-			handleOnSurface();
+	void FixedUpdate()
+	{
+		if (!gameManager.debugIgnoreCountdown)
+		{
+			if (!gameManager.getGameOver() && gameManager.getRoundReady())
+				handleOnSurface();
+		}
+		else
+			if (!gameManager.getGameOver())
+				handleOnSurface();
 		//using fixed update bellow, so anything that must be handled per frame
 		//should be handled here 
 	}

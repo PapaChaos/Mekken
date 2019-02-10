@@ -1066,9 +1066,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Section: {fileID: 0}
   SectionStart: {fileID: 5981042866271284160}
-  nothighlighted: {fileID: 21300000, guid: 86895ce2eee21714f9b868a7abc4e43e, type: 3}
+  transparent: {fileID: 21300000, guid: 86895ce2eee21714f9b868a7abc4e43e, type: 3}
   highlighted: {fileID: 21300000, guid: 7327271feb869a34cb86010276dda79e, type: 3}
-  Checkmark: {fileID: 21300000, guid: 6b92e590aace4f34db0dcf12bc632d0e, type: 3}
+  checkmark: {fileID: 21300000, guid: 6b92e590aace4f34db0dcf12bc632d0e, type: 3}
   playerController: 0
   HoverScale: 1.2
   HoveredScale: {x: 0, y: 0, z: 0}
@@ -1111,6 +1111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f1fa7cfa6662744afa05f372296555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loader: {fileID: 0}
+  playerNumber: 0
   chosenFrame: 0
   chosenMovement: 0
   chosenRightWeapon: 0

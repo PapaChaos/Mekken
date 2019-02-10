@@ -24,13 +24,11 @@ public class playerMotion : MonoBehaviour
 
     private bool hitObstacle = false;
     private float hitTimer = -1;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+	private void Awake()
+	{
+		if (!gameManager)
+			gameManager = FindObjectOfType<GameManager>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -51,7 +49,6 @@ public class playerMotion : MonoBehaviour
             if (playerProps.onSurface == false)
                 handleLanding();
 
-
             if (playerProps.onSurface)
             {
                 physicsController.velocity.y = 0;
@@ -65,18 +62,15 @@ public class playerMotion : MonoBehaviour
                     //TODO: Do something dammit!
                 }
 
-                
                 handleMovementSurface();
 
                 //handle slopes
                 handleTerrainSlope();
 
-
-
             }
+			if (gameObject.transform.position.y < -5f) //just a safety in case the player some how bugs or flies out of a death zone.
+				gameManager.setGameOver(true);
         }
-
-
     }
 
     public void hitSomething(Collider other)
@@ -88,9 +82,6 @@ public class playerMotion : MonoBehaviour
 
     public virtual void handleMovementSurface()
     {
-
-
-
         //TODO: modify physics to handle ice,mud, etc.. as a function of surface properties (friction is all we have ATM)
         //      need to modify controllability, acceleration, and forward facing based on additional properties, OR simply
         //      tag the surface as "Ice" for example, and throw in some controller messyness.
@@ -101,11 +92,8 @@ public class playerMotion : MonoBehaviour
         //if i did NOT hit something, apply the controller force.
         if (!hitObstacle)
             finalForce += physicsController.thrust;
-        
-        
+
         //add more forces here
-
-
         physicsController.acceleration = finalForce / playerProps.mass;
 
         physicsController.velocity += physicsController.acceleration * Time.deltaTime;
@@ -133,24 +121,19 @@ public class playerMotion : MonoBehaviour
         handleAvatarFacing();
 
         //apply external forces last
-
         physicsController.velocity += externalImpulseForce;
 
         externalImpulseForce *= 0;
-        
-
     }
 
     public void handleAvatarFacing()
     {
-
         //flip it when needed
         playerGeometry.localRotation = Quaternion.identity;
         if (physicsController.wasInReverse)
         {
             playerGeometry.Rotate(0,180,0); 
         }
-        
     }
 
     public void handleTerrainSlope()
@@ -166,17 +149,11 @@ public class playerMotion : MonoBehaviour
 
         Vector3 cross = Vector3.Cross(fwd, surfNorm);
         
-
-
         //get that new rotation
         //Quaternion quat2 = playerGeometry.rotation;
 
         //interpolate from q1 to q2
         //playerGeometry.rotation = Quaternion.Lerp(quat1, quat2, 0.5f);
-
-
-
-
     }
 
     void handleLanding()
@@ -197,12 +174,9 @@ public class playerMotion : MonoBehaviour
                     playerProps.onSurface = true;
                 }
             }
-
         }
         else
             playerProps.onSurface = false;
-
-
     }
 
     void handleGravity()
@@ -253,9 +227,4 @@ public class playerMotion : MonoBehaviour
         externalImpulseForce += howMuch;
 
     }
-
-
-
-
-
 }

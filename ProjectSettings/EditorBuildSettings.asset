@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Arena1.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 96ec045652616294588b962089510011
   - enabled: 1
-    path: Assets/Scenes/CreditsScene.unity
-    guid: b237e31fcbac53c4fbf1884fd0ce593e
+    path: Assets/Scenes/ConstructionUI.unity
+    guid: 8b7b776b16e59e445b92bac907af667c
+  - enabled: 1
+    path: Assets/Scenes/Arena1.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Arena2.unity
+    guid: 5e9c61261f83550488d4350ea3eaf69a
+  - enabled: 1
+    path: Assets/Scenes/Arena3.unity
+    guid: 4d3e7b6ab40cdf5498f60ca538fac34a
+  - enabled: 1
+    path: Assets/Scenes/PlayAgain.unity
+    guid: af1800da3b245344fa7496517b7808bc
   m_configObjects: {}

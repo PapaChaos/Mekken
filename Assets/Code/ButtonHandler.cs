@@ -6,9 +6,15 @@ using UnityEngine.SceneManagement;
 //dirty
 public class ButtonHandler : MonoBehaviour
 {
+	private GameManager gm;
 
-    public void LoadScene(int scene)
+	public void LoadScene(int scene)
     {
+		if (!gm)
+			gm = FindObjectOfType<GameManager>();
+		if (gm)
+		Destroy(gm.gameObject);
+
         SceneManager.LoadScene(scene);
         Debug.Log("Loading scene " + scene);
     }

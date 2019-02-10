@@ -15,6 +15,8 @@ public class MechConstructor : MonoBehaviour
     public MechasReadyLoadGame loader;      //quick and easy way to load arena
     public int playerNumber = 0;            //player number assigned
 
+	public GameManager gameManager; //setting the Game Manager here.
+
     //the chosen mech parts.
     public enum Module_Frame { None, Frame01 };
 	public enum Module_Movement { None, Treads, Biped, Quadruped };
@@ -200,9 +202,9 @@ public class MechConstructor : MonoBehaviour
 
         Destroy(this.gameObject);
 
-        
-        
-        loader.incrementReady();
+		gameManager.PlayersReady();
 
-    }
+		//loader.incrementReady();
+
+	}
 }

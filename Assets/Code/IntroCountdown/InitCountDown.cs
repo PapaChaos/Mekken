@@ -11,7 +11,14 @@ public class InitCountDown : MonoBehaviour
     public Text fight;
     public Canvas scoreDisplay;
     bool canvasTurnedOn = false;
-    void Start()
+	GameManager gameManager;
+
+	private void Awake()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+	}
+
+	void Start()
     {
         StartCoroutine("LoseTime");
         Time.timeScale = 1; //Just making sure that the timeScale is right
@@ -33,6 +40,7 @@ public class InitCountDown : MonoBehaviour
                 countdown.text = ("");
                 getReady.text = ("");
                 fight.text = ("FIGHT!");
+				gameManager.setRoundReady(true);
             }
             else
             {
