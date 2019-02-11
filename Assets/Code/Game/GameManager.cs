@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
 	public bool debugIgnoreCountdown = false;
 
+	public int alive = 0;
+	public int playerNumber = 0;
+
 	//Using a list in case we want to have more than 2 players later. People been talking about having up to 4 players in game. Still hard coded. But, makes it easier if functions already uses a list.
 	public List<int> playerScore = new List<int>()
 	{
@@ -86,14 +89,18 @@ public class GameManager : MonoBehaviour
     {
         return gameOver;
     }
+
 	public void setRoundReady(bool ready)
 	{
 		roundReady = ready;
 	}
+
 	public bool getRoundReady()
 	{
 		return roundReady;
 	}
+
+	//this is for ConstructionUI check.
 	public void PlayersReady()
 	{
 		playersReady++;
@@ -101,6 +108,30 @@ public class GameManager : MonoBehaviour
 		{
 			playersReady = 0; // just to make sure that it sets it self to 0 even though the player quits early.
 			nextScene();
+		}
+	}
+
+	public void CheckRemainingPlayers()
+	{
+		alive = 0;
+		playerNumber = 0;
+		foreach (playerProperties player in FindObjectsOfType<playerProperties>())
+		{
+			if (player.lost == false)
+			{
+				alive++;
+				Debug.Log("Players: " + alive);
+				Debug.Log("PlayerNumber alive: " + playerNumber);
+				Debug.Log("Player component found: " + player.gameObject.GetComponent<playerProperties>().name);
+				playerNumber = player.GetComponent<playerProperties>().playerNumber; 
+			}
+		}
+		if (alive < 2)
+		{
+			Debug.Log("Players alive: " + alive);
+			if (alive == 1)     //just so no score is given if both players died at the same time.
+				giveScore(playerNumber-1); //reducing by 1 as playerNumber starts at 1 and list starts at 0
+			setGameOver(true);
 		}
 	}
 }

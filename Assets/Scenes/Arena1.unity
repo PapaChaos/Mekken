@@ -673,6 +673,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 893d996774001fb4b8e467c1a0d2ca5a, type: 3}
+    - target: {fileID: 3935992352015376569, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac42afafe8808f4cad5f1ccc7edb06c, type: 3}
 --- !u!4 &62429911 stripped
@@ -3066,6 +3071,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 62429911}
+    - target: {fileID: 7263762853279868068, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+        type: 3}
+      propertyPath: isPrimary
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3935992352015376575, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
         type: 3}
       propertyPath: playerNumber
@@ -3076,10 +3086,10 @@ PrefabInstance:
       propertyPath: playerNumberText
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7263762853279868068, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+    - target: {fileID: 3935992352015376569, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
         type: 3}
-      propertyPath: isPrimary
-      value: 1
+      propertyPath: playerNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac42afafe8808f4cad5f1ccc7edb06c, type: 3}
@@ -11369,6 +11379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c393214cdbf74e489c3a767e3ca955b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   mass: 1
   energy: 100
   consumption: 0.25

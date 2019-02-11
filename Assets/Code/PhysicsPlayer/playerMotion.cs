@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class playerMotion : MonoBehaviour
 {
-
     public playerProperties playerProps;
-    public GameManager gameManager;
     public playerPhysics physicsController;
    
     //representation of the player, de-coupled from the empty doing the movement
     public Transform playerGeometry;
-      
 
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
     public float yPosGround = 0;
@@ -24,26 +21,19 @@ public class playerMotion : MonoBehaviour
 
     private bool hitObstacle = false;
     private float hitTimer = -1;
-	private void Awake()
-	{
-		if (!gameManager)
-			gameManager = FindObjectOfType<GameManager>();
-	}
+
 
     // Update is called once per frame
     void Update()
     {
-
-
         if (hitTimer > 0 && Time.time > hitTimer )
         {
             hitTimer = -1;
             hitObstacle = false;
         }
 
-        if (!gameManager.getGameOver())
+        if (!playerProps.gameManager.getGameOver() && !playerProps.lost)
         {
-            
             handleGravity();
             
             if (playerProps.onSurface == false)
@@ -56,8 +46,9 @@ public class playerMotion : MonoBehaviour
                 if (playerProps.isOnDeathTrap)
                 {
                     Debug.Log("DEAD!!!");
-                    gameManager.setGameOver(true);
-                    physicsController.velocity *= 0;
+					playerProps.playerLost();
+					//gameManager.setGameOver(true);
+					physicsController.velocity *= 0;
                     physicsController.acceleration *= 0;
                     //TODO: Do something dammit!
                 }
@@ -66,11 +57,11 @@ public class playerMotion : MonoBehaviour
 
                 //handle slopes
                 handleTerrainSlope();
+			}
 
-            }
 			if (gameObject.transform.position.y < -5f) //just a safety in case the player some how bugs or flies out of a death zone.
-				gameManager.setGameOver(true);
-        }
+				playerProps.playerLost();
+		}
     }
 
     public void hitSomething(Collider other)
@@ -164,7 +155,7 @@ public class playerMotion : MonoBehaviour
             if (physicsController.velocity.magnitude > playerProps.structuralIntegrity * playerProps.integrityVelocity)
             {
                 Debug.Log("CRASH!!!!!");
-                gameManager.setGameOver(true);
+				playerProps.gameManager.setGameOver(true);
             }
             else
             {

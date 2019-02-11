@@ -2721,6 +2721,11 @@ PrefabInstance:
       propertyPath: playerNumberText
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3935992352015376569, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac42afafe8808f4cad5f1ccc7edb06c, type: 3}
 --- !u!1 &1559338608 stripped
@@ -3258,6 +3263,11 @@ PrefabInstance:
       propertyPath: missilePool
       value: 
       objectReference: {fileID: 1582017921}
+    - target: {fileID: 3935992352015376569, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3935992352015376571, guid: 4ac42afafe8808f4cad5f1ccc7edb06c,
         type: 3}
       propertyPath: m_IsTrigger

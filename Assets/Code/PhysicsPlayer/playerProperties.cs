@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class playerProperties : MonoBehaviour
 {
+	public int playerNumber = 0;
+	public bool lost = false;
+	public GameManager gameManager;
 
 
-    //gameplay parameters
-    public float mass = 1.0f;
+	//gameplay parameters
+	public float mass = 1.0f;
     public float energy = 100.0f;
     public float consumption = 0.25f;
     public float maxSpeed = 5.0f;
@@ -40,10 +43,11 @@ public class playerProperties : MonoBehaviour
     public Vector3 surfaceNormal = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
+		if (!gameManager)
+			gameManager = FindObjectOfType<GameManager>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -65,8 +69,6 @@ public class playerProperties : MonoBehaviour
 
         if (didHit)
         {
-
-           
             //get current distance off ground
             distanceOffGround = hit.distance - hitTestMargin.y;
             terrainYPoint = hit.point.y;
@@ -92,7 +94,6 @@ public class playerProperties : MonoBehaviour
 
                 isOnDeathTrap = surface.deathTrap;
                 Debug.Log(surfaceTransform.tag);
-
             }
         }
         else
@@ -101,7 +102,17 @@ public class playerProperties : MonoBehaviour
             Debug.Log("FELL OFF THE SURFACE!!!");
             //clear on surface
             onSurface = false;
-
         }
     }
+
+	public void playerLost()
+	{
+		bool doneOnce = false;
+		if (!doneOnce)
+		{
+			lost = true;
+			doneOnce = true;
+			gameManager.CheckRemainingPlayers();
+		}
+	}
 }
