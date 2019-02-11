@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 3385054572372081627}
   - component: {fileID: 3385054572372081626}
   - component: {fileID: 3385054572372081629}
+  - component: {fileID: 1818820258380405790}
   m_Layer: 5
   m_Name: ScoreHUD
   m_TagString: Untagged
@@ -340,6 +341,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1818820258380405790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385054572372081628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b438917aad76642b1dd1812630d8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  player1Score: {fileID: 3385054572310946047}
+  player2Score: {fileID: 3385054572245830710}
 --- !u!1 &3385054572506192452
 GameObject:
   m_ObjectHideFlags: 0
