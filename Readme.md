@@ -5,6 +5,15 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 **John Klima was the professor during this course and did the main programming and had a hand in every decision.**<br />
 **Note: Everyone had to contribute some code during this project.**
 
+##### Project Roles
+- Technical Director
+- Project Manager
+- Programmer
+- 3D Artist
+- Rigger and Animator
+- Game Designer
+- 2D Artist
+- Writer
 
 ## Project Members
 
@@ -34,12 +43,3 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - Robin Gjelsvik - Rigger and Animator & Game Designer
 - Even Rodar - 2D Artist
 
-### Project Roles
-- Technical Director
-- Project Manager
-- Programmer
-- 3D Artist
-- Rigger and Animator
-- Game Designer
-- 2D Artist
-- Writer
