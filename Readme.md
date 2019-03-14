@@ -17,13 +17,13 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 
 ### Project Members
 
-##### Managers
+#### Managers
 - John Klima - Technical Director
 - Mark Heckford - Project Manager & Game Designer
 - Katarina - Project Manager & Programmer & 2D Artist
 
 
-##### Leads
+#### Leads
 - Bård Magnus - Lead 3D Artist & Writer & Rigger and Animator
 - Joakim Ringqvist - Lead Rigger and Animator & 3D Artist
 - Dan Henrik Wenger Wad - Lead Programmer & All Around Support
@@ -32,7 +32,7 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - Knut Andre - Lead Game Designer
 
 
-##### Team Members
+#### Team Members
 - Daniel Borgerass - Game Designer & 2D Artist
 - Pierre Agati - Game Designer
 - Marita Jæger Raadlund - Writer & 2D Artist
