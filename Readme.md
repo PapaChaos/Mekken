@@ -1,22 +1,12 @@
 # Mekken
 
-An multiplayer arena game made in Unity as a Interactive Media class project for technical direction. <br />
-The purpose of the game is to knock the enemy opponent. This was made during a 4 week course. <br />
-*John Klima was the professor during this course and did the main programming and had a hand in every decision.* <br />
-*Note: Everyone had to contribute some code during this project.* <br />
+An multiplayer arena game made in Unity as a Interactive Media class project for technical direction.
+The purpose of the game is to knock the enemy opponent. This was made during a 4 week course.
+*John Klima was the professor during this course and did the main programming and had a hand in every decision.*
+*Note: Everyone had to contribute some code during this project.*
 
 
 ## Project Members
-
-### Project Roles
-- Technical Director
-- Project Manager
-- Programmer
-- 3D Artist
-- Rigging and Animation
-- Game Designer
-- 2D Artist
-- Writer
 
 ###### Managers
 - John Klima - Technical Director
@@ -43,3 +33,13 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - Amand Nallbani - 3D Artist & Rigging and Animation
 - Robin Gjelsvik - Rigging and Animation & Game Design
 - Even Rodar - 2D Artist
+
+### Project Roles
+- Technical Director
+- Project Manager
+- Programmer
+- 3D Artist
+- Rigging and Animation
+- Game Designer
+- 2D Artist
+- Writer
