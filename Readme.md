@@ -1,6 +1,6 @@
 # Mekken
 
-An multiplayer arena game made in Unity as a "Interactive Media" class project for the course "Technical Direction".
+A multiplayer arena game made in Unity as a "Interactive Media" class project for the course "Technical Direction".
 The purpose of the game is to knock the enemy opponent. This was made during a 4 week course.<br />
 **John Klima was the professor during this course and did the main programming and had a hand in every decision.**<br />
 **Note: Everyone had to contribute some code during this project.**
