@@ -15,8 +15,8 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 
 
 ###### Leads
-- Bård Magnus - Lead 3D Artist & Writer & Rigging and Animation
-- Joakim Ringqvist - Lead Rigging & Animator & 3D Artist
+- Bård Magnus - Lead 3D Artist & Writer & Rigger and Animator
+- Joakim Ringqvist - Lead Rigger and Animator & 3D Artist
 - Dan Henrik Wenger Wad - Lead Programmer & All Around Support
 - Frasier Panton - Lead Writer
 - Tobias Stapnes - Lead 2D Artist
@@ -30,8 +30,8 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - Ellen Marie Iversen - Programmer & 3D Artist
 - Michal Gabor Etsy - 3D Artist & 2D Artist
 - Elise Gunstvedt - 3D artist & 2D Artist
-- Amand Nallbani - 3D Artist & Rigging and Animation
-- Robin Gjelsvik - Rigging and Animation & Game Design
+- Amand Nallbani - 3D Artist & Rigger and Animator
+- Robin Gjelsvik - Rigger and Animator & Game Designer
 - Even Rodar - 2D Artist
 
 ### Project Roles
@@ -39,7 +39,7 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - Project Manager
 - Programmer
 - 3D Artist
-- Rigging and Animation
+- Rigger and Animator
 - Game Designer
 - 2D Artist
 - Writer
