@@ -5,7 +5,7 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 **John Klima was the professor during this course and did the main programming and had a hand in every decision.**<br />
 **Note: Everyone had to contribute some code during this project.**
 
-### Project Roles
+#### Project Roles
 - Technical Director
 - Project Manager
 - Programmer
@@ -15,7 +15,7 @@ The purpose of the game is to knock the enemy opponent. This was made during a 4
 - 2D Artist
 - Writer
 
-#### Project Members
+### Project Members
 
 ###### Managers
 - John Klima - Technical Director
