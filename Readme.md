@@ -38,7 +38,7 @@ The purpose of the game is to knock the enemy opponent out of the arena. This wa
 - Marita Jæger Raadlund - Writer & 2D Artist
 - Ellen Marie Iversen - Programmer & 3D Artist
 - Michal Gabor Etsy - 3D Artist & 2D Artist
-- Elise Gunstvedt - 3D artist & 2D Artist
+- Elise - 3D artist & 2D Artist
 - Amand Nallbani - 3D Artist & Rigger and Animator
 - Robin Gjelsvik - Rigger and Animator & Game Designer
 - Even Rodar - 2D Artist
